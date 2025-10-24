@@ -40,14 +40,16 @@ const Header = () => {
           onClick={() => handlePageChange('home')}
           style={{ cursor: 'pointer' }}
         >
-          <img 
-            src="/logo.png" 
-            alt="Logo" 
-            className="logo-img"
-            onError={(e) => {
-              e.target.src = '/images/contentsofweb/logo-5q8siOY4.jpeg';
-            }}
-          />
+         <img
+  src="/logo.png"
+  alt="Logo"
+  className="logo-img"
+  onError={(e) => {
+    e.target.onerror = null; // prevents infinite loop
+    e.target.src = '/images/contentsofweb/logo-5q8siOY4.jpeg';
+  }}
+/>
+
         </Navbar.Brand>
         
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
