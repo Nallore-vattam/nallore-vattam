@@ -2,19 +2,25 @@ import React from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { useLanguage } from '../context/LanguageContext';
 
-// Reusable Image component with fallback
-const ImageWithFallback = ({ src, alt, className, style, fallback }) => (
-  <img
-    src={src} // full path including repo prefix
-    alt={alt}
-    className={className}
-    style={style}
-    onError={(e) => {
-      e.target.onerror = null; // prevent infinite loop
-      e.target.src = fallback; // fallback image path
-    }}
-  />
-);
+// Reusable Image component with fallback and auto URL encoding
+const ImageWithFallback = ({ src, alt, className, style, fallback }) => {
+  // Encode spaces in path
+  const encodedSrc = src.split('/').map(encodeURIComponent).join('/'); 
+  const encodedFallback = fallback.split('/').map(encodeURIComponent).join('/');
+
+  return (
+    <img
+      src={`${import.meta.env.BASE_URL}${encodedSrc}`}
+      alt={alt}
+      className={className}
+      style={style}
+      onError={(e) => {
+        e.target.onerror = null; // prevent infinite loop
+        e.target.src = `${import.meta.env.BASE_URL}${encodedFallback}`;
+      }}
+    />
+  );
+};
 
 const GalleryPreview = () => {
   const { currentLanguage, t, setCurrentPage } = useLanguage();
@@ -27,25 +33,25 @@ const GalleryPreview = () => {
     }
   };
 
-  // Paths now include repo prefix for GitHub Pages
+  // Image paths as stored in public/images/... (spaces are fine)
   const previewImages = [
     {
-      src: "/nallore-vattam/images/FieldofAwareness/awareness_01.jpg",
+      src: "images/FieldofAwareness/awareness_01.jpg",
       category: "Cultural Events",
       count: "25 Photos"
     },
     {
-      src: "/nallore-vattam/images/EnviromentalField/enviromental_02.jpg",
+      src: "images/Enviromental Field/enviromental_02.jpg",
       category: "Community Programs",
       count: "18 Photos"
     },
     {
-      src: "/nallore-vattam/images/FieldofBiology/biology_01.jpg",
+      src: "images/FieldofBiology/biology_01.jpg",
       category: "Educational Activities",
       count: "32 Photos"
     },
     {
-      src: "/nallore-vattam/images/GovtDomain/govt_01.jpg",
+      src: "images/GovtDomain/govt_01.jpg",
       category: "Health Camps",
       count: "15 Photos"
     }
@@ -78,7 +84,7 @@ const GalleryPreview = () => {
                   alt={image.category}
                   className="img-fluid w-100 rounded-3"
                   style={{ height: '250px', objectFit: 'cover' }}
-                  fallback="/nallore-vattam/images/fallback.jpg"
+                  fallback="images/fallback.jpg"
                 />
                 <div className="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-end p-3 rounded-3">
                   <div className="overlay-content text-white">
