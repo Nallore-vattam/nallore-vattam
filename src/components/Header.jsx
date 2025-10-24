@@ -45,7 +45,7 @@ const Header = () => {
             alt="Logo" 
             className="logo-img"
             onError={(e) => {
-              e.target.src = 'public/contentsofweb/logo-5q8siOY4.jpeg';
+              e.target.src = 'public/images/contentsofweb/logo-5q8siOY4.jpeg';
             }}
           />
         </Navbar.Brand>
