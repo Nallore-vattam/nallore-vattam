@@ -1,0 +1,215 @@
+.domain-page h2 {
+  font-size: 2rem;
+  color: #5f3e2b;
+  margin-bottom: 1rem;
+}
+
+.domain-page p {
+  font-size: 1rem;
+  color: #3b2b24;
+}
+
+.badge {
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  margin: 0.2rem;
+}
+
+/* Service1.css */
+
+/* Font classes */
+.english-font {
+  font-family: 'Arial', sans-serif;
+}
+
+.tamil-font {
+  font-family: 'Latha', sans-serif;
+}
+
+.hindi-font {
+  font-family: 'Mangal', sans-serif;
+}
+
+/* Subdomain card hover effects */
+.subdomain-card {
+  border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+/* Optional: subtle shadow initially */
+.subdomain-card {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Card hover handled in JSX inline, but you can also use CSS alternative */
+.subdomain-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* Card title styling */
+.subdomain-card .card-title {
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+/* Card text styling */
+.subdomain-card .card-text {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+/* Badge styling */
+.subdomain-card .badge {
+  font-size: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Button styling */
+.subdomain-card .btn {
+  border-radius: 25px;
+  font-weight: 500;
+  padding: 0.4rem 1.2rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.subdomain-card .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+/* Responsive spacing */
+@media (max-width: 992px) {
+  .subdomain-card {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .subdomain-card {
+    margin-bottom: 1rem;
+  }
+}
+/* ====================== CLIENT.CSS ====================== */
+
+/* ===== FONT CLASSES ===== */
+.english-font {
+  font-family: 'Arial', sans-serif;
+}
+
+.tamil-font {
+  font-family: 'Latha', sans-serif;
+}
+
+.hindi-font {
+  font-family: 'Mangal', sans-serif;
+}
+
+/* ===== GENERAL CARD STYLING ===== */
+.subdomain-card {
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  color: white;
+  padding: 1rem;
+}
+
+/* Hover animation for all cards */
+.subdomain-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* Card title styling */
+.subdomain-card .card-title {
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Card text styling */
+.subdomain-card .card-text {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+/* Badge styling */
+.subdomain-card .badge {
+  font-size: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Button styling */
+.subdomain-card .btn {
+  border-radius: 25px;
+  font-weight: 500;
+  padding: 0.4rem 1.2rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.subdomain-card .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+/* ===== DOMAIN-SPECIFIC CARD COLORS ===== */
+
+/* 1. Student Field */
+.studentfield .subdomain-card { background: linear-gradient(135deg, #6a11cb, #2575fc); }
+
+/* 2. Village Field */
+.villagefield .subdomain-card { background: linear-gradient(135deg, #ff7e5f, #feb47b); }
+
+/* 3. Field of Biology */
+.fieldofbiology .subdomain-card { background: linear-gradient(135deg, #56ab2f, #a8e063); }
+
+/* 4. Government */
+.government .subdomain-card { background: linear-gradient(135deg, #2c3e50, #3498db); }
+
+/* 5. Settings */
+.settings .subdomain-card { background: linear-gradient(135deg, #f7971e, #ffd200); }
+
+/* 6. Women */
+.women .subdomain-card { background: linear-gradient(135deg, #ff416c, #ff4b2b); }
+
+/* 7. Youth */
+.youth .subdomain-card { background: linear-gradient(135deg, #00c6ff, #0072ff); }
+
+/* 8. World */
+.world .subdomain-card { background: linear-gradient(135deg, #1f4037, #99f2c8); }
+
+/* 9. Environmental */
+.enviromental .subdomain-card { background: linear-gradient(135deg, #56ab2f, #a8e063); }
+
+/* 10. Awareness */
+.awareness .subdomain-card { background: linear-gradient(135deg, #ee9ca7, #ffdde1); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+  .subdomain-card { margin-bottom: 1rem; }
+}
+
+@media (max-width: 768px) {
+  .subdomain-card { margin-bottom: 1rem; }
+}
+
+/* Optional: container spacing */
+.service-page {
+  padding: 2rem 0;
+}
+
+/* Optional: headings */
+.service-page h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.service-page p {
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}

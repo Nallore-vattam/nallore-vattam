@@ -1,0 +1,94 @@
+{
+  "domains": [
+    {
+     "name": "service1",
+      "icon": "🎓",
+      "title": "Education Scholarship",
+      "description": "Financial support for deserving students to pursue higher education",
+      "features": ["Tuition Fee Support", "Book Allowance", "Mentorship Program", "Career Guidance"],
+      "duration": "Annual",
+      "eligibility": "Students aged 16-25"
+    },
+    {
+      "name": "service2",
+      "icon": "🏥",
+      "title": "Health Camps",
+      "description": "Free medical checkups and healthcare services for community members",
+      "features": ["General Checkup", "Dental Care", "Eye Testing", "Health Awareness"],
+      "duration": "Quarterly",
+      "eligibility": "All community members"
+    },
+    {
+      "name": "service3",
+      "icon": "🌱",
+      "title": "Agricultural Training",
+      "description": "Modern farming techniques and sustainable agriculture practices",
+      "features": ["Organic Farming", "Water Management", "Crop Rotation", "Market Linkages"],
+      "duration": "Seasonal",
+      "eligibility": "Farmers & Agri-enthusiasts"
+    },
+    {
+      "name": "service4",
+      "icon": "🎭",
+      "title": "Cultural Events",
+      "description": "Preserving and promoting our rich cultural heritage",
+      "features": ["Festival Celebrations", "Traditional Arts", "Music & Dance", "Heritage Workshops"],
+      "duration": "Monthly",
+      "eligibility": "All age groups"
+    },
+    {
+      "name": "service5",
+      "icon": "🔧",
+      "title": "Skill Development",
+      "description": "Vocational training and skill enhancement programs",
+      "features": ["Computer Skills", "Handicrafts", "Technical Training", "Soft Skills"],
+      "duration": "3-6 Months",
+      "eligibility": "Youth & Adults"
+    },
+    {
+      "name": "service6",
+      "icon": "👩",
+      "title": "Women Empowerment",
+      "description": "Programs focused on women entrepreneurship and leadership",
+      "features": ["Self-Help Groups", "Business Training", "Legal Awareness", "Health Programs"],
+      "duration": "Ongoing",
+      "eligibility": "Women & Girls"
+    },
+    {
+     "name": "service7",
+      "icon": "🎓",
+      "title": "Education Scholarship",
+      "description": "Financial support for deserving students to pursue higher education",
+      "features": ["Tuition Fee Support', 'Book Allowance', 'Mentorship Program', 'Career Guidance"],
+      "duration": "Annual",
+      "eligibility": "Students aged 16-25"
+    },
+    {
+      "name": "service8",
+      "icon": "🏥",
+      "title": "Health Camps",
+      "description": "Free medical checkups and healthcare services for community members",
+      "features": ["General Checkup", "Dental Care", "Eye Testing", "Health Awareness"],
+      "duration": "Quarterly",
+      "eligibility": "All community members"
+    },
+    {
+      "name": "service9",
+      "icon": "🌱",
+      "title": "Agricultural Training",
+      "description": "Modern farming techniques and sustainable agriculture practices",
+      "features": ["Organic Farming", "Water Management", "Crop Rotation", "Market Linkages"],
+      "duration": "Seasonal",
+      "eligibility": "Farmers & Agri-enthusiasts"
+    },
+    {
+      "name": "service10",
+      "icon": "🎭",
+      "title": "Cultural Events",
+      "description": "Preserving and promoting our rich cultural heritage",
+      "features": ["Festival Celebrations", "Traditional Arts", "Music & Dance", "Heritage Workshops"],
+      "duration": "Monthly",
+      "eligibility": "All age groups"
+    }
+  ]
+}
