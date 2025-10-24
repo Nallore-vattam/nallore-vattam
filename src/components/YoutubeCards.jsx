@@ -10,37 +10,37 @@ const YouTubeCards = () => {
       id: 1,
       title: 'Community Events 2023',
       description: 'Highlights from our community events and cultural programs',
-      thumbnail: 'public/images/FieldofAwareness/awareness_01.jpg'
+      thumbnail: '/images/FieldofAwareness/awareness_01.jpg'
     },
     {
       id: 2,
       title: 'Cultural Festival Highlights',
       description: 'Traditional dances and cultural performances from our annual festival',
-      thumbnail: 'public/images/FieldofAwareness/awareness_02.jpg'
+      thumbnail: '/images/FieldofAwareness/awareness_02.jpg'
     },
     {
       id: 3,
       title: 'Educational Programs',
       description: 'Our educational initiatives and skill development workshops',
-      thumbnail: 'public/images/FieldofBiology/biology_01.jpg'
+      thumbnail: '/images/FieldofBiology/biology_01.jpg'
     },
     {
       id: 4,
       title: 'Health Camp Activities',
       description: 'Medical camps and health awareness programs in our community',
-      thumbnail: 'public/images/SettingsDomain/settings_01.jpg'
+      thumbnail: '/images/SettingsDomain/settings_01.jpg'
     },
     {
       id: 5,
       title: 'Agricultural Training',
       description: 'Modern farming techniques and sustainable agriculture practices',
-      thumbnail: 'public/images/VillageField/village_01.jpg'
+      thumbnail: '/images/VillageField/village_01.jpg'
     },
     {
       id: 6,
       title: 'Women Empowerment',
       description: 'Programs and initiatives for women empowerment and skill development',
-      thumbnail: 'public/images/WorldDomain/world_01.jpg'
+      thumbnail: '/images/WorldDomain/world_01.jpg'
     }
   ];
 
@@ -72,6 +72,9 @@ const YouTubeCards = () => {
                     alt={video.title}
                     className="card-img-top"
                     style={{ height: '200px', objectFit: 'cover' }}
+                    onError={(e) => {
+                      e.target.src = '/images/FieldofAwareness/awareness_01.jpg';
+                    }}
                   />
                   <div className="video-duration position-absolute bottom-0 end-0 m-2">
                     <span className="badge bg-dark bg-opacity-75">

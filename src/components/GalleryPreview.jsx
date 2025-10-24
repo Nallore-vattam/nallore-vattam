@@ -37,7 +37,7 @@ const GalleryPreview = () => {
       count: "25 Photos"
     },
     {
-      src: "/images/Enviromental Field/enviromental_02.jpg",
+      src: "/images/EnviromentalField/enviromental_02.jpg",
       category: "Community Programs",
       count: "18 Photos"
     },

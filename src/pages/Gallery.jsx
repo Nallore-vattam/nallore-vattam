@@ -27,7 +27,7 @@ const Gallery = () => {
   // Updated image paths for public folder
   const images = [
     { id: 1, src: "/images/WomensField/womesn_01.jpg", category: 'cultural', title: t('traditionalDance') },
-    { id: 2, src: "/images/Enviromental Field/enviromental_01.jpg", category: 'education', title: t('studentScholarship') },
+    { id: 2, src: "/images/EnviromentalField/enviromental_01.jpg", category: 'education', title: t('studentScholarship') },
     { id: 3, src: "/images/FieldofAwareness/awareness_01.jpg", category: 'health', title: t('freeHealthCheckup') },
     { id: 4, src: "/images/FieldofBiology/biology_01.jpg", category: 'community', title: t('communityMeeting') },
     { id: 5, src: "/images/GovtDomain/govt_01.jpg", category: 'cultural', title: t('festivalCelebration') },
@@ -36,7 +36,7 @@ const Gallery = () => {
     { id: 8, src: "/images/VillageField/village_01.jpg", category: 'community', title: t('youthSports') },
     { id: 9, src: "/images/WorldDomain/world_01.jpg", category: 'cultural', title: t('musicProgram') },
     { id: 10, src: "/images/YouthField/youth_01.jpg", category: 'education', title: t('libraryInauguration') },
-    { id: 11, src: "/images/Enviromental Field/enviromental_02.jpg", category: 'health', title: t('eyeTesting') },
+    { id: 11, src: "/images/EnviromentalField/enviromental_02.jpg", category: 'health', title: t('eyeTesting') },
     { id: 12, src: "/images/FieldofAwareness/awareness_02.jpg", category: 'community', title: t('cleanlinessDrive') }
   ];
 
