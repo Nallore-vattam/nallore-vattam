@@ -10,17 +10,17 @@ const Hero = () => {
     {
       title: t('heroTitle1'),
       subtitle: t('heroSubtitle1'),
-      background: 'src/assets/images/FieldofAwareness/awareness_01.jpg'
+      background: 'public/images/FieldofAwareness/awareness_01.jpg'
     },
     {
       title: t('heroTitle2'),
       subtitle: t('heroSubtitle2'),
-      background: 'src/assets/images/SettingsDomain/settings_01.jpg'
+      background: 'public/images/SettingsDomain/settings_01.jpg'
     },
     {
       title: t('heroTitle3'),
       subtitle: t('heroSubtitle3'),
-      background: 'src/assets/images/WorldDomain/world_01.jpg'
+      background: 'public/images/WorldDomain/world_01.jpg'
     }
   ];
 

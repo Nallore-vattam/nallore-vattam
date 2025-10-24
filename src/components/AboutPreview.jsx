@@ -23,7 +23,7 @@ const AboutPreview = () => {
         <Row className="align-items-center">
           <Col lg={6} className="mb-4 mb-lg-0">
             <img 
-              src="src/assets/images/Enviromental Field/enviromental_01.jpg" 
+              src="public/images/Enviromental Field/enviromental_01.jpg" 
               alt="About Nallor Vattam" 
               className="about-image img-fluid w-100 rounded-3"
               style={{ height: '400px', objectFit: 'cover' }}

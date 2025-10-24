@@ -15,22 +15,22 @@ const GalleryPreview = () => {
 
   const previewImages = [
     {
-      src: 'src/assets/images/FieldofAwareness/awareness_01.jpg',
+      src: 'public/images/FieldofAwareness/awareness_01.jpg',
       category: 'Cultural Events',
       count: '25 Photos'
     },
     {
-      src: 'src/assets/images/Enviromental Field/enviromental_01.jpg',
+      src: 'public/images/Enviromental Field/enviromental_02.jpg',
       category: 'Community Programs',
       count: '18 Photos'
     },
     {
-      src: 'src/assets/images/FieldofBiology/biology_01.jpg',
+      src: 'public/images/FieldofBiology/biology_01.jpg',
       category: 'Educational Activities',
       count: '32 Photos'
     },
     {
-      src: 'src/assets/images/GovtDomain/govt_01.jpg',
+      src: 'public/images/GovtDomain/govt_01.jpg',
       category: 'Health Camps',
       count: '15 Photos'
     }

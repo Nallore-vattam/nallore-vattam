@@ -24,18 +24,18 @@ const Gallery = () => {
   ];
 
   const images = [
-    { id: 1, src: 'src/assets/images/WomensField/womesn_01.jpg', category: 'cultural', title: t('traditionalDance') },
-    { id: 2, src: 'src/assets/images/Enviromental Field/enviromental_01.jpg', category: 'education', title: t('studentScholarship') },
-    { id: 3, src: 'src/assets/images/FieldofAwareness/awareness_01.jpg', category: 'health', title: t('freeHealthCheckup') },
-    { id: 4, src: 'src/assets/images/FieldofBiology/biology_01.jpg', category: 'community', title: t('communityMeeting') },
-    { id: 5, src: 'src/assets/images/GovtDomain/govt_01.jpg', category: 'cultural', title: t('festivalCelebration') },
-    { id: 6, src: 'src/assets/images/SettingsDomain/settings_01.jpg', category: 'education', title: t('computerTraining') },
-    { id: 7, src: 'src/assets/images/StudentField/students_01.jpg', category: 'health', title: t('dentalCare') },
-    { id: 8, src: 'src/assets/images/VillageField/village_01.jpg', category: 'community', title: t('youthSports') },
-    { id: 9, src: 'src/assets/images/WorldDomain/world_01.jpg', category: 'cultural', title: t('musicProgram') },
-    { id: 10, src: 'src/assets/images/YouthField/youth_01.jpg', category: 'education', title: t('libraryInauguration') },
-    { id: 11, src: 'src/assets/images/Enviromental Field/enviromental_02.jpg', category: 'health', title: t('eyeTesting') },
-    { id: 12, src: 'src/assets/images/FieldofAwareness/awareness_02.jpg', category: 'community', title: t('cleanlinessDrive') }
+    { id: 1, src: 'public/images/WomensField/womesn_01.jpg', category: 'cultural', title: t('traditionalDance') },
+    { id: 2, src: 'public/images/Enviromental Field/enviromental_01.jpg', category: 'education', title: t('studentScholarship') },
+    { id: 3, src: 'public/images/FieldofAwareness/awareness_01.jpg', category: 'health', title: t('freeHealthCheckup') },
+    { id: 4, src: 'public/images/FieldofBiology/biology_01.jpg', category: 'community', title: t('communityMeeting') },
+    { id: 5, src: 'public/images/GovtDomain/govt_01.jpg', category: 'cultural', title: t('festivalCelebration') },
+    { id: 6, src: 'public/images/SettingsDomain/settings_01.jpg', category: 'education', title: t('computerTraining') },
+    { id: 7, src: 'public/images/StudentField/students_01.jpg', category: 'health', title: t('dentalCare') },
+    { id: 8, src: 'public/images/VillageField/village_01.jpg', category: 'community', title: t('youthSports') },
+    { id: 9, src: 'public/images/WorldDomain/world_01.jpg', category: 'cultural', title: t('musicProgram') },
+    { id: 10, src: 'public/images/YouthField/youth_01.jpg', category: 'education', title: t('libraryInauguration') },
+    { id: 11, src: 'public/images/Enviromental Field/enviromental_02.jpg', category: 'health', title: t('eyeTesting') },
+    { id: 12, src: 'public/images/FieldofAwareness/awareness_02.jpg', category: 'community', title: t('cleanlinessDrive') }
   ];
 
   const filteredImages = filter === 'all' ? images : images.filter(img => img.category === filter);
@@ -51,7 +51,7 @@ const Gallery = () => {
           loop 
           playsInline
           className="hero-video-bg"
-        poster="src/assets/images/Enviromental Field/enviromental_01.jpg"
+        poster="public/images/Enviromental Field/enviromental_02.jpg"
         >
           <source src="/videos/hero-background.mp4" type="video/mp4" />
         </video>

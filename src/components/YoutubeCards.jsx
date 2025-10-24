@@ -10,37 +10,37 @@ const YouTubeCards = () => {
       id: 1,
       title: 'Community Events 2023',
       description: 'Highlights from our community events and cultural programs',
-      thumbnail: 'src/assets/images/FieldofAwareness/awareness_01.jpg'
+      thumbnail: 'public/images/FieldofAwareness/awareness_01.jpg'
     },
     {
       id: 2,
       title: 'Cultural Festival Highlights',
       description: 'Traditional dances and cultural performances from our annual festival',
-      thumbnail: 'src/assets/images/FieldofAwareness/awareness_02.jpg'
+      thumbnail: 'public/images/FieldofAwareness/awareness_02.jpg'
     },
     {
       id: 3,
       title: 'Educational Programs',
       description: 'Our educational initiatives and skill development workshops',
-      thumbnail: 'src/assets/images/FieldofBiology/biology_01.jpg'
+      thumbnail: 'public/images/FieldofBiology/biology_01.jpg'
     },
     {
       id: 4,
       title: 'Health Camp Activities',
       description: 'Medical camps and health awareness programs in our community',
-      thumbnail: 'src/assets/images/SettingsDomain/settings_01.jpg'
+      thumbnail: 'public/images/SettingsDomain/settings_01.jpg'
     },
     {
       id: 5,
       title: 'Agricultural Training',
       description: 'Modern farming techniques and sustainable agriculture practices',
-      thumbnail: 'src/assets/images/VillageField/village_01.jpg'
+      thumbnail: 'public/images/VillageField/village_01.jpg'
     },
     {
       id: 6,
       title: 'Women Empowerment',
       description: 'Programs and initiatives for women empowerment and skill development',
-      thumbnail: 'src/assets/images/WorldDomain/world_01.jpg'
+      thumbnail: 'public/images/WorldDomain/world_01.jpg'
     }
   ];
 

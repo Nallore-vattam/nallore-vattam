@@ -17,19 +17,19 @@ const About = () => {
     {
       name: 'Yathin',
       role: 'President',
-      image: 'src/assets/images/FieldofAwareness/awareness_01.jpg',
+      image: 'public/images/Enviromental Field/enviromental_01.jpg',
       description: 'Leading community initiatives for over 10 years'
     },
     {
       name: 'Aditya',
       role: 'Secretary',
-      image: 'src/assets/images/FieldofBiology/biology_02.jpg',
+      image: 'public/images/FieldofBiology/biology_02.jpg',
       description: 'Dedicated to women empowerment programs'
     },
     {
       name: 'Madhav',
       role: 'Treasurer',
-      image: 'src/assets/images/VillageField/village_01.jpg',
+      image: 'public/images/VillageField/village_01.jpg',
       description: 'Financial management and resource allocation'
     }
   ];
