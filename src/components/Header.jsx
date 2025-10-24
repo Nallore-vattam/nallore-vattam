@@ -41,7 +41,7 @@ const Header = () => {
           style={{ cursor: 'pointer' }}
         >
          <img
-  src="/logo.png"
+  src="/images/contentsofweb/logo.png"
   alt="Logo"
   className="logo-img"
   onError={(e) => {
