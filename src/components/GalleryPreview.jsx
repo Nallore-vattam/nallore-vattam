@@ -27,6 +27,7 @@ const GalleryPreview = () => {
     }
   };
 
+  // Corrected image paths with spaces encoded
   const previewImages = [
     {
       src: 'images/FieldofAwareness/awareness_01.jpg',
@@ -34,7 +35,7 @@ const GalleryPreview = () => {
       count: '25 Photos'
     },
     {
-      src: 'images/Enviromental Field/enviromental_02.jpg',
+      src: 'images/EnviromentalField/enviromental_02.jpg',
       category: 'Community Programs',
       count: '18 Photos'
     },
@@ -77,7 +78,7 @@ const GalleryPreview = () => {
                   alt={image.category}
                   className="img-fluid w-100 rounded-3"
                   style={{ height: '250px', objectFit: 'cover' }}
-                  fallback="images/fallback.jpg" // put your default fallback image here
+                  fallback="images/fallback.jpg" // default fallback image
                 />
                 <div className="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-end p-3 rounded-3">
                   <div className="overlay-content text-white">
