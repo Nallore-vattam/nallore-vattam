@@ -5,13 +5,13 @@ import { useLanguage } from '../context/LanguageContext';
 // Reusable Image component with fallback
 const ImageWithFallback = ({ src, alt, className, style, fallback }) => (
   <img
-    src={`${import.meta.env.BASE_URL}${src}`}
+    src={src} // plain src for public folder
     alt={alt}
     className={className}
     style={style}
     onError={(e) => {
       e.target.onerror = null; // prevent infinite loop
-      e.target.src = `${import.meta.env.BASE_URL}${fallback}`;
+      e.target.src = fallback; // plain fallback path
     }}
   />
 );
@@ -27,27 +27,26 @@ const GalleryPreview = () => {
     }
   };
 
-  // Corrected image paths with spaces encoded
   const previewImages = [
     {
-      src: 'images/FieldofAwareness/awareness_01.jpg',
-      category: 'Cultural Events',
-      count: '25 Photos'
+      src: "images/FieldofAwareness/awareness_01.jpg",
+      category: "Cultural Events",
+      count: "25 Photos"
     },
     {
-      src: 'images/EnviromentalField/enviromental_02.jpg',
-      category: 'Community Programs',
-      count: '18 Photos'
+      src: "images/EnviromentalField/enviromental_02.jpg",
+      category: "Community Programs",
+      count: "18 Photos"
     },
     {
-      src: 'images/FieldofBiology/biology_01.jpg',
-      category: 'Educational Activities',
-      count: '32 Photos'
+      src: "images/FieldofBiology/biology_01.jpg",
+      category: "Educational Activities",
+      count: "32 Photos"
     },
     {
-      src: 'images/GovtDomain/govt_01.jpg',
-      category: 'Health Camps',
-      count: '15 Photos'
+      src: "images/GovtDomain/govt_01.jpg",
+      category: "Health Camps",
+      count: "15 Photos"
     }
   ];
 
@@ -78,7 +77,7 @@ const GalleryPreview = () => {
                   alt={image.category}
                   className="img-fluid w-100 rounded-3"
                   style={{ height: '250px', objectFit: 'cover' }}
-                  fallback="images/fallback.jpg" // default fallback image
+                  fallback="images/fallback.jpg"
                 />
                 <div className="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-end p-3 rounded-3">
                   <div className="overlay-content text-white">
