@@ -41,12 +41,12 @@ const Header = () => {
           style={{ cursor: 'pointer' }}
         >
          <img
-  src="/images/contentsofweb/logo.png"
+  src={`${import.meta.env.BASE_URL}images/contentsofweb/logo.png`}
   alt="Logo"
   className="logo-img"
   onError={(e) => {
-    e.target.onerror = null; // prevents infinite loop
-    e.target.src = '/images/contentsofweb/logo-5q8siOY4.jpeg';
+    e.target.onerror = null;
+    e.target.src = `${import.meta.env.BASE_URL}images/contentsofweb/logo-5q8siOY4.jpeg`;
   }}
 />
 
