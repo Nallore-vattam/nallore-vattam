@@ -34,28 +34,28 @@ const GalleryPreview = () => {
   };
 
   // Image paths as stored in public/images/... (spaces are fine)
-  const previewImages = [
-    {
-      src: "images/FieldofAwareness/awareness_01.jpg",
-      category: "Cultural Events",
-      count: "25 Photos"
-    },
-    {
-      src: "images/Enviromental Field/enviromental_02.jpg",
-      category: "Community Programs",
-      count: "18 Photos"
-    },
-    {
-      src: "images/FieldofBiology/biology_01.jpg",
-      category: "Educational Activities",
-      count: "32 Photos"
-    },
-    {
-      src: "images/GovtDomain/govt_01.jpg",
-      category: "Health Camps",
-      count: "15 Photos"
-    }
-  ];
+ const previewImages = [
+  {
+    src: "/images/FieldofAwareness/awareness_01.jpg",
+    category: "Cultural Events",
+    count: "25 Photos"
+  },
+  {
+    src: "/images/Enviromental Field/enviromental_02.jpg",
+    category: "Community Programs",
+    count: "18 Photos"
+  },
+  {
+    src: "/images/FieldofBiology/biology_01.jpg",
+    category: "Educational Activities",
+    count: "32 Photos"
+  },
+  {
+    src: "/images/GovtDomain/govt_01.jpg",
+    category: "Health Camps",
+    count: "15 Photos"
+  }
+];
 
   const handleViewGallery = () => {
     setCurrentPage('gallery');
