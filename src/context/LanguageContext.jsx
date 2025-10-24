@@ -94,8 +94,6 @@ export const LanguageProvider = ({ children }) => {
     ourVision: 'Our Vision',
     ourJourney: 'Our Journey',
     ourLeadershipTeam: 'Our Leadership Team',
-    missionDescription: 'To empower our community through education, cultural preservation, and sustainable development initiatives that create lasting positive impact.',
-    visionDescription: 'A self-reliant, culturally rich community where every member has access to opportunities for growth, education, and prosperity.',
     
     // Services Page
     ourServices: 'Our Services',
