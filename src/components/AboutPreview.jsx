@@ -22,12 +22,17 @@ const AboutPreview = () => {
       <Container>
         <Row className="align-items-center">
           <Col lg={6} className="mb-4 mb-lg-0">
-            <img 
-              src="public/images/Enviromental Field/enviromental_01.jpg" 
-              alt="About Nallor Vattam" 
-              className="about-image img-fluid w-100 rounded-3"
-              style={{ height: '400px', objectFit: 'cover' }}
-            />
+           <img
+  src={`${import.meta.env.BASE_URL}images/Enviromental Field/enviromental_01.jpg`}
+  alt="About Nallor Vattam"
+  className="about-image img-fluid w-100 rounded-3"
+  style={{ height: '400px', objectFit: 'cover' }}
+  onError={(e) => {
+    e.target.onerror = null; // prevent infinite loop
+    e.target.src = `${import.meta.env.BASE_URL}images/Enviromental Field/fallback.jpg`;
+  }}
+/>
+
           </Col>
           <Col lg={6}>
             <div className="about-preview-content">
