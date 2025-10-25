@@ -19,15 +19,23 @@ const Services = () => {
 
   // Map JSON domains to the service structure expected by the component
   const services = domainsData.domains.map((domain, index) => ({
-    key: domain.title, // Use title as translation key
+    key: domain.key, // Use key as translation key for title
     icon: domain.icon, 
     title: domain.title,
-    description: domain.description,
+    description: domain.description, // This is a translation key
     features: domain.features, 
     duration: domain.duration, 
     eligibility: domain.eligibility, 
   }));
 
+  // Debug code
+  console.log('Current Language:', currentLanguage);
+  console.log('Translation test - ourServices:', t('ourServices'));
+  console.log('Translation test - educationScholarship:', t('educationScholarship'));
+  console.log('Translation test - educationScholarshipDesc:', t('educationScholarshipDesc'));
+  console.log('Available services:', services);
+
+  // Translated FAQs
   const faqs = [
     {
       question: t('faq1Question') || 'How can I apply for education scholarships?',
@@ -41,12 +49,20 @@ const Services = () => {
       question: t('faq3Question') || 'Do I need prior experience for skill development programs?',
       answer: t('faq3Answer') || 'No prior experience is required. Our programs are designed for beginners and include basic to advanced training.',
     },
+    {
+      question: t('faq4Question') || 'What documents are required for registration?',
+      answer: t('faq4Answer') || 'You need identity proof, address proof, and relevant educational or professional certificates based on the service you are applying for.',
+    },
+    {
+      question: t('faq5Question') || 'How long does the application process take?',
+      answer: t('faq5Answer') || 'The application review typically takes 2-3 weeks. You will be notified via email or phone once your application is processed.',
+    }
   ];
 
   return (
-     <div className="contact-page" >
+    <div className="contact-page">
       {/* Modern Hero Section */}
-      <section className="page-hero contact-hero" >
+      <section className="page-hero contact-hero">
         {/* Animated Background Elements */}
         <div className="floating-elements">
           <div className="floating-element"></div>
@@ -83,10 +99,10 @@ const Services = () => {
                       </div>
                       <div className="flex-grow-1">
                         <Card.Title className={`${getFontClass()} mb-2`}>
-                          {t(service.key)} {/* This will translate service titles */}
+                          {t(service.key)} {/* Translate service title */}
                         </Card.Title>
                         <Card.Text className={getFontClass()}>
-                          {service.description}
+                          {t(service.description)} {/* FIXED: Translate description */}
                         </Card.Text>
                       </div>
                     </div>
@@ -97,7 +113,7 @@ const Services = () => {
                         <div className="d-flex flex-wrap gap-2">
                           {service.features.map((feature, idx) => (
                             <Badge key={idx} bg="light" text="dark" className={getFontClass()}>
-                              {t(feature) || feature} {/* Translate features if available */}
+                              {t(feature)} {/* Translate features */}
                             </Badge>
                           ))}
                         </div>
@@ -107,11 +123,11 @@ const Services = () => {
                     <div className="service-meta d-flex justify-content-between text-muted small mb-3">
                       <span className={getFontClass()}>
                         <i className="bi bi-clock me-1"></i>
-                        {t(service.duration) || service.duration} {/* Translate duration */}
+                        {t(service.duration)} {/* Translate duration */}
                       </span>
                       <span className={getFontClass()}>
                         <i className="bi bi-person me-1"></i>
-                        {t(service.eligibility) || service.eligibility} {/* Translate eligibility */}
+                        {t(service.eligibility)} {/* Translate eligibility */}
                       </span>
                     </div>
 
@@ -129,7 +145,7 @@ const Services = () => {
         </Container>
       </section>
 
-      {/* Rest of your component remains the same */}
+      {/* Process Section */}
       <section className="section process-section bg-light" style={{ marginTop: "20px" }}>
         <Container>
           <h2 className={`section-title text-center ${getFontClass()}`}>{t('howItWorks')}</h2>
@@ -166,6 +182,7 @@ const Services = () => {
         </Container>
       </section>
 
+      {/* FAQ Section */}
       <section className="section faq-section">
         <Container>
           <h2 className={`section-title text-center ${getFontClass()}`}>
