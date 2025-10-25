@@ -44,49 +44,17 @@ const Gallery = () => {
   const filteredImages = filter === 'all' ? images : images.filter(img => img.category === filter);
 
   return (
-    <div className="gallery-page">
-      {/* Premium Hero Section */}
-      <section className="premium-hero">
-        {/* Video Background with Fallback */}
-        {!videoError ? (
-          <video 
-            autoPlay 
-            muted 
-            loop 
-            playsInline
-            className="hero-video-bg"
-            onError={() => setVideoError(true)}
-            poster="/images/Enviromental Field/enviromental01.jpg"
-          >
-            <source src="/videos/hero-background.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        ) : (
-          <div 
-            className="hero-fallback-bg"
-            style={{
-              backgroundImage: 'linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("/images/Enviromental Field/enviromental_01.jpg")',
-            }}
-          />
-        )}
-        
-        {/* Animated Particles */}
-        <div className="particles-container">
-          {[...Array(15)].map((_, i) => (
-            <div 
-              key={i}
-              className="particle"
-              style={{
-                width: `${Math.random() * 8 + 4}px`,
-                height: `${Math.random() * 8 + 4}px`,
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 5}s`
-              }}
-            />
-          ))}
+           <div className="contact-page" >
+      {/* Modern Hero Section */}
+      <section className="page-hero contact-hero" >
+        {/* Animated Background Elements */}
+        <div className="floating-elements">
+          <div className="floating-element"></div>
+          <div className="floating-element"></div>
+          <div className="floating-element"></div>
         </div>
-
+         
+       
         <Container>
           <Row>
             <Col lg={8} className="mx-auto">
@@ -97,16 +65,6 @@ const Gallery = () => {
                 <p className={`premium-hero-subtitle ${getFontClass()}`}>
                   {t('gallerySubtitle')}
                 </p>
-                <div className="hero-stats">
-                  <div className="stat-item">
-                    <span className="stat-number">{images.length}+</span>
-                    <span className="stat-label">Photos</span>
-                  </div>
-                  <div className="stat-item">
-                    <span className="stat-number">{categories.length - 1}</span>
-                    <span className="stat-label">Categories</span>
-                  </div>
-                </div>
               </div>
             </Col>
           </Row>
@@ -118,9 +76,6 @@ const Gallery = () => {
         <Container>
           <Row className="justify-content-center">
             <Col lg={8} className="text-center">
-              <h3 className={`section-subtitle mb-4 ${getFontClass()}`}>
-                Filter by Category
-              </h3>
               <div className="filter-buttons">
                 {categories.map(category => (
                   <Button

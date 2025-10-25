@@ -19,63 +19,40 @@ const Services = () => {
 
   // Map JSON domains to the service structure expected by the component
   const services = domainsData.domains.map((domain, index) => ({
-    key: domain.name,
+    key: domain.title, // Use title as translation key
     icon: domain.icon, 
-    title: domain.name,
+    title: domain.title,
     description: domain.description,
     features: domain.features, 
-    duration: domain.duration , 
+    duration: domain.duration, 
     eligibility: domain.eligibility, 
   }));
 
   const faqs = [
     {
-      question: 'How can I apply for education scholarships?',
-      answer: 'Applications are accepted annually in May. Visit our office or website for application forms and eligibility criteria.',
+      question: t('faq1Question') || 'How can I apply for education scholarships?',
+      answer: t('faq1Answer') || 'Applications are accepted annually in May. Visit our office or website for application forms and eligibility criteria.',
     },
     {
-      question: 'Are health camps completely free?',
-      answer: 'Yes, all our health camps provide free medical checkups, basic medicines, and health consultations.',
+      question: t('faq2Question') || 'Are health camps completely free?',
+      answer: t('faq2Answer') || 'Yes, all our health camps provide free medical checkups, basic medicines, and health consultations.',
     },
     {
-      question: 'Do I need prior experience for skill development programs?',
-      answer: 'No prior experience is required. Our programs are designed for beginners and include basic to advanced training.',
+      question: t('faq3Question') || 'Do I need prior experience for skill development programs?',
+      answer: t('faq3Answer') || 'No prior experience is required. Our programs are designed for beginners and include basic to advanced training.',
     },
   ];
 
   return (
-    <div className="services-page">
-      {/* Premium Hero Section */}
-      <section className="premium-hero">
-        {/* Video Background */}
-        <video 
-          autoPlay 
-          muted 
-          loop 
-          playsInline
-          className="hero-video-bg"
-          poster="/images/WorldDomain/world01.jpg"
-        >
-          <source src="/videos/hero-background.mp4" type="video/mp4" />
-        </video>
-        
-        {/* Particles */}
-        <div className="particles-container">
-          {[...Array(15)].map((_, i) => (
-            <div 
-              key={i}
-              className="particle"
-              style={{
-                width: `${Math.random() * 8 + 4}px`,
-                height: `${Math.random() * 8 + 4}px`,
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 5}s`
-              }}
-            />
-          ))}
+     <div className="contact-page" >
+      {/* Modern Hero Section */}
+      <section className="page-hero contact-hero" >
+        {/* Animated Background Elements */}
+        <div className="floating-elements">
+          <div className="floating-element"></div>
+          <div className="floating-element"></div>
+          <div className="floating-element"></div>
         </div>
-
         <Container>
           <Row>
             <Col lg={8} className="mx-auto">
@@ -93,7 +70,7 @@ const Services = () => {
       </section>
 
       {/* Services Grid */}
-      <section id="services-grid" className="section services-grid-section"  style={{ marginTop: "20px" }}>
+      <section id="services-grid" className="section services-grid-section" style={{ marginTop: "20px" }}>
         <Container>
           <Row className="g-4">
             {services.map((service, index) => (
@@ -102,11 +79,15 @@ const Services = () => {
                   <Card.Body className="p-4">
                     <div className="d-flex align-items-start mb-3">
                       <div className="service-icon-large me-3">
-                        <i className={service.icon} style={{ fontSize: '3rem' }}></i>
+                        <span style={{ fontSize: '3rem' }}>{service.icon}</span>
                       </div>
                       <div className="flex-grow-1">
-                        <Card.Title className={`${getFontClass()} mb-2`}>{t(service.key)}</Card.Title>
-                        <Card.Text className={getFontClass()}>{service.description}</Card.Text>
+                        <Card.Title className={`${getFontClass()} mb-2`}>
+                          {t(service.key)} {/* This will translate service titles */}
+                        </Card.Title>
+                        <Card.Text className={getFontClass()}>
+                          {service.description}
+                        </Card.Text>
                       </div>
                     </div>
 
@@ -116,7 +97,7 @@ const Services = () => {
                         <div className="d-flex flex-wrap gap-2">
                           {service.features.map((feature, idx) => (
                             <Badge key={idx} bg="light" text="dark" className={getFontClass()}>
-                              {feature}
+                              {t(feature) || feature} {/* Translate features if available */}
                             </Badge>
                           ))}
                         </div>
@@ -126,11 +107,11 @@ const Services = () => {
                     <div className="service-meta d-flex justify-content-between text-muted small mb-3">
                       <span className={getFontClass()}>
                         <i className="bi bi-clock me-1"></i>
-                        {service.duration}
+                        {t(service.duration) || service.duration} {/* Translate duration */}
                       </span>
                       <span className={getFontClass()}>
                         <i className="bi bi-person me-1"></i>
-                        {service.eligibility}
+                        {t(service.eligibility) || service.eligibility} {/* Translate eligibility */}
                       </span>
                     </div>
 
@@ -148,8 +129,8 @@ const Services = () => {
         </Container>
       </section>
 
-      {/* Process Section */}
-      <section className="section process-section bg-light"  style={{ marginTop: "20px" }}>
+      {/* Rest of your component remains the same */}
+      <section className="section process-section bg-light" style={{ marginTop: "20px" }}>
         <Container>
           <h2 className={`section-title text-center ${getFontClass()}`}>{t('howItWorks')}</h2>
           <Row className="g-4">
@@ -185,7 +166,6 @@ const Services = () => {
         </Container>
       </section>
 
-      {/* FAQ Section */}
       <section className="section faq-section">
         <Container>
           <h2 className={`section-title text-center ${getFontClass()}`}>
