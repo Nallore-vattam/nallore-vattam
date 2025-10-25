@@ -10,17 +10,17 @@ const Hero = () => {
     {
       title: t('heroTitle1'),
       subtitle: t('heroSubtitle1'),
-      background: 'public/images/FieldofAwareness/awareness_01.jpg'
+      background: '/images/FieldofAwareness/awareness01.jpg'
     },
     {
       title: t('heroTitle2'),
       subtitle: t('heroSubtitle2'),
-      background: 'public/images/SettingsDomain/settings_01.jpg'
+      background: '/images/SettingsDomain/settings01.jpg'
     },
     {
       title: t('heroTitle3'),
       subtitle: t('heroSubtitle3'),
-      background: 'public/images/WorldDomain/world_01.jpg'
+      background: '/images/WorldDomain/world01.jpg'
     }
   ];
 
@@ -45,7 +45,7 @@ const Hero = () => {
       id="home" 
       className="hero-section"
       style={{
-       background: `linear-gradient(135deg, rgba(44, 41, 41, 0.8), rgba(45, 44, 44, 0.8)), url(${slides[currentSlide].background}) center/cover`
+        background: `linear-gradient(135deg, rgba(44, 41, 41, 0.8), rgba(45, 44, 44, 0.8)), url(${slides[currentSlide].background}) center/cover`
       }}
     >
       <Container>

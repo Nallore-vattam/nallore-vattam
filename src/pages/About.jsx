@@ -17,19 +17,19 @@ const About = () => {
     {
       name: 'Yathin',
       role: 'President',
-      image: 'public/images/Enviromental Field/enviromental_01.jpg',
+      image: '/images/Enviromental Field/enviromental01.jpg',
       description: 'Leading community initiatives for over 10 years'
     },
     {
       name: 'Aditya',
       role: 'Secretary',
-      image: 'public/images/FieldofBiology/biology_02.jpg',
+      image: '/images/FieldofBiology/biology01.jpg',
       description: 'Dedicated to women empowerment programs'
     },
     {
       name: 'Madhav',
       role: 'Treasurer',
-      image: 'public/images/VillageField/village_01.jpg',
+      image: '/images/VillageField/village01.jpg',
       description: 'Financial management and resource allocation'
     }
   ];
@@ -153,6 +153,9 @@ const About = () => {
                     variant="top" 
                     src={member.image}
                     style={{ height: '250px', objectFit: 'cover' }}
+                    onError={(e) => {
+                      e.target.src = '/images/FieldofAwareness/awareness01.jpg';
+                    }}
                   />
                   <Card.Body>
                     <Card.Title className={getFontClass()}>{member.name}</Card.Title>
@@ -167,8 +170,6 @@ const About = () => {
           </Row>
         </Container>
       </section>
-
-     
     </div>
   );
 };
