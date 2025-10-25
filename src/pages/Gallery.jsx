@@ -154,7 +154,7 @@ const Gallery = () => {
                     className="img-fluid w-100 rounded-3"
                     style={{ height: '300px', objectFit: 'cover' }}
                     onError={(e) => {
-                      e.target.src = '/images/FieldofAwareness/awareness_01.jpg'; // Fallback image
+                      e.target.src = '/images/FieldofAwareness/awareness01.jpg'; // Fallback image
                     }}
                   />
                   <div className="gallery-item-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-end p-3 rounded-3">
