@@ -1,51 +1,28 @@
-// Modern translation utility using Fetch API
+// utils/translate.js
 export const autoTranslate = async (text, targetLang) => {
-  if (targetLang === 'en') return text;
-  
+  if (!text || targetLang === "en") return text;
+
   try {
-    // Using LibreTranslate (free and open-source)
-    const response = await fetch('https://libretranslate.com/translate', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        q: text,
-        source: 'en',
-        target: targetLang,
-        format: 'text'
-      })
-    });
+    const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(
+      text
+    )}&langpair=en|${targetLang}`;
 
-    if (!response.ok) {
-      throw new Error('Translation failed');
-    }
+    console.log("🔹 Translating:", text, "→", targetLang);
 
+    const response = await fetch(url);
     const data = await response.json();
-    return data.translatedText || text;
-  } catch (error) {
-    console.warn('Translation failed, using original text:', error);
-    return text; // Fallback to original text
-  }
-};
 
-// Alternative translation function using Google Translate API (replaces MyMemory)
-export const translateText = async (text, targetLang) => {
-  if (targetLang === 'en') return text;
-
-  try {
-    const response = await fetch(
-      `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${targetLang}&dt=t&q=${encodeURIComponent(text)}`
-    );
-    
-    if (response.ok) {
-      const data = await response.json();
-      return data[0][0][0] || text;
+    if (data?.responseData?.translatedText) {
+      console.log("✅ Translated:", data.responseData.translatedText);
+      return data.responseData.translatedText;
+    } else {
+      console.warn("⚠️ No translation found for:", text);
+      return text;
     }
-    return text;
   } catch (error) {
-    console.warn('Google Translate failed:', error);
+    console.error("❌ MyMemory translation failed:", error);
     return text;
   }
 };
 
+export const translateText = autoTranslate;

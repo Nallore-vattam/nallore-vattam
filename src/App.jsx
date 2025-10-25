@@ -9,14 +9,21 @@ import GalleryPage from './pages/Gallery'
 import ContactPage from './pages/Contact'
 import { useLanguage } from './context/LanguageContext'
 import 'bootstrap-icons/font/bootstrap-icons.css';
+
 const AppContent = () => {
   const { currentPage } = useLanguage();
 
+  console.log('=== APP DEBUG ===');
+  console.log('Current Page:', currentPage);
+  console.log('ServicesPage Component:', ServicesPage);
+
   const renderPage = () => {
+    console.log('Rendering page:', currentPage);
     switch(currentPage) {
       case 'about':
         return <AboutPage />;
       case 'services':
+        console.log('Loading ServicesPage component');
         return <ServicesPage />;
       case 'gallery':
         return <GalleryPage />;
