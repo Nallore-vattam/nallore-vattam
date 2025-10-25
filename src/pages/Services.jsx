@@ -17,15 +17,15 @@ const Services = () => {
     }
   };
 
-  // Map JSON domains to the service structure expected by the component
+  // Map JSON domains to the service structure
   const services = domainsData.domains.map((domain, index) => ({
-    key: domain.name,
+    key: domain.key,
     icon: domain.icon, 
-    title: domain.name,
-    description: domain.description,
-    features: domain.features, 
-    duration: domain.duration , 
-    eligibility: domain.eligibility, 
+    title: domain.title,
+    description: domain.description, // This is now a translation key
+    features: domain.features, // These are now translation keys
+    duration: domain.duration, // This is now a translation key
+    eligibility: domain.eligibility, // This is now a translation key
   }));
 
   const faqs = [
@@ -47,19 +47,17 @@ const Services = () => {
     <div className="services-page">
       {/* Premium Hero Section */}
       <section className="premium-hero">
-        {/* Video Background */}
         <video 
           autoPlay 
           muted 
           loop 
           playsInline
           className="hero-video-bg"
-          poster="public/images/WorldDomain/world_01.jpg"
+          poster="/images/WorldDomain/world01.jpg"
         >
           <source src="/videos/hero-background.mp4" type="video/mp4" />
         </video>
         
-        {/* Particles */}
         <div className="particles-container">
           {[...Array(15)].map((_, i) => (
             <div 
@@ -93,7 +91,7 @@ const Services = () => {
       </section>
 
       {/* Services Grid */}
-      <section id="services-grid" className="section services-grid-section"  style={{ marginTop: "20px" }}>
+      <section id="services-grid" className="section services-grid-section" style={{ marginTop: "20px" }}>
         <Container>
           <Row className="g-4">
             {services.map((service, index) => (
@@ -102,11 +100,15 @@ const Services = () => {
                   <Card.Body className="p-4">
                     <div className="d-flex align-items-start mb-3">
                       <div className="service-icon-large me-3">
-                        <i className={service.icon} style={{ fontSize: '3rem' }}></i>
+                        <span style={{ fontSize: '3rem' }}>{service.icon}</span>
                       </div>
                       <div className="flex-grow-1">
-                        <Card.Title className={`${getFontClass()} mb-2`}>{t(service.key)}</Card.Title>
-                        <Card.Text className={getFontClass()}>{service.description}</Card.Text>
+                        <Card.Title className={`${getFontClass()} mb-2`}>
+                          {t(service.key)} {/* Translate title */}
+                        </Card.Title>
+                        <Card.Text className={getFontClass()}>
+                          {t(service.description)} {/* Translate description */}
+                        </Card.Text>
                       </div>
                     </div>
 
@@ -116,7 +118,7 @@ const Services = () => {
                         <div className="d-flex flex-wrap gap-2">
                           {service.features.map((feature, idx) => (
                             <Badge key={idx} bg="light" text="dark" className={getFontClass()}>
-                              {feature}
+                              {t(feature)} {/* Translate each feature */}
                             </Badge>
                           ))}
                         </div>
@@ -126,11 +128,11 @@ const Services = () => {
                     <div className="service-meta d-flex justify-content-between text-muted small mb-3">
                       <span className={getFontClass()}>
                         <i className="bi bi-clock me-1"></i>
-                        {service.duration}
+                        {t(service.duration)} {/* Translate duration */}
                       </span>
                       <span className={getFontClass()}>
                         <i className="bi bi-person me-1"></i>
-                        {service.eligibility}
+                        {t(service.eligibility)} {/* Translate eligibility */}
                       </span>
                     </div>
 
@@ -149,7 +151,7 @@ const Services = () => {
       </section>
 
       {/* Process Section */}
-      <section className="section process-section bg-light"  style={{ marginTop: "20px" }}>
+      <section className="section process-section bg-light" style={{ marginTop: "20px" }}>
         <Container>
           <h2 className={`section-title text-center ${getFontClass()}`}>{t('howItWorks')}</h2>
           <Row className="g-4">
