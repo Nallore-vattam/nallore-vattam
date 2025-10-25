@@ -54,7 +54,7 @@ const Services = () => {
           loop 
           playsInline
           className="hero-video-bg"
-          poster="/images/WorldDomain/world_01.jpg"
+          poster="/images/WorldDomain/world01.jpg"
         >
           <source src="/videos/hero-background.mp4" type="video/mp4" />
         </video>

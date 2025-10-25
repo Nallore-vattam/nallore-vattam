@@ -24,20 +24,21 @@ const Gallery = () => {
     { id: 'community', name: t('community') }
   ];
 
+
   // Updated image paths for public folder
   const images = [
-    { id: 1, src: "/images/WomensField/womesn_01.jpg", category: 'cultural', title: t('traditionalDance') },
-    { id: 2, src: "/images/EnviromentalField/enviromental_01.jpg", category: 'education', title: t('studentScholarship') },
-    { id: 3, src: "/images/FieldofAwareness/awareness_01.jpg", category: 'health', title: t('freeHealthCheckup') },
-    { id: 4, src: "/images/FieldofBiology/biology_01.jpg", category: 'community', title: t('communityMeeting') },
-    { id: 5, src: "/images/GovtDomain/govt_01.jpg", category: 'cultural', title: t('festivalCelebration') },
-    { id: 6, src: "/images/SettingsDomain/settings_01.jpg", category: 'education', title: t('computerTraining') },
-    { id: 7, src: "/images/StudentField/students_01.jpg", category: 'health', title: t('dentalCare') },
-    { id: 8, src: "/images/VillageField/village_01.jpg", category: 'community', title: t('youthSports') },
-    { id: 9, src: "/images/WorldDomain/world_01.jpg", category: 'cultural', title: t('musicProgram') },
-    { id: 10, src: "/images/YouthField/youth_01.jpg", category: 'education', title: t('libraryInauguration') },
-    { id: 11, src: "/images/EnviromentalField/enviromental_02.jpg", category: 'health', title: t('eyeTesting') },
-    { id: 12, src: "/images/FieldofAwareness/awareness_02.jpg", category: 'community', title: t('cleanlinessDrive') }
+    { id: 1, src: "/images/WomensField/womesn01.jpg", category: 'cultural', title: t('traditionalDance') },
+    { id: 2, src: "/images/EnviromentalField/enviromental01.jpg", category: 'education', title: t('studentScholarship') },
+    { id: 3, src: "/images/FieldofAwareness/awareness01.jpg", category: 'health', title: t('freeHealthCheckup') },
+    { id: 4, src: "/images/FieldofBiology/biology01.jpg", category: 'community', title: t('communityMeeting') },
+    { id: 5, src: "/images/GovtDomain/govt01.jpg", category: 'cultural', title: t('festivalCelebration') },
+    { id: 6, src: "/images/SettingsDomain/settings01.jpg", category: 'education', title: t('computerTraining') },
+    { id: 7, src: "/images/StudentField/students01.jpg", category: 'health', title: t('dentalCare') },
+    { id: 8, src: "/images/VillageField/village01.jpg", category: 'community', title: t('youthSports') },
+    { id: 9, src: "/images/WorldDomain/world01.jpg", category: 'cultural', title: t('musicProgram') },
+    { id: 10, src: "/images/YouthField/youth01.jpg", category: 'education', title: t('libraryInauguration') },
+    { id: 11, src: "/images/EnviromentalField/enviromental02.jpg", category: 'health', title: t('eyeTesting') },
+    { id: 12, src: "/images/FieldofAwareness/awareness02.jpg", category: 'community', title: t('cleanlinessDrive') }
   ];
 
   const filteredImages = filter === 'all' ? images : images.filter(img => img.category === filter);
