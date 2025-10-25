@@ -3,102 +3,102 @@
     {
       "name": "service1",
       "icon": "🎓",
-      "key": "educationScholarship",
-      "title": "educationScholarship",
-      "description": "educationScholarshipDesc",
-      "features": ["tuitionFeeSupport", "bookAllowance", "mentorshipProgram", "careerGuidance"],
-      "duration": "annual",
-      "eligibility": "studentsAged16_25"
+      "key": "studentDomain",
+      "title": "studentDomain",
+      "description": "studentDomainDesc",
+      "features": ["educationalSupport", "careerCounseling", "scholarshipPrograms", "skillDevelopment"],
+      "duration": "academicYear",
+      "eligibility": "studentsAllAges"
     },
     {
       "name": "service2",
-      "icon": "🏥",
-      "key": "healthCamps",
-      "title": "healthCamps",
-      "description": "healthCampsDesc",
-      "features": ["generalCheckup", "dentalCare", "eyeTesting", "healthAwareness"],
-      "duration": "quarterly",
-      "eligibility": "allCommunityMembers"
+      "icon": "🏘️",
+      "key": "villageDomain",
+      "title": "villageDomain",
+      "description": "villageDomainDesc",
+      "features": ["communityDevelopment", "infrastructure", "ruralWelfare", "socialServices"],
+      "duration": "ongoing",
+      "eligibility": "allVillagers"
     },
     {
       "name": "service3",
-      "icon": "🌱",
-      "key": "agriculturalTraining",
-      "title": "agriculturalTraining",
-      "description": "agriculturalTrainingDesc",
-      "features": ["organicFarming", "waterManagement", "cropRotation", "marketLinkages"],
-      "duration": "seasonal",
-      "eligibility": "farmersAgriEnthusiasts"
-    },
-    {
-      "name": "service4",
-      "icon": "🎭",
-      "key": "culturalEvents",
-      "title": "culturalEvents",
-      "description": "culturalEventsDesc",
-      "features": ["festivalCelebrations", "traditionalArts", "musicDance", "heritageWorkshops"],
-      "duration": "monthly",
-      "eligibility": "allAgeGroups"
-    },
-    {
-      "name": "service5",
-      "icon": "🔧",
-      "key": "skillDevelopment",
-      "title": "skillDevelopment",
-      "description": "skillDevelopmentDesc",
-      "features": ["computerSkills", "handicrafts", "technicalTraining", "softSkills"],
-      "duration": "months3_6",
-      "eligibility": "youthAdults"
-    },
-    {
-      "name": "service6",
-      "icon": "👩",
-      "key": "womenEmpowerment",
-      "title": "womenEmpowerment",
-      "description": "womenEmpowermentDesc",
-      "features": ["selfHelpGroups", "businessTraining", "legalAwareness", "healthPrograms"],
-      "duration": "ongoing",
-      "eligibility": "womenGirls"
-    },
-    {
-      "name": "service7",
-      "icon": "📚",
-      "key": "studentsField",
-      "title": "studentsField",
-      "description": "studentsFieldDesc",
-      "features": ["educationalSupport", "careerCounseling", "extracurricular", "personalityDevelopment"],
-      "duration": "annual",
-      "eligibility": "studentsAged16_25"
-    },
-    {
-      "name": "service8",
-      "icon": "🏘️",
-      "key": "villageField",
-      "title": "villageField",
-      "description": "villageFieldDesc",
-      "features": ["communityDevelopment", "infrastructure", "sanitation", "welfarePrograms"],
-      "duration": "ongoing",
-      "eligibility": "allCommunityMembers"
-    },
-    {
-      "name": "service9",
       "icon": "🔬",
-      "key": "fieldOfBiology",
-      "title": "fieldOfBiology",
-      "description": "fieldOfBiologyDesc",
-      "features": ["agriculturalResearch", "environmentalConservation", "soilTesting", "ecologicalBalance"],
+      "key": "domainOfBiology",
+      "title": "domainOfBiology",
+      "description": "domainOfBiologyDesc",
+      "features": ["agriculturalResearch", "environmentalStudies", "biodiversity", "sustainableFarming"],
       "duration": "seasonal",
       "eligibility": "farmersResearchers"
     },
     {
-      "name": "service10",
+      "name": "service4",
       "icon": "🏛️",
-      "key": "government",
-      "title": "government",
-      "description": "governmentDesc",
-      "features": ["publicService", "policyImplementation", "civicEngagement", "communityWelfare"],
+      "key": "governmentDomain",
+      "title": "governmentDomain",
+      "description": "governmentDomainDesc",
+      "features": ["publicServices", "policyImplementation", "civicEngagement", "communityOutreach"],
       "duration": "ongoing",
       "eligibility": "allCitizens"
+    },
+    {
+      "name": "service5",
+      "icon": "⚙️",
+      "key": "settingsDomain",
+      "title": "settingsDomain",
+      "description": "settingsDomainDesc",
+      "features": ["systemConfiguration", "technicalSupport", "programManagement", "resourceCoordination"],
+      "duration": "continuous",
+      "eligibility": "authorizedPersonnel"
+    },
+    {
+      "name": "service6",
+      "icon": "👩",
+      "key": "womensDomain",
+      "title": "womensDomain",
+      "description": "womensDomainDesc",
+      "features": ["womensEmpowerment", "selfHelpGroups", "healthAwareness", "economicIndependence"],
+      "duration": "ongoing",
+      "eligibility": "womenAllAges"
+    },
+    {
+      "name": "service7",
+      "icon": "🌟",
+      "key": "youthDomain",
+      "title": "youthDomain",
+      "description": "youthDomainDesc",
+      "features": ["youthLeadership", "careerGuidance", "sportsActivities", "talentDevelopment"],
+      "duration": "annual",
+      "eligibility": "youth15_30"
+    },
+    {
+      "name": "service8",
+      "icon": "🌍",
+      "key": "worldDomain",
+      "title": "worldDomain",
+      "description": "worldDomainDesc",
+      "features": ["globalPartnerships", "culturalExchange", "internationalProjects", "knowledgeSharing"],
+      "duration": "ongoing",
+      "eligibility": "allMembers"
+    },
+    {
+      "name": "service9",
+      "icon": "🌿",
+      "key": "environmentalDomain",
+      "title": "environmentalDomain",
+      "description": "environmentalDomainDesc",
+      "features": ["environmentalProtection", "cleanEnergy", "wasteManagement", "greenInitiatives"],
+      "duration": "continuous",
+      "eligibility": "allCommunityMembers"
+    },
+    {
+      "name": "service10",
+      "icon": "📢",
+      "key": "awarenessDomain",
+      "title": "awarenessDomain",
+      "description": "awarenessDomainDesc",
+      "features": ["publicAwareness", "educationalCampaigns", "socialMediaOutreach", "communityWorkshops"],
+      "duration": "monthly",
+      "eligibility": "generalPublic"
     }
   ]
 }

@@ -4,7 +4,7 @@ import { useLanguage } from '../context/LanguageContext';
 import domainsData from '../components/mainjsons/Services.json'; 
 
 const Services = () => {
-  const { currentLanguage, t } = useLanguage();
+  const { currentLanguage, t, isTranslating, translations } = useLanguage(); // ✅ Added translations & isTranslating
 
   const getFontClass = () => {
     switch (currentLanguage) {
@@ -17,9 +17,14 @@ const Services = () => {
     }
   };
 
-  // Map JSON domains to the service structure expected by the component
+  // ✅ Prevent render until translations are ready
+  if (isTranslating || !translations || Object.keys(translations).length === 0) {
+    return <div className="text-center p-5">Translating content...</div>;
+  }
+
+  // Map JSON domains to the service structure
   const services = domainsData.domains.map((domain, index) => ({
-    key: domain.key, // Use key as translation key for title
+    key: domain.key,
     icon: domain.icon, 
     title: domain.title,
     description: domain.description, // This is a translation key
@@ -28,42 +33,25 @@ const Services = () => {
     eligibility: domain.eligibility, 
   }));
 
-  // Debug code
+  // Debug logs
+  console.log('=== SERVICES DEBUG ===');
   console.log('Current Language:', currentLanguage);
-  console.log('Translation test - ourServices:', t('ourServices'));
-  console.log('Translation test - educationScholarship:', t('educationScholarship'));
-  console.log('Translation test - educationScholarshipDesc:', t('educationScholarshipDesc'));
-  console.log('Available services:', services);
+  console.log('First service key:', services[0]?.key);
+  console.log('Translation for studentDomain:', t('studentDomain'));
+  console.log('Translation for studentDomainDesc:', t('studentDomainDesc'));
 
   // Translated FAQs
   const faqs = [
-    {
-      question: t('faq1Question') || 'How can I apply for education scholarships?',
-      answer: t('faq1Answer') || 'Applications are accepted annually in May. Visit our office or website for application forms and eligibility criteria.',
-    },
-    {
-      question: t('faq2Question') || 'Are health camps completely free?',
-      answer: t('faq2Answer') || 'Yes, all our health camps provide free medical checkups, basic medicines, and health consultations.',
-    },
-    {
-      question: t('faq3Question') || 'Do I need prior experience for skill development programs?',
-      answer: t('faq3Answer') || 'No prior experience is required. Our programs are designed for beginners and include basic to advanced training.',
-    },
-    {
-      question: t('faq4Question') || 'What documents are required for registration?',
-      answer: t('faq4Answer') || 'You need identity proof, address proof, and relevant educational or professional certificates based on the service you are applying for.',
-    },
-    {
-      question: t('faq5Question') || 'How long does the application process take?',
-      answer: t('faq5Answer') || 'The application review typically takes 2-3 weeks. You will be notified via email or phone once your application is processed.',
-    }
+    { question: t('faq1Question'), answer: t('faq1Answer') },
+    { question: t('faq2Question'), answer: t('faq2Answer') },
+    { question: t('faq3Question'), answer: t('faq3Answer') },
+    { question: t('faq4Question'), answer: t('faq4Answer') },
+    { question: t('faq5Question'), answer: t('faq5Answer') }
   ];
 
   return (
     <div className="contact-page">
-      {/* Modern Hero Section */}
       <section className="page-hero contact-hero">
-        {/* Animated Background Elements */}
         <div className="floating-elements">
           <div className="floating-element"></div>
           <div className="floating-element"></div>
@@ -85,7 +73,6 @@ const Services = () => {
         </Container>
       </section>
 
-      {/* Services Grid */}
       <section id="services-grid" className="section services-grid-section" style={{ marginTop: "20px" }}>
         <Container>
           <Row className="g-4">
@@ -99,10 +86,10 @@ const Services = () => {
                       </div>
                       <div className="flex-grow-1">
                         <Card.Title className={`${getFontClass()} mb-2`}>
-                          {t(service.key)} {/* Translate service title */}
+                          {t(service.key)}
                         </Card.Title>
                         <Card.Text className={getFontClass()}>
-                          {t(service.description)} {/* FIXED: Translate description */}
+                          {t(service.description)}
                         </Card.Text>
                       </div>
                     </div>
@@ -113,7 +100,7 @@ const Services = () => {
                         <div className="d-flex flex-wrap gap-2">
                           {service.features.map((feature, idx) => (
                             <Badge key={idx} bg="light" text="dark" className={getFontClass()}>
-                              {t(feature)} {/* Translate features */}
+                              {t(feature)}
                             </Badge>
                           ))}
                         </div>
@@ -123,11 +110,11 @@ const Services = () => {
                     <div className="service-meta d-flex justify-content-between text-muted small mb-3">
                       <span className={getFontClass()}>
                         <i className="bi bi-clock me-1"></i>
-                        {t(service.duration)} {/* Translate duration */}
+                        {t(service.duration)}
                       </span>
                       <span className={getFontClass()}>
                         <i className="bi bi-person me-1"></i>
-                        {t(service.eligibility)} {/* Translate eligibility */}
+                        {t(service.eligibility)}
                       </span>
                     </div>
 
@@ -145,57 +132,43 @@ const Services = () => {
         </Container>
       </section>
 
-      {/* Process Section */}
       <section className="section process-section bg-light" style={{ marginTop: "20px" }}>
         <Container>
-          <h2 className={`section-title text-center ${getFontClass()}`}>{t('howItWorks')}</h2>
-          <Row className="g-4">
-            <Col lg={3} md={6} className="text-center">
-              <div className="process-step">
-                <div className="step-number">1</div>
-                <h5 className={getFontClass()}>{t('register')}</h5>
-                <p className={getFontClass()}>{t('createAccount')}</p>
-              </div>
-            </Col>
-            <Col lg={3} md={6} className="text-center">
-              <div className="process-step">
-                <div className="step-number">2</div>
-                <h5 className={getFontClass()}>{t('apply')}</h5>
-                <p className={getFontClass()}>{t('chooseService')}</p>
-              </div>
-            </Col>
-            <Col lg={3} md={6} className="text-center">
-              <div className="process-step">
-                <div className="step-number">3</div>
-                <h5 className={getFontClass()}>{t('review')}</h5>
-                <p className={getFontClass()}>{t('teamReview')}</p>
-              </div>
-            </Col>
-            <Col lg={3} md={6} className="text-center">
-              <div className="process-step">
-                <div className="step-number">4</div>
-                <h5 className={getFontClass()}>{t('participate')}</h5>
-                <p className={getFontClass()}>{t('joinProgram')}</p>
-              </div>
-            </Col>
+          <h2 className={`section-title text-center mb-5 ${getFontClass()}`}>
+            {t('howItWorks')}
+          </h2>
+          <Row className="text-center g-4">
+            {[
+              { icon: 'bi-person-plus', title: 'register', desc: 'createAccount' },
+              { icon: 'bi-journal-text', title: 'apply', desc: 'chooseService' },
+              { icon: 'bi-search', title: 'review', desc: 'teamReview' },
+              { icon: 'bi-people', title: 'participate', desc: 'joinProgram' }
+            ].map((step, index) => (
+              <Col lg={3} key={index}>
+                <div className="process-card p-4 bg-white h-100 rounded shadow-sm">
+                  <div className="process-icon mb-3">
+                    <i className={`bi ${step.icon} fs-2 text-primary`}></i>
+                  </div>
+                  <h5 className={getFontClass()}>{t(step.title)}</h5>
+                  <p className={`${getFontClass()} text-muted`}>{t(step.desc)}</p>
+                </div>
+              </Col>
+            ))}
           </Row>
         </Container>
       </section>
 
-      {/* FAQ Section */}
-      <section className="section faq-section">
+      <section className="section faq-section" style={{ marginTop: "20px" }}>
         <Container>
-          <h2 className={`section-title text-center ${getFontClass()}`}>
+          <h2 className={`section-title text-center mb-5 ${getFontClass()}`}>
             {t('frequentlyAskedQuestions')}
           </h2>
           <Row className="justify-content-center">
             <Col lg={8}>
               <Accordion>
                 {faqs.map((faq, index) => (
-                  <Accordion.Item key={index} eventKey={index.toString()}>
-                    <Accordion.Header className={getFontClass()}>
-                      {faq.question}
-                    </Accordion.Header>
+                  <Accordion.Item eventKey={index.toString()} key={index}>
+                    <Accordion.Header className={getFontClass()}>{faq.question}</Accordion.Header>
                     <Accordion.Body className={getFontClass()}>
                       {faq.answer}
                     </Accordion.Body>
