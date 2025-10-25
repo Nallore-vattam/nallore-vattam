@@ -5,7 +5,7 @@ export const LanguageContext = createContext();
 
 const supportedLanguages = [
   { code: "ta", name: "தமிழ்" },
-  { code: "hi", name: "हिंदी" }, 
+  { code: "hi", name: "हिंदी" },
   { code: "en", name: "English" }
 ];
 
@@ -15,7 +15,7 @@ export const LanguageProvider = ({ children }) => {
   const [translations, setTranslations] = useState({});
   const [isTranslating, setIsTranslating] = useState(false);
 
-  // English source content
+  // English source content - CLEANED VERSION (No duplicates)
   const englishContent = {
     home: 'Home',
     about: 'About Us',
@@ -36,16 +36,19 @@ export const LanguageProvider = ({ children }) => {
     aboutText2: 'Our mission is to create sustainable growth opportunities through education, healthcare initiatives, and cultural preservation programs.',
     aboutText3:'Nallore Vattam is a community organization dedicated to promoting and preserving the cultural heritage of our region. Founded in 2005, we have been bringing together people from various backgrounds to celebrate our shared traditions, values, and heritage.',
     servicesTitle: 'Our Services',
-    service1: 'Students Field',
-    service2: 'Village Field',
-    service3: 'Field of Biology',
-    service4: 'government',
-    service5: 'Settings',
-    service6: 'Women Empowerment',
-    service7: 'Youth Field',
-    service8: 'World',
-    service9: 'Environmental Protection',
-    service10: 'Awareness',
+
+    // UPDATED: New domain names
+    service1: 'Student Domain',
+    service2: 'Village Domain',
+    service3: 'Domain of Biology',
+    service4: 'Government Domain',
+    service5: 'Settings Domain',
+    service6: 'Womens Domain',
+    service7: 'Youth Domain',
+    service8: 'World Domain',
+    service9: 'Environmental Domain',
+    service10: 'Awareness Domain',
+
     galleryTitle: 'Our Gallery',
     eventsTitle: 'Upcoming Events',
     event1: 'Cultural Festival - Jan 15, 2024',
@@ -67,7 +70,6 @@ export const LanguageProvider = ({ children }) => {
     termsOfService: 'Terms of Service',
     projectName: 'Nallor Vattam',
 
-    // NEW TRANSLATIONS ADDED:
     // Gallery Page
     photoGallery: 'Photo Gallery',
     gallerySubtitle: 'Visual stories of our community\'s journey, achievements, and celebrations',
@@ -76,7 +78,7 @@ export const LanguageProvider = ({ children }) => {
     education: 'Education',
     healthCamps: 'Health Camps',
     community: 'Community',
-    
+
     // Contact Page
     sendMessage: 'Send us a Message',
     phoneNumber: 'Phone Number',
@@ -86,7 +88,7 @@ export const LanguageProvider = ({ children }) => {
     workingHours: 'Working Hours',
     followUs: 'Follow Us',
     contactSubtitle: 'We\'d love to hear from you. Get in touch and let\'s start a conversation.',
-    
+
     // About Page  
     aboutNalloreVattam: 'About Nallor Vattam',
     aboutSubtitle: 'Building a stronger community through unity and development',
@@ -94,7 +96,7 @@ export const LanguageProvider = ({ children }) => {
     ourVision: 'Our Vision',
     ourJourney: 'Our Journey',
     ourLeadershipTeam: 'Our Leadership Team',
-    
+
     // Services Page
     ourServices: 'Our Services',
     servicesSubtitle: 'Comprehensive community development programs designed to empower and transform lives',
@@ -112,192 +114,97 @@ export const LanguageProvider = ({ children }) => {
     teamReview: 'Our team reviews your application',
     joinProgram: 'Join the program and get benefits',
 
-    // Add these to your englishContent object in LanguageContext.js
+    // FAQ Translations
+    faq1Question: 'How can I apply for education scholarships?',
+    faq1Answer: 'Applications are accepted annually in May. Visit our office or website for application forms and eligibility criteria.',
+    faq2Question: 'Are health camps completely free?',
+    faq2Answer: 'Yes, all our health camps provide free medical checkups, basic medicines, and health consultations.',
+    faq3Question: 'Do I need prior experience for skill development programs?',
+    faq3Answer: 'No prior experience is required. Our programs are designed for beginners and include basic to advanced training.',
+    faq4Question: 'What documents are required for registration?',
+    faq4Answer: 'You need identity proof, address proof, and relevant educational or professional certificates based on the service you are applying for.',
+    faq5Question: 'How long does the application process take?',
+    faq5Answer: 'The application review typically takes 2-3 weeks. You will be notified via email or phone once your application is processed.',
 
-  exploreDomain: 'Explore Domain',
-  ourServices: 'Our Services',
-  servicesSubtitle: 'Comprehensive support programs for community development',
-  keyFeatures: 'Key Features',
-  learnMoreBtn: 'Learn More',
-  applyNow: 'Apply Now',
-  howItWorks: 'How It Works',
-  register: 'Register',
-  createAccount: 'Create your account',
-  apply: 'Apply',
-  chooseService: 'Choose your service',
-  review: 'Review',
-  teamReview: 'Our team reviews your application',
-  participate: 'Participate',
-  joinProgram: 'Join the program',
-  frequentlyAskedQuestions: 'Frequently Asked Questions',
-  
-  // Service titles
-  EducationScholarship: 'Education Scholarship',
-  HealthCamps: 'Health Camps',
-  AgriculturalTraining: 'Agricultural Training',
-  CulturalEvents: 'Cultural Events',
-  SkillDevelopment: 'Skill Development',
-  WomenEmpowerment: 'Women Empowerment',
-  
-  // Service descriptions
-  educationScholarshipDesc: 'Financial support for deserving students to pursue higher education',
-  healthCampsDesc: 'Free medical checkups and healthcare services for community members',
-  agriculturalTrainingDesc: 'Modern farming techniques and sustainable agriculture practices',
-  culturalEventsDesc: 'Preserving and promoting our rich cultural heritage',
-  skillDevelopmentDesc: 'Vocational training and skill enhancement programs',
-  womenEmpowermentDesc: 'Programs focused on women entrepreneurship and leadership',
-  
-  // Service features
-  tuitionFeeSupport: 'Tuition Fee Support',
-  bookAllowance: 'Book Allowance',
-  mentorshipProgram: 'Mentorship Program',
-  careerGuidance: 'Career Guidance',
-  generalCheckup: 'General Checkup',
-  dentalCare: 'Dental Care',
-  eyeTesting: 'Eye Testing',
-  healthAwareness: 'Health Awareness',
-  organicFarming: 'Organic Farming',
-  waterManagement: 'Water Management',
-  cropRotation: 'Crop Rotation',
-  marketLinkages: 'Market Linkages',
-  festivalCelebrations: 'Festival Celebrations',
-  traditionalArts: 'Traditional Arts',
-  musicDance: 'Music & Dance',
-  heritageWorkshops: 'Heritage Workshops',
-  computerSkills: 'Computer Skills',
-  handicrafts: 'Handicrafts',
-  technicalTraining: 'Technical Training',
-  softSkills: 'Soft Skills',
-  selfHelpGroups: 'Self-Help Groups',
-  businessTraining: 'Business Training',
-  legalAwareness: 'Legal Awareness',
-  healthPrograms: 'Health Programs',
-  
-  // Duration and eligibility
-  annual: 'Annual',
-  quarterly: 'Quarterly',
-  seasonal: 'Seasonal',
-  monthly: 'Monthly',
-  ongoing: 'Ongoing',
-  months3_6: '3-6 Months',
-  studentsAged16_25: 'Students aged 16-25',
-  allCommunityMembers: 'All community members',
-  farmersAgriEnthusiasts: 'Farmers & Agri-enthusiasts',
-  allAgeGroups: 'All age groups',
-  youthAdults: 'Youth & Adults',
-  womenGirls: 'Women & Girls',
+    // NEW DOMAIN TRANSLATIONS
+    studentDomain: 'Student Domain',
+    villageDomain: 'Village Domain', 
+    domainOfBiology: 'Domain of Biology',
+    governmentDomain: 'Government Domain',
+    settingsDomain: 'Settings Domain',
+    womensDomain: 'Womens Domain',
+    youthDomain: 'Youth Domain',
+    worldDomain: 'World Domain',
+    environmentalDomain: 'Environmental Domain',
+    awarenessDomain: 'Awareness Domain',
 
-// Services Page
-exploreServices: 'Explore Services',
-exploreGallery: 'Explore Gallery',
+    studentDomainDesc: 'Comprehensive educational support and development programs for students. Career guidance, scholarships, and skill enhancement initiatives.',
+    villageDomainDesc: 'Community development and rural welfare programs for village improvement. Infrastructure development and social service initiatives.',
+    domainOfBiologyDesc: 'Biological research and agricultural development for sustainable farming. Environmental studies and biodiversity conservation programs.',
+    governmentDomainDesc: 'Coordination with government authorities for public welfare services. Policy implementation and civic engagement activities.',
+    settingsDomainDesc: 'Technical configuration and program management for organizational operations. System support and resource coordination services.',
+    womensDomainDesc: 'Empowerment programs and support services for women development. Self-help groups, health awareness, and economic independence initiatives.',
+    youthDomainDesc: 'Youth development programs and leadership training for young individuals. Career guidance, sports, and talent development activities.',
+    worldDomainDesc: 'Global partnerships and international collaboration for community development. Cultural exchange and knowledge sharing programs.',
+    environmentalDomainDesc: 'Environmental protection and sustainability initiatives for green living. Clean energy, waste management, and conservation programs.',
+    awarenessDomainDesc: 'Public awareness campaigns and educational programs for community enlightenment. Social media outreach and workshop initiatives.',
 
+    educationalSupport: 'Educational Support',
+    careerCounseling: 'Career Counseling',
+    scholarshipPrograms: 'Scholarship Programs',
+    skillDevelopment: 'Skill Development',
+    communityDevelopment: 'Community Development',
+    infrastructure: 'Infrastructure',
+    ruralWelfare: 'Rural Welfare',
+    socialServices: 'Social Services',
+    agriculturalResearch: 'Agricultural Research',
+    environmentalStudies: 'Environmental Studies',
+    biodiversity: 'Biodiversity',
+    sustainableFarming: 'Sustainable Farming',
+    publicServices: 'Public Services',
+    policyImplementation: 'Policy Implementation',
+    civicEngagement: 'Civic Engagement',
+    communityOutreach: 'Community Outreach',
+    systemConfiguration: 'System Configuration',
+    technicalSupport: 'Technical Support',
+    programManagement: 'Program Management',
+    resourceCoordination: 'Resource Coordination',
+    womensEmpowerment: 'Womens Empowerment',
+    selfHelpGroups: 'Self-Help Groups',
+    healthAwareness: 'Health Awareness',
+    economicIndependence: 'Economic Independence',
+    youthLeadership: 'Youth Leadership',
+    sportsActivities: 'Sports Activities',
+    talentDevelopment: 'Talent Development',
+    globalPartnerships: 'Global Partnerships',
+    culturalExchange: 'Cultural Exchange',
+    internationalProjects: 'International Projects',
+    knowledgeSharing: 'Knowledge Sharing',
+    environmentalProtection: 'Environmental Protection',
+    cleanEnergy: 'Clean Energy',
+    wasteManagement: 'Waste Management',
+    greenInitiatives: 'Green Initiatives',
+    publicAwareness: 'Public Awareness',
+    educationalCampaigns: 'Educational Campaigns',
+    socialMediaOutreach: 'Social Media Outreach',
+    communityWorkshops: 'Community Workshops',
 
-  exploreDomain: 'Explore Domain',
-  ourServices: 'Our Services',
-  servicesSubtitle: 'Comprehensive support programs for community development',
-  keyFeatures: 'Key Features',
-  learnMoreBtn: 'Learn More',
-  applyNow: 'Apply Now',
-  howItWorks: 'How It Works',
-  register: 'Register',
-  createAccount: 'Create your account',
-  apply: 'Apply',
-  chooseService: 'Choose your service',
-  review: 'Review',
-  teamReview: 'Our team reviews your application',
-  participate: 'Participate',
-  joinProgram: 'Join the program',
-  frequentlyAskedQuestions: 'Frequently Asked Questions',
-  studentsField: 'Students Field',
-  fieldOfBiology: 'Field of Biology',
-  villageField: 'Village Field',
-  government: 'Government',
-  womenEmpowerment: 'Women Empowerment',
+    academicYear: 'Academic Year',
+    continuous: 'Continuous',
+    studentsAllAges: 'Students All Ages',
+    allVillagers: 'All Villagers',
+    farmersResearchers: 'Farmers & Researchers',
+    allCitizens: 'All Citizens',
+    authorizedPersonnel: 'Authorized Personnel',
+    womenAllAges: 'Women All Ages',
+    youth15_30: 'Youth 15-30 Years',
+    allMembers: 'All Members',
+    allCommunityMembers: 'All Community Members',
+    generalPublic: 'General Public',
 
+    missionDescription: 'To empower our community through education, cultural preservation, and sustainable development initiatives that create lasting positive impact.',
+    visionDescription: 'A self-reliant, culturally rich community where every member has access to opportunities for growth, education, and prosperity.',
 
-// About Page
-missionDescription: 'To empower our community through education, cultural preservation, and sustainable development initiatives that create lasting positive impact.',
-visionDescription: 'A self-reliant, culturally rich community where every member has access to opportunities for growth, education, and prosperity.',
-    
-  // Basic UI translations
-  exploreDomain: 'Explore Domain',
-  ourServices: 'Our Services',
-  servicesSubtitle: 'Comprehensive support programs for community development',
-  keyFeatures: 'Key Features',
-  learnMoreBtn: 'Learn More',
-  applyNow: 'Apply Now',
-  howItWorks: 'How It Works',
-  register: 'Register',
-  createAccount: 'Create your account',
-  apply: 'Apply',
-  chooseService: 'Choose your service',
-  review: 'Review',
-  teamReview: 'Our team reviews your application',
-  participate: 'Participate',
-  joinProgram: 'Join the program',
-  frequentlyAskedQuestions: 'Frequently Asked Questions',
-
-  // Service titles
-  educationScholarship: 'Education Scholarship',
-  healthCamps: 'Health Camps',
-  agriculturalTraining: 'Agricultural Training',
-  culturalEvents: 'Cultural Events',
-  skillDevelopment: 'Skill Development',
-  womenEmpowerment: 'Women Empowerment',
-  educationScholarship2: 'Education Scholarship',
-  healthCamps2: 'Health Camps',
-  agriculturalTraining2: 'Agricultural Training',
-  culturalEvents2: 'Cultural Events',
-
-  // Service descriptions
-  educationScholarshipDesc: 'Financial support for deserving students to pursue higher education',
-  healthCampsDesc: 'Free medical checkups and healthcare services for community members',
-  agriculturalTrainingDesc: 'Modern farming techniques and sustainable agriculture practices',
-  culturalEventsDesc: 'Preserving and promoting our rich cultural heritage',
-  skillDevelopmentDesc: 'Vocational training and skill enhancement programs',
-  womenEmpowermentDesc: 'Programs focused on women entrepreneurship and leadership',
-
-  // Service features
-  tuitionFeeSupport: 'Tuition Fee Support',
-  bookAllowance: 'Book Allowance',
-  mentorshipProgram: 'Mentorship Program',
-  careerGuidance: 'Career Guidance',
-  generalCheckup: 'General Checkup',
-  dentalCare: 'Dental Care',
-  eyeTesting: 'Eye Testing',
-  healthAwareness: 'Health Awareness',
-  organicFarming: 'Organic Farming',
-  waterManagement: 'Water Management',
-  cropRotation: 'Crop Rotation',
-  marketLinkages: 'Market Linkages',
-  festivalCelebrations: 'Festival Celebrations',
-  traditionalArts: 'Traditional Arts',
-  musicDance: 'Music & Dance',
-  heritageWorkshops: 'Heritage Workshops',
-  computerSkills: 'Computer Skills',
-  handicrafts: 'Handicrafts',
-  technicalTraining: 'Technical Training',
-  softSkills: 'Soft Skills',
-  selfHelpGroups: 'Self-Help Groups',
-  businessTraining: 'Business Training',
-  legalAwareness: 'Legal Awareness',
-  healthPrograms: 'Health Programs',
-
-  // Duration and eligibility
-  annual: 'Annual',
-  quarterly: 'Quarterly',
-  seasonal: 'Seasonal',
-  monthly: 'Monthly',
-  ongoing: 'Ongoing',
-  months3_6: '3-6 Months',
-  studentsAged16_25: 'Students aged 16-25',
-  allCommunityMembers: 'All community members',
-  farmersAgriEnthusiasts: 'Farmers & Agri-enthusiasts',
-  allAgeGroups: 'All age groups',
-  youthAdults: 'Youth & Adults',
-  womenGirls: 'Women & Girls',
-
-    // Common
     exploreDomain: 'Explore Domain',
     readMoreAboutUs: 'Read More About Us',
     traditionalDance: 'Traditional Dance Performance',
@@ -314,46 +221,53 @@ visionDescription: 'A self-reliant, culturally rich community where every member
     cleanlinessDrive: 'Cleanliness Drive',
     interactiveMap: 'Interactive Map',
     thankYouMessage: 'Thank you for your message! We\'ll get back to you soon.',
-    mapPlaceholder: 'Map integration would go here'
+    mapPlaceholder: 'Map integration would go here',
+
+    exploreServices: 'Explore Services',
+    exploreGallery: 'Explore Gallery'
   };
 
   // Batch translate all content
-  const translateAllContent = async (targetLang) => {
-    if (targetLang === 'en') {
-      setTranslations(englishContent);
-      return;
-    }
+ const translateAllContent = async (targetLang) => {
+  if (targetLang === 'en') {
+    setTranslations(englishContent);
+    return;
+  }
 
-    setIsTranslating(true);
-    const translated = {};
+  setIsTranslating(true);
+  const translated = {};
 
-    try {
-      const translationPromises = Object.keys(englishContent).map(async (key, index) => {
-        await new Promise(resolve => setTimeout(resolve, index * 50));
-        
-        try {
-          const translatedText = await translateText(englishContent[key], targetLang);
-          return { key, translatedText };
-        } catch (error) {
-          console.warn(`Failed to translate ${key}:`, error);
-          return { key, translatedText: englishContent[key] };
-        }
-      });
+  try {
+    const translationPromises = Object.keys(englishContent).map(async (key, index) => {
+      await new Promise(resolve => setTimeout(resolve, index * 50));
 
-      const results = await Promise.all(translationPromises);
-      
-      results.forEach(({ key, translatedText }) => {
-        translated[key] = translatedText;
-      });
+      try {
+        const translatedText = await translateText(englishContent[key], targetLang);
 
-      setTranslations(translated);
-    } catch (error) {
-      console.error('Batch translation failed:', error);
-      setTranslations(englishContent);
-    } finally {
-      setIsTranslating(false);
-    }
-  };
+        // ✅ Log the translation here
+        console.log(`🔤 ${key}: ${englishContent[key]} → ${translatedText}`);
+
+        return { key, translatedText };
+      } catch (error) {
+        console.warn(`Failed to translate ${key}:`, error);
+        return { key, translatedText: englishContent[key] };
+      }
+    });
+
+    const results = await Promise.all(translationPromises);
+
+    results.forEach(({ key, translatedText }) => {
+      translated[key] = translatedText;
+    });
+
+    setTranslations(translated);
+  } catch (error) {
+    console.error('Batch translation failed:', error);
+    setTranslations(englishContent);
+  } finally {
+    setIsTranslating(false);
+  }
+};
 
   useEffect(() => {
     translateAllContent(currentLanguage);
@@ -379,7 +293,8 @@ visionDescription: 'A self-reliant, culturally rich community where every member
     setCurrentPage: handlePageChange,
     supportedLanguages,
     t,
-    isTranslating
+    isTranslating,
+    translations // ✅ Added this line
   };
 
   return (
