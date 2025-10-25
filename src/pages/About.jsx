@@ -154,7 +154,7 @@ const About = () => {
                     src={member.image}
                     style={{ height: '250px', objectFit: 'cover' }}
                     onError={(e) => {
-                      e.target.src = '/images/FieldofAwareness/awareness_01.jpg';
+                      e.target.src = '/images/FieldofAwareness/awareness01.jpg';
                     }}
                   />
                   <Card.Body>

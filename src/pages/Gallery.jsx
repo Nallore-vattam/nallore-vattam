@@ -56,7 +56,7 @@ const Gallery = () => {
             playsInline
             className="hero-video-bg"
             onError={() => setVideoError(true)}
-            poster="/images/Enviromental Field/enviromental_01.jpg"
+            poster="/images/Enviromental Field/enviromental01.jpg"
           >
             <source src="/videos/hero-background.mp4" type="video/mp4" />
             Your browser does not support the video tag.
@@ -191,7 +191,7 @@ const Gallery = () => {
             className="img-fluid rounded-3"
             style={{ maxHeight: '70vh', objectFit: 'contain' }}
             onError={(e) => {
-              e.target.src = '/images/FieldofAwareness/awareness_01.jpg'; // Fallback image
+              e.target.src = '/images/FieldofAwareness/awareness01.jpg'; // Fallback image
             }}
           />
         </Modal.Body>
