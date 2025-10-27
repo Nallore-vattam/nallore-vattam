@@ -4,7 +4,7 @@ import { useLanguage } from '../context/LanguageContext';
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const { currentLanguage, t, changePage } = useLanguage(); // Add changePage here
+  const { currentLanguage, t, changePage } = useLanguage();
   
   const slides = [
     {
@@ -40,36 +40,40 @@ const Hero = () => {
     }
   };
 
-  // Safe navigation functions
   const navigateToAbout = () => {
-    console.log('Navigating to about page');
     if (changePage) {
       changePage('about');
-    } else {
-      console.error('changePage function not available');
     }
   };
 
   const navigateToContact = () => {
-    console.log('Navigating to contact page');
     if (changePage) {
       changePage('contact');
-    } else {
-      console.error('changePage function not available');
     }
   };
 
   return (
     <section 
       id="home" 
-      className="hero-section"
+      className="home-hero-section"  // Changed from "hero-section" to "home-hero-section"
       style={{
-        background: `linear-gradient(135deg, rgba(44, 41, 41, 0.8), rgba(45, 44, 44, 0.8)), url(${slides[currentSlide].background}) center/cover`
+        backgroundImage: `linear-gradient(135deg, rgba(30, 27, 75, 0.9), rgba(55, 48, 163, 0.85)), url(${slides[currentSlide].background})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
       }}
     >
+      {/* Floating Particles */}
+      <div className="floating-particles">
+        <div className="particle"></div>
+        <div className="particle"></div>
+        <div className="particle"></div>
+        <div className="particle"></div>
+      </div>
+
       <Container>
-        <Row className="justify-content-center text-center">
-          <Col lg={8}>
+        <Row className="justify-content-start"> {/* Changed from justify-content-center */}
+          <Col lg={8} xl={7}>
             <div className="hero-content">
               <h1 className={`hero-title mb-4 ${getFontClass()}`}>
                 {slides[currentSlide].title}
@@ -81,14 +85,14 @@ const Hero = () => {
                 <Button 
                   size="lg" 
                   className="cta-button me-3"
-                  onClick={navigateToAbout} // Fixed: Use page navigation instead of scroll
+                  onClick={navigateToAbout}
                 >
                   {t('learnMore')}
                 </Button>
                 <Button 
                   variant="outline-light" 
                   size="lg"
-                  onClick={navigateToContact} // Fixed: Use page navigation instead of scroll
+                  onClick={navigateToContact}
                 >
                   {t('getInvolved')}
                 </Button>
@@ -98,22 +102,19 @@ const Hero = () => {
         </Row>
         
         {/* Slide Indicators */}
-        <div className="slide-indicators position-absolute bottom-0 start-50 translate-middle-x mb-4">
+        <div className="slide-indicators">
           {slides.map((_, index) => (
             <button
               key={index}
-              className={`indicator mx-1 ${index === currentSlide ? 'active' : ''}`}
+              className={`indicator ${index === currentSlide ? 'active' : ''}`}
               onClick={() => setCurrentSlide(index)}
-              style={{
-                width: '12px',
-                height: '12px',
-                borderRadius: '50%',
-                border: '2px solid white',
-                background: index === currentSlide ? 'var(--gold-color)' : 'transparent',
-                transition: 'all 0.3s ease'
-              }}
             />
           ))}
+        </div>
+
+        {/* Scroll Down Indicator */}
+        <div className="scroll-indicator">
+          <div className="scroll-arrow"></div>
         </div>
       </Container>
     </section>

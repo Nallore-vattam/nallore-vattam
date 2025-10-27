@@ -238,7 +238,31 @@ const translations = {
     thankYouMessage: 'Thank you for your message! We\'ll get back to you soon.',
     mapPlaceholder: 'Map integration would go here',
     exploreServices: 'Explore Services',
-    exploreGallery: 'Explore Gallery'
+    exploreGallery: 'Explore Gallery',
+        learnMoreAboutUs: "Learn More About Us",
+
+      title: 'Our YouTube Channel',
+      description: 'Watch our latest videos and stay updated with our community activities',
+      allVideos: 'All Videos',
+      latest: 'Latest',
+      mostViewed: 'Most Viewed',
+      events: 'Events',
+      new: 'NEW',
+      share: 'Share',
+      like: 'Like',
+      subscribers: 'Subscribers',
+      videos: 'Videos',
+      views: 'Views',
+      years: 'Years Creating',
+      ctaTitle: 'Subscribe to Our YouTube Channel',
+      ctaDescription: 'Stay updated with our latest community activities, events, and educational content',
+      subscribeNow: 'Subscribe Now',
+      loadMore: 'Load More Videos',
+       exploreInitiatives: "Explore our initiatives in",
+    exploreDomain: "Explore Domain",
+    readMoreAboutUs: "Read More About Us",
+    learnMore: "Learn More"
+    
   },
   ta: {
     home: 'முகப்பு',
@@ -420,6 +444,8 @@ const translations = {
     organicFarming: 'கரிம விவசாயம்',
     waterManagement: 'நீர் மேலாண்மை',
     cropRotation: 'பயிர் சுழற்சி',
+        learnMoreAboutUs: "எங்களைப் பற்றி மேலும் அறிக",
+
     marketLinkages: 'சந்தை இணைப்புகள்',
     festivalCelebrations: 'திருவிழா கொண்டாட்டங்கள்',
     traditionalArts: 'பாரம்பரிய கலைகள்',
@@ -468,7 +494,30 @@ const translations = {
     thankYouMessage: 'உங்கள் செய்திக்கு நன்றி! விரைவில் உங்களுக்கு பதிலளிப்போம்.',
     mapPlaceholder: 'வரைபட ஒருங்கிணைப்பு இங்கே இருக்கும்',
     exploreServices: 'சேவைகளை ஆராயுங்கள்',
-    exploreGallery: 'கேலரியை ஆராயுங்கள்'
+    exploreGallery: 'கேலரியை ஆராயுங்கள்',
+
+      title: 'எங்கள் YouTube சேனல்',
+      description: 'எங்கள் சமூக நடவடிக்கைகளைப் பற்றி அறிந்துகொள்ள எங்கள் சமீபத்திய வீடியோக்களைப் பாருங்கள்',
+      allVideos: 'அனைத்து வீடியோக்கள்',
+      latest: 'சமீபத்திய',
+      mostViewed: 'அதிகம் பார்க்கப்பட்டவை',
+      events: 'நிகழ்வுகள்',
+      new: 'புதிய',
+      share: 'பகிர்',
+      like: 'விரும்புகிறேன்',
+      subscribers: 'சந்தாதாரர்கள்',
+      videos: 'வீடியோக்கள்',
+      views: 'பார்வைகள்',
+      years: 'ஆண்டுகள் உருவாக்குகிறது',
+      ctaTitle: 'எங்கள் YouTube சேனலுக்கு சந்தா செலுத்துங்கள்',
+      ctaDescription: 'எங்கள் சமீபத்திய சமூக நடவடிக்கைகள், நிகழ்வுகள் மற்றும் கல்வி உள்ளடக்கங்களைப் பற்றி அறிந்துகொள்ளுங்கள்',
+      subscribeNow: 'இப்போது சந்தா செலுத்துங்கள்',
+      loadMore: 'மேலும் வீடியோக்களை ஏற்றுக',
+      exploreInitiatives: "எங்கள் முன்முயற்சிகளை ஆராயுங்கள்",
+    exploreDomain: "துறையை ஆராயுங்கள்",
+    readMoreAboutUs: "எங்களைப் பற்றி மேலும் அறிக",
+    learnMore: "மேலும் அறிக"
+    
   },
   hi: {
     home: 'होम',
@@ -571,6 +620,8 @@ const translations = {
     domainOfBiology: 'जीव विज्ञान डोमेन',
     governmentDomain: 'सरकारी डोमेन',
     settingsDomain: 'सेटिंग्स डोमेन',
+        learnMoreAboutUs: "हमारे बारे में और जानें",
+
     womensDomain: 'महिला डोमेन',
     youthDomain: 'युवा डोमेन',
     worldDomain: 'विश्व डोमेन',
@@ -698,7 +749,31 @@ const translations = {
     thankYouMessage: 'आपके संदेश के लिए धन्यवाद! हम जल्द ही आपको वापस संपर्क करेंगे।',
     mapPlaceholder: 'मानचित्र एकीकरण यहां होगा',
     exploreServices: 'सेवाओं का अन्वेषण करें',
-    exploreGallery: 'गैलरी का अन्वेषण करें'
+    exploreGallery: 'गैलरी का अन्वेषण करें',
+
+     
+      title: 'हमारा YouTube चैनल',
+      description: 'हमारे नवीनतम वीडियो देखें और हमारे सामुदायिक गतिविधियों से अपडेट रहें',
+      allVideos: 'सभी वीडियो',
+      latest: 'नवीनतम',
+      mostViewed: 'सबसे ज्यादा देखे गए',
+      events: 'कार्यक्रम',
+      new: 'नया',
+      share: 'साझा करें',
+      like: 'पसंद',
+      subscribers: 'सब्सक्राइबर्स',
+      videos: 'वीडियो',
+      views: 'व्यूज',
+      years: 'वर्षों से बना रहे',
+      ctaTitle: 'हमारे YouTube चैनल को सब्सक्राइब करें',
+      ctaDescription: 'हमारी नवीनतम सामुदायिक गतिविधियों, कार्यक्रमों और शैक्षिक सामग्री से अपडेट रहें',
+      subscribeNow: 'अभी सब्सक्राइब करें',
+      loadMore: 'और वीडियो लोड करें',
+      exploreInitiatives: "हमारी पहलों को देखें",
+    exploreDomain: "डोमेन देखें",
+    readMoreAboutUs: "हमारे बारे में और पढ़ें",
+    learnMore: "और जानें"
+    
   }
 };
 

@@ -82,6 +82,12 @@ const Services = () => {
     return translated && translated !== key ? translated : fallback;
   };
 
+  // Function to get color class based on index
+  const getColorClass = (index) => {
+    const colorNumber = (index % 10) + 1;
+    return `service-card-${colorNumber}`;
+  };
+
   return (
     <div className="services-page">
       {/* Modern Hero Section */}
@@ -113,7 +119,7 @@ const Services = () => {
           <Row className="g-4">
             {services.map((service, index) => (
               <Col lg={6} key={index}>
-                <Card className="service-detail-card h-100">
+                <Card className={`service-detail-card ${getColorClass(index)} h-100`}>
                   <Card.Body className="p-4">
                     <div className="d-flex align-items-start mb-3">
                       <div className="service-icon-large me-3">
@@ -183,25 +189,25 @@ const Services = () => {
                 icon: 'bi-person-plus', 
                 title: 'register', 
                 desc: 'createAccount',
-                color: 'var(--card-color-1)'
+                color: 'var(--card-1-color)'
               },
               { 
                 icon: 'bi-journal-text', 
                 title: 'apply', 
                 desc: 'chooseService',
-                color: 'var(--card-color-2)'
+                color: 'var(--card-2-color)'
               },
               { 
                 icon: 'bi-search', 
                 title: 'review', 
                 desc: 'teamReview',
-                color: 'var(--card-color-4)'
+                color: 'var(--card-4-color)'
               },
               { 
                 icon: 'bi-people', 
                 title: 'participate', 
                 desc: 'joinProgram',
-                color: 'var(--card-color-6)'
+                color: 'var(--card-6-color)'
               }
             ].map((step, index) => (
               <Col lg={3} md={6} key={index}>
@@ -261,15 +267,6 @@ const Services = () => {
           </Container>
         </section>
       )}
-
-      {/* Call to Action Section */}
-      <section className="section cta-section" style={{ 
-        background: 'linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%)',
-        padding: "80px 0",
-        color: 'white'
-      }}>
-       
-      </section>
     </div>
   );
 };

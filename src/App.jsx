@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './pages/Home';
 import AboutPage from './pages/About';
+import NavbarAutoClose from './components/NavbarAutoClose'; 
 import ServicesPage from './pages/Services';
 import GalleryPage from './pages/Gallery';
 import ContactPage from './pages/Contact';
@@ -15,7 +16,7 @@ function App() {
     <LanguageProvider>
       <Router>
         <div className="App">
-          <Header />
+          <Header /> <NavbarAutoClose />
           <main style={{ minHeight: '100vh' }}>
             <Routes>
               <Route path="/" element={<HomePage />} />

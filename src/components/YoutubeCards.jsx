@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { useLanguage } from '../context/LanguageContext';
+import './YoutubeCards.css';
 
 const YouTubeCards = () => {
   const { currentLanguage, t } = useLanguage();
@@ -25,25 +26,8 @@ const YouTubeCards = () => {
       title: 'Educational Programs',
       description: 'Our educational initiatives and skill development workshops',
       thumbnail: `${base}images/FieldofBiology/biology01.jpg`
-    },
-    {
-      id: 4,
-      title: 'Health Camp Activities',
-      description: 'Medical camps and health awareness programs in our community',
-      thumbnail: `${base}images/SettingsDomain/settings01.jpg`
-    },
-    {
-      id: 5,
-      title: 'Agricultural Training',
-      description: 'Modern farming techniques and sustainable agriculture practices',
-      thumbnail: `${base}images/VillageField/village01.jpg`
-    },
-    {
-      id: 6,
-      title: 'Women Empowerment',
-      description: 'Programs and initiatives for women empowerment and skill development',
-      thumbnail: `${base}images/WorldDomain/world01.jpg`
     }
+    
   ];
 
   const getFontClass = () => {
