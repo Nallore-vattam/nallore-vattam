@@ -1,28 +1,28 @@
-// utils/translate.js
-export const autoTranslate = async (text, targetLang) => {
-  if (!text || targetLang === "en") return text;
+// utils/translate.js - Optional backup utility
+import { translations } from '../context/LanguageContext'; // Adjust path as needed
 
-  try {
-    const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(
-      text
-    )}&langpair=en|${targetLang}`;
-
-    console.log("🔹 Translating:", text, "→", targetLang);
-
-    const response = await fetch(url);
-    const data = await response.json();
-
-    if (data?.responseData?.translatedText) {
-      console.log("✅ Translated:", data.responseData.translatedText);
-      return data.responseData.translatedText;
-    } else {
-      console.warn("⚠️ No translation found for:", text);
-      return text;
-    }
-  } catch (error) {
-    console.error("❌ MyMemory translation failed:", error);
-    return text;
+/**
+ * Manual translation utility using pre-loaded translations
+ * No API calls - uses the translations from LanguageContext
+ */
+export const translateText = async (text, targetLang) => {
+  if (targetLang === "en") return text;
+  
+  // Use pre-loaded translations from your context
+  const translated = translations[targetLang]?.[text];
+  
+  if (translated) {
+    return translated;
   }
+  
+  console.warn(`Translation not found for: "${text}" in ${targetLang}`);
+  return text; // Fallback to original text
 };
 
-export const translateText = autoTranslate;
+/**
+ * Alternative: Direct sync translation (no async needed)
+ */
+export const translateTextSync = (text, targetLang) => {
+  if (targetLang === "en") return text;
+  return translations[targetLang]?.[text] || text;
+};

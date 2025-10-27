@@ -4,7 +4,7 @@ import { useLanguage } from '../context/LanguageContext';
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const { currentLanguage, t } = useLanguage();
+  const { currentLanguage, t, changePage } = useLanguage(); // Add changePage here
   
   const slides = [
     {
@@ -40,6 +40,25 @@ const Hero = () => {
     }
   };
 
+  // Safe navigation functions
+  const navigateToAbout = () => {
+    console.log('Navigating to about page');
+    if (changePage) {
+      changePage('about');
+    } else {
+      console.error('changePage function not available');
+    }
+  };
+
+  const navigateToContact = () => {
+    console.log('Navigating to contact page');
+    if (changePage) {
+      changePage('contact');
+    } else {
+      console.error('changePage function not available');
+    }
+  };
+
   return (
     <section 
       id="home" 
@@ -62,14 +81,14 @@ const Hero = () => {
                 <Button 
                   size="lg" 
                   className="cta-button me-3"
-                  onClick={() => document.getElementById('about').scrollIntoView({ behavior: 'smooth' })}
+                  onClick={navigateToAbout} // Fixed: Use page navigation instead of scroll
                 >
                   {t('learnMore')}
                 </Button>
                 <Button 
                   variant="outline-light" 
                   size="lg"
-                  onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
+                  onClick={navigateToContact} // Fixed: Use page navigation instead of scroll
                 >
                   {t('getInvolved')}
                 </Button>
