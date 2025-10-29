@@ -66,7 +66,7 @@ const GalleryPreview = () => {
               {t('galleryTitle')}
             </h2>
             <p className={`lead ${getFontClass()}`}>
-              Capturing moments of community growth, cultural celebrations, and meaningful interactions
+              {t('galleryDescription', 'Capturing moments of community growth, cultural celebrations, and meaningful interactions')}
             </p>
           </Col>
         </Row>
@@ -100,7 +100,7 @@ const GalleryPreview = () => {
               size="lg"
               onClick={handleViewGallery}
             >
-              View Full Gallery
+              {t('viewFullGallery', 'View Full Gallery')}
             </Button>
           </Col>
         </Row>

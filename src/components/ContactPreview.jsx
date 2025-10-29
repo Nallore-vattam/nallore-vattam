@@ -51,9 +51,9 @@ const ContactPreview = () => {
             <h2 className={`section-title ${getFontClass()}`}>
               {t('contactTitle')}
             </h2>
-            <p id="cntpr" className={`lead ${getFontClass()}`}>
-              Get in touch with us. We're here to help and answer any questions you might have.
-            </p>
+           <p id="cntpr" className={`lead ${getFontClass()}`}>
+  {t('contactDescription', "Get in touch with us. We're here to help and answer any questions you might have.")}
+</p>
           </Col>
         </Row>
 
@@ -82,14 +82,14 @@ const ContactPreview = () => {
 
         <Row>
           <Col className="text-center">
-            <Button 
-              variant="primary" 
-              size="lg" 
-              className="me-3"
-              onClick={handleContactUs}
-            >
-              Contact Us
-            </Button>
+           <Button 
+  variant="primary" 
+  size="lg" 
+  className="me-3"
+  onClick={handleContactUs}
+>
+  {t('contactUs', 'Contact Us')}
+</Button>
           </Col>
         </Row>
       </Container>

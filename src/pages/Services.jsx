@@ -100,11 +100,11 @@ const Services = () => {
         <Container>
           <Row>
             <Col lg={8} className="mx-auto">
-              <div className="premium-content-box">
-                <h1 className={`premium-hero-title ${getFontClass()}`}>
+              <div className="hero-content-box">
+                <h1 className={`hero-title ${getFontClass()}`}>
                   {safeTranslate('ourServices', 'Our Services')}
                 </h1>
-                <p className={`premium-hero-subtitle ${getFontClass()}`}>
+                <p className={`hero-subtitle ${getFontClass()}`}>
                   {safeTranslate('servicesSubtitle', 'Comprehensive community development programs designed to create lasting impact and sustainable change')}
                 </p>
               </div>

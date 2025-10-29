@@ -159,6 +159,10 @@ const translations = {
     knowledgeSharing: 'Knowledge Sharing',
     environmentalProtection: 'Environmental Protection',
     cleanEnergy: 'Clean Energy',
+     youtubeTitle: "Our YouTube Channel",
+  youtubeDescription: "Watch our latest videos and stay updated with our community activities",
+  contactUs: "Contact Us",
+
     wasteManagement: 'Waste Management',
     greenInitiatives: 'Green Initiatives',
     publicAwareness: 'Public Awareness',
@@ -240,7 +244,7 @@ const translations = {
     exploreServices: 'Explore Services',
     exploreGallery: 'Explore Gallery',
         learnMoreAboutUs: "Learn More About Us",
-
+        contactDescription: "Get in touch with us. We're here to help and answer any questions you might have.",
       title: 'Our YouTube Channel',
       description: 'Watch our latest videos and stay updated with our community activities',
       allVideos: 'All Videos',
@@ -261,8 +265,11 @@ const translations = {
        exploreInitiatives: "Explore our initiatives in",
     exploreDomain: "Explore Domain",
     readMoreAboutUs: "Read More About Us",
-    learnMore: "Learn More"
-    
+  viewAllServices: "View All Services",
+      viewFullGallery: "View Full Gallery",
+        galleryDescription: "Capturing moments of community growth, cultural celebrations, and meaningful interactions"
+
+
   },
   ta: {
     home: 'முகப்பு',
@@ -381,6 +388,7 @@ const translations = {
     environmentalDomainDesc: 'பசுமை வாழ்க்கைக்கான சுற்றுச்சூழல் பாதுகாப்பு மற்றும் நிலைத்தன்மை முன்முயற்சிகள். தூய்மையான ஆற்றல், கழிவு மேலாண்மை மற்றும் பாதுகாப்புத் திட்டங்கள்.',
     awarenessDomainDesc: 'சமூக அறிவொளிக்கான பொது விழிப்புணர்வு பிரச்சாரங்கள் மற்றும் கல்வித் திட்டங்கள். சமூக ஊடக வெளிப்பாடு மற்றும் பணிப்பட்டறை முன்முயற்சிகள்.',
     educationalSupport: 'கல்வி ஆதரவு',
+      contactUs: "எங்களை தொடர்பு கொள்ளுங்கள்",
     careerCounseling: 'தொழில் வழிகாட்டுதல்',
     scholarshipPrograms: 'உதவித்தொகைத் திட்டங்கள்',
     skillDevelopment: 'திறன் மேம்பாடு',
@@ -445,7 +453,8 @@ const translations = {
     waterManagement: 'நீர் மேலாண்மை',
     cropRotation: 'பயிர் சுழற்சி',
         learnMoreAboutUs: "எங்களைப் பற்றி மேலும் அறிக",
-
+      viewAllServices: "அனைத்து சேவைகளையும் காண்க",
+  galleryDescription: "சமூக வளர்ச்சி, கலாச்சார விழாக்கள் மற்றும் அர்த்தமுள்ள தொடர்புகளின் கணங்களைப் பதிவு செய்தல்",
     marketLinkages: 'சந்தை இணைப்புகள்',
     festivalCelebrations: 'திருவிழா கொண்டாட்டங்கள்',
     traditionalArts: 'பாரம்பரிய கலைகள்',
@@ -495,7 +504,8 @@ const translations = {
     mapPlaceholder: 'வரைபட ஒருங்கிணைப்பு இங்கே இருக்கும்',
     exploreServices: 'சேவைகளை ஆராயுங்கள்',
     exploreGallery: 'கேலரியை ஆராயுங்கள்',
-
+  viewFullGallery: "முழு கேலரியைக் காண்க",
+  contactDescription: "எங்களைத் தொடர்பு கொள்ளுங்கள். உங்களுக்கு ஏதேனும் கேள்விகள் இருந்தால் உதவவும் பதிலளிக்கவும் நாங்கள் இங்கே உள்ளோம்.",
       title: 'எங்கள் YouTube சேனல்',
       description: 'எங்கள் சமூக நடவடிக்கைகளைப் பற்றி அறிந்துகொள்ள எங்கள் சமீபத்திய வீடியோக்களைப் பாருங்கள்',
       allVideos: 'அனைத்து வீடியோக்கள்',
@@ -507,6 +517,8 @@ const translations = {
       like: 'விரும்புகிறேன்',
       subscribers: 'சந்தாதாரர்கள்',
       videos: 'வீடியோக்கள்',
+      youtubeTitle: "எங்கள் YouTube சேனல்",
+  youtubeDescription: "எங்கள் சமூக செயல்பாடுகளுடன் புதிய வீடியோக்களைப் பார்த்து புதுப்பித்துக் கொள்ளுங்கள்",
       views: 'பார்வைகள்',
       years: 'ஆண்டுகள் உருவாக்குகிறது',
       ctaTitle: 'எங்கள் YouTube சேனலுக்கு சந்தா செலுத்துங்கள்',
@@ -621,7 +633,8 @@ const translations = {
     governmentDomain: 'सरकारी डोमेन',
     settingsDomain: 'सेटिंग्स डोमेन',
         learnMoreAboutUs: "हमारे बारे में और जानें",
-
+youtubeTitle: "हमारा YouTube चैनल",
+  youtubeDescription: "हमारे नवीनतम वीडियो देखें और हमारी सामुदायिक गतिविधियों के साथ अपडेट रहें",
     womensDomain: 'महिला डोमेन',
     youthDomain: 'युवा डोमेन',
     worldDomain: 'विश्व डोमेन',
@@ -700,6 +713,8 @@ const translations = {
     healthAwareness: 'स्वास्थ्य जागरूकता',
     organicFarming: 'जैविक खेती',
     waterManagement: 'जल प्रबंधन',
+    contactUs: "हमसे संपर्क करें",
+
     cropRotation: 'फसल चक्र',
     marketLinkages: 'बाजार संबंध',
     festivalCelebrations: 'त्योहार समारोह',
@@ -750,8 +765,12 @@ const translations = {
     mapPlaceholder: 'मानचित्र एकीकरण यहां होगा',
     exploreServices: 'सेवाओं का अन्वेषण करें',
     exploreGallery: 'गैलरी का अन्वेषण करें',
+  viewAllServices: "सभी सेवाएं देखें",
+  viewFullGallery:'पूरी गैलरी देखें' ,
 
-     
+  galleryDescription: "सामुदायिक विकास, सांस्कृतिक उत्सव और सार्थक संवाद के पलों को कैद करना",
+  contactDescription: "हमसे संपर्क करें। हम आपकी मदद करने और आपके किसी भी प्रश्न का उत्तर देने के लिए यहां हैं।",
+
       title: 'हमारा YouTube चैनल',
       description: 'हमारे नवीनतम वीडियो देखें और हमारे सामुदायिक गतिविधियों से अपडेट रहें',
       allVideos: 'सभी वीडियो',

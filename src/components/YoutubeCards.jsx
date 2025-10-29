@@ -6,7 +6,7 @@ import './YoutubeCards.css';
 const YouTubeCards = () => {
   const { currentLanguage, t } = useLanguage();
 
-  const base = import.meta.env.BASE_URL; // 👈 dynamic base path for GitHub Pages
+  const base = import.meta.env.BASE_URL;
 
   const videos = [
     {
@@ -27,7 +27,6 @@ const YouTubeCards = () => {
       description: 'Our educational initiatives and skill development workshops',
       thumbnail: `${base}images/FieldofBiology/biology01.jpg`
     }
-    
   ];
 
   const getFontClass = () => {
@@ -42,11 +41,11 @@ const YouTubeCards = () => {
     <section id="youtube" className="section youtube-section">
       <Container>
         <h2 className={`section-title ${getFontClass()}`}>
-          Our YouTube Channel
-        </h2>
-        <p className={`text-center mb-5 ${getFontClass()}`}>
-          Watch our latest videos and stay updated with our community activities
-        </p>
+  {t('youtubeTitle', 'Our YouTube Channel')}
+</h2>
+<p className={`text-center mb-5 ${getFontClass()}`}>
+  {t('youtubeDescription', 'Watch our latest videos and stay updated with our community activities')}
+</p>
 
         <Row>
           {videos.map((video) => (
@@ -67,10 +66,10 @@ const YouTubeCards = () => {
                   </div>
                   <div className="play-button position-absolute top-50 start-50 translate-middle">
                     <div
-                      className="play-icon bg-white bg-opacity-90 rounded-circle d-flex align-items-center justify-content-center"
-                      style={{ width: '60px', height: '60px' }}
+                      className="play-icon-bubble bg-white bg-opacity-90 d-flex align-items-center justify-content-center"
+                      style={{ width: '50px', height: '50px' }}
                     >
-                      <i className="bi bi-play-fill text-dark fs-4" style={{ marginLeft: '4px' }}></i>
+                      <i className="bi bi-play-fill text-dark fs-5" style={{ marginLeft: '3px' }}></i>
                     </div>
                   </div>
                 </div>
@@ -84,8 +83,8 @@ const YouTubeCards = () => {
                   </Card.Text>
                   <div className="d-flex justify-content-between align-items-center">
                     <span className="text-muted small">{video.views}</span>
-                    <button className="btn btn-outline-primary btn-sm">
-                      <i className="bi bi-play-btn me-1"></i>
+                    <button className="action-btn-diamond">
+  <i className="bi bi-play-btn me-1"></i>
                       Watch
                     </button>
                   </div>
@@ -119,29 +118,6 @@ const YouTubeCards = () => {
             <div className="stat-card">
               <h3 className="text-primary mb-2">2 Years</h3>
               <p className={`${getFontClass()} mb-0`}>Creating</p>
-            </div>
-          </Col>
-        </Row>
-
-        {/* Subscribe CTA */}
-        <Row className="mt-4">
-          <Col className="text-center">
-            <div
-              className="subscribe-cta p-4 rounded"
-              style={{
-                background: 'linear-gradient(135deg, var(--primary-color), var(--secondary-color))',
-              }}
-            >
-              <h4 className={`text-white mb-3 ${getFontClass()}`}>
-                Subscribe to our YouTube Channel
-              </h4>
-              <p className={`text-white mb-4 ${getFontClass()}`}>
-                Stay updated with our latest community activities and events
-              </p>
-              <button className="btn btn-danger btn-lg">
-                <i className="bi bi-youtube me-2"></i>
-                Subscribe Now
-              </button>
             </div>
           </Col>
         </Row>
