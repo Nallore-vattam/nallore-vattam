@@ -596,3 +596,436 @@
 .service-actions .btn:focus {
   box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);
 } 
+/* Service Navigation Styles */
+.service-navigation {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* Horizontal Navigation Pills */
+.service-nav-link {
+  border-radius: 12px !important;
+  padding: 12px 20px !important;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  border: 2px solid transparent !important;
+  background: white !important;
+  color: #374151 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  margin: 0 4px !important;
+}
+
+.service-nav-link:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+.service-nav-link.active {
+  color: white !important;
+  border-color: transparent !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Unique colors for navigation pills */
+.service-card-1 .service-nav-link.active { background: linear-gradient(135deg, var(--card-1-color) 0%, #3b82f6 100%) !important; }
+.service-card-2 .service-nav-link.active { background: linear-gradient(135deg, var(--card-2-color) 0%, #10b981 100%) !important; }
+.service-card-3 .service-nav-link.active { background: linear-gradient(135deg, var(--card-3-color) 0%, #ef4444 100%) !important; }
+.service-card-4 .service-nav-link.active { background: linear-gradient(135deg, var(--card-4-color) 0%, #a855f7 100%) !important; }
+.service-card-5 .service-nav-link.active { background: linear-gradient(135deg, var(--card-5-color) 0%, #f97316 100%) !important; }
+.service-card-6 .service-nav-link.active { background: linear-gradient(135deg, var(--card-6-color) 0%, #06b6d4 100%) !important; }
+.service-card-7 .service-nav-link.active { background: linear-gradient(135deg, var(--card-7-color) 0%, #ec4899 100%) !important; }
+.service-card-8 .service-nav-link.active { background: linear-gradient(135deg, var(--card-8-color) 0%, #84cc16 100%) !important; }
+.service-card-9 .service-nav-link.active { background: linear-gradient(135deg, var(--card-9-color) 0%, #6366f1 100%) !important; }
+.service-card-10 .service-nav-link.active { background: linear-gradient(135deg, var(--card-10-color) 0%, #14b8a6 100%) !important; }
+
+.service-nav-icon {
+  font-size: 1.1rem;
+  transition: transform 0.3s ease;
+}
+
+.service-nav-link:hover .service-nav-icon {
+  transform: scale(1.2);
+}
+
+/* Grid Navigation Cards */
+.service-nav-card {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  border: 2px solid transparent !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  background: white !important;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-nav-card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+.service-nav-card.active {
+  border-color: transparent !important;
+  color: white !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Unique colors for grid cards */
+.service-card-1 .service-nav-card.active { background: linear-gradient(135deg, var(--card-1-color) 0%, #3b82f6 100%) !important; }
+.service-card-2 .service-nav-card.active { background: linear-gradient(135deg, var(--card-2-color) 0%, #10b981 100%) !important; }
+.service-card-3 .service-nav-card.active { background: linear-gradient(135deg, var(--card-3-color) 0%, #ef4444 100%) !important; }
+.service-card-4 .service-nav-card.active { background: linear-gradient(135deg, var(--card-4-color) 0%, #a855f7 100%) !important; }
+.service-card-5 .service-nav-card.active { background: linear-gradient(135deg, var(--card-5-color) 0%, #f97316 100%) !important; }
+.service-card-6 .service-nav-card.active { background: linear-gradient(135deg, var(--card-6-color) 0%, #06b6d4 100%) !important; }
+.service-card-7 .service-nav-card.active { background: linear-gradient(135deg, var(--card-7-color) 0%, #ec4899 100%) !important; }
+.service-card-8 .service-nav-card.active { background: linear-gradient(135deg, var(--card-8-color) 0%, #84cc16 100%) !important; }
+.service-card-9 .service-nav-card.active { background: linear-gradient(135deg, var(--card-9-color) 0%, #6366f1 100%) !important; }
+.service-card-10 .service-nav-card.active { background: linear-gradient(135deg, var(--card-10-color) 0%, #14b8a6 100%) !important; }
+
+.service-nav-grid-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.service-nav-card:hover .service-nav-grid-icon {
+  transform: scale(1.1);
+}
+
+/* Service Sidebar Styles */
+.service-sidebar {
+  top: 100px;
+  padding-top: 20px;
+}
+
+.service-sidebar-card {
+  border-radius: 16px !important;
+  overflow: hidden;
+  background: white !important;
+}
+
+.service-sidebar-header {
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%) !important;
+  color: white !important;
+  border: none !important;
+  padding: 1.25rem !important;
+}
+
+.service-sidebar-item {
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.service-sidebar-item:last-child {
+  border-bottom: none;
+}
+
+.service-sidebar-link {
+  border-radius: 0 !important;
+  transition: all 0.3s ease !important;
+  border: none !important;
+  background: transparent !important;
+  color: #374151 !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-sidebar-link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  transition: width 0.3s ease;
+}
+
+.service-sidebar-link:hover {
+  background: #f8fafc !important;
+  padding-left: 25px !important;
+}
+
+.service-sidebar-link:hover::before {
+  width: 4px;
+}
+
+.service-sidebar-link.active {
+  color: white !important;
+  background: transparent !important;
+}
+
+/* Unique colors for sidebar active states */
+.service-card-1 .service-sidebar-link.active { background: linear-gradient(135deg, var(--card-1-color) 0%, #3b82f6 100%) !important; }
+.service-card-2 .service-sidebar-link.active { background: linear-gradient(135deg, var(--card-2-color) 0%, #10b981 100%) !important; }
+.service-card-3 .service-sidebar-link.active { background: linear-gradient(135deg, var(--card-3-color) 0%, #ef4444 100%) !important; }
+.service-card-4 .service-sidebar-link.active { background: linear-gradient(135deg, var(--card-4-color) 0%, #a855f7 100%) !important; }
+.service-card-5 .service-sidebar-link.active { background: linear-gradient(135deg, var(--card-5-color) 0%, #f97316 100%) !important; }
+.service-card-6 .service-sidebar-link.active { background: linear-gradient(135deg, var(--card-6-color) 0%, #06b6d4 100%) !important; }
+.service-card-7 .service-sidebar-link.active { background: linear-gradient(135deg, var(--card-7-color) 0%, #ec4899 100%) !important; }
+.service-card-8 .service-sidebar-link.active { background: linear-gradient(135deg, var(--card-8-color) 0%, #84cc16 100%) !important; }
+.service-card-9 .service-sidebar-link.active { background: linear-gradient(135deg, var(--card-9-color) 0%, #6366f1 100%) !important; }
+.service-card-10 .service-sidebar-link.active { background: linear-gradient(135deg, var(--card-10-color) 0%, #14b8a6 100%) !important; }
+
+.service-sidebar-link.active::before {
+  width: 4px;
+  background: rgba(255, 255, 255, 0.5) !important;
+}
+
+.service-sidebar-icon {
+  font-size: 1.3rem;
+  transition: transform 0.3s ease;
+}
+
+.service-sidebar-link:hover .service-sidebar-icon {
+  transform: scale(1.1);
+}
+
+/* Service Detail Page Styles */
+.service-detail-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.service-detail-header {
+  border-radius: 20px !important;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-detail-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.service-detail-header .card-body {
+  position: relative;
+  z-index: 2;
+}
+
+/* Unique gradients for detail headers */
+.service-card-1 .service-detail-header { background: linear-gradient(135deg, var(--card-1-color) 0%, #3b82f6 100%) !important; }
+.service-card-2 .service-detail-header { background: linear-gradient(135deg, var(--card-2-color) 0%, #10b981 100%) !important; }
+.service-card-3 .service-detail-header { background: linear-gradient(135deg, var(--card-3-color) 0%, #ef4444 100%) !important; }
+.service-card-4 .service-detail-header { background: linear-gradient(135deg, var(--card-4-color) 0%, #a855f7 100%) !important; }
+.service-card-5 .service-detail-header { background: linear-gradient(135deg, var(--card-5-color) 0%, #f97316 100%) !important; }
+.service-card-6 .service-detail-header { background: linear-gradient(135deg, var(--card-6-color) 0%, #06b6d4 100%) !important; }
+.service-card-7 .service-detail-header { background: linear-gradient(135deg, var(--card-7-color) 0%, #ec4899 100%) !important; }
+.service-card-8 .service-detail-header { background: linear-gradient(135deg, var(--card-8-color) 0%, #84cc16 100%) !important; }
+.service-card-9 .service-detail-header { background: linear-gradient(135deg, var(--card-9-color) 0%, #6366f1 100%) !important; }
+.service-card-10 .service-detail-header { background: linear-gradient(135deg, var(--card-10-color) 0%, #14b8a6 100%) !important; }
+
+.service-meta-badge {
+  border-radius: 20px !important;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Feature Cards */
+.feature-card {
+  border-radius: 12px !important;
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+.feature-icon i {
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover .feature-icon i {
+  transform: scale(1.2);
+}
+
+/* Unique colors for feature icons */
+.service-card-1 .feature-icon i { color: var(--card-1-color) !important; }
+.service-card-2 .feature-icon i { color: var(--card-2-color) !important; }
+.service-card-3 .feature-icon i { color: var(--card-3-color) !important; }
+.service-card-4 .feature-icon i { color: var(--card-4-color) !important; }
+.service-card-5 .feature-icon i { color: var(--card-5-color) !important; }
+.service-card-6 .feature-icon i { color: var(--card-6-color) !important; }
+.service-card-7 .feature-icon i { color: var(--card-7-color) !important; }
+.service-card-8 .feature-icon i { color: var(--card-8-color) !important; }
+.service-card-9 .feature-icon i { color: var(--card-9-color) !important; }
+.service-card-10 .feature-icon i { color: var(--card-10-color) !important; }
+
+/* Info Headers */
+.service-info-header {
+  background: linear-gradient(135deg, var(--card-1-color) 0%, #3b82f6 100%) !important;
+  color: white !important;
+  border: none !important;
+}
+
+.service-apply-header {
+  background: linear-gradient(135deg, var(--card-2-color) 0%, #10b981 100%) !important;
+  color: white !important;
+  border: none !important;
+}
+
+/* Action Buttons */
+.service-action-btn {
+  border-radius: 12px !important;
+  padding: 12px 24px !important;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Service Pagination */
+.service-pagination-btn {
+  border-radius: 12px !important;
+  transition: all 0.3s ease;
+  border: 2px solid #e2e8f0 !important;
+  height: 100%;
+  background: white !important;
+  color: #374151 !important;
+}
+
+.service-pagination-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15) !important;
+  border-color: transparent !important;
+  color: white !important;
+}
+
+/* Unique colors for pagination buttons */
+.service-card-1 .service-pagination-btn:hover { background: linear-gradient(135deg, var(--card-1-color) 0%, #3b82f6 100%) !important; }
+.service-card-2 .service-pagination-btn:hover { background: linear-gradient(135deg, var(--card-2-color) 0%, #10b981 100%) !important; }
+.service-card-3 .service-pagination-btn:hover { background: linear-gradient(135deg, var(--card-3-color) 0%, #ef4444 100%) !important; }
+.service-card-4 .service-pagination-btn:hover { background: linear-gradient(135deg, var(--card-4-color) 0%, #a855f7 100%) !important; }
+.service-card-5 .service-pagination-btn:hover { background: linear-gradient(135deg, var(--card-5-color) 0%, #f97316 100%) !important; }
+.service-card-6 .service-pagination-btn:hover { background: linear-gradient(135deg, var(--card-6-color) 0%, #06b6d4 100%) !important; }
+.service-card-7 .service-pagination-btn:hover { background: linear-gradient(135deg, var(--card-7-color) 0%, #ec4899 100%) !important; }
+.service-card-8 .service-pagination-btn:hover { background: linear-gradient(135deg, var(--card-8-color) 0%, #84cc16 100%) !important; }
+.service-card-9 .service-pagination-btn:hover { background: linear-gradient(135deg, var(--card-9-color) 0%, #6366f1 100%) !important; }
+.service-card-10 .service-pagination-btn:hover { background: linear-gradient(135deg, var(--card-10-color) 0%, #14b8a6 100%) !important; }
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .service-nav-card {
+    min-height: 100px;
+  }
+  
+  .service-sidebar {
+    position: static;
+    margin-bottom: 30px;
+  }
+  
+  .service-detail-header .display-5 {
+    font-size: 2rem;
+  }
+  
+  .service-content {
+    padding: 1rem !important;
+  }
+  
+  .service-detail-icon {
+    font-size: 3rem;
+  }
+}
+
+/* Enhanced focus states */
+.service-nav-link:focus,
+.service-sidebar-link:focus,
+.service-pagination-btn:focus,
+.service-action-btn:focus {
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3) !important;
+  outline: none;
+}
+
+/* Service Navigation Styles */
+.service-navigation {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.service-nav-link {
+  border-radius: 12px !important;
+  padding: 12px 20px !important;
+  transition: all 0.3s ease !important;
+  border: 2px solid transparent !important;
+  background: white !important;
+  color: #374151 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  margin: 0 4px !important;
+}
+
+.service-nav-link:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+.service-nav-link.active {
+  color: white !important;
+  border-color: transparent !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+}
+
+.service-nav-card {
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: white;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-nav-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.service-nav-card.active {
+  border-color: #007bff;
+  background: #007bff;
+  color: white;
+}
+
+.service-nav-icon {
+  font-size: 1.1rem;
+}
+
+.service-nav-grid-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Process Section */
+.process-card {
+  transition: all 0.3s ease;
+  border-radius: 12px;
+}
+
+.process-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+}
+
+.process-icon {
+  transition: transform 0.3s ease;
+}
+
+.process-card:hover .process-icon {
+  transform: scale(1.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .service-nav-card {
+    min-height: 100px;
+  }
+}

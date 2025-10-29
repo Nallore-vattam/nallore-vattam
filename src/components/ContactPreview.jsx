@@ -1,9 +1,11 @@
 import React from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import { useLanguage } from '../context/LanguageContext';
+import { useNavigate } from 'react-router-dom'; // ADD THIS IMPORT
 
 const ContactPreview = () => {
   const { currentLanguage, t, setCurrentPage } = useLanguage();
+  const navigate = useNavigate(); // ADD THIS HOOK
 
   const getFontClass = () => {
     switch(currentLanguage) {
@@ -36,24 +38,26 @@ const ContactPreview = () => {
 
   const handleContactUs = () => {
     setCurrentPage('contact');
+    navigate('/contact'); // ADD THIS LINE - navigates to Contact page
   };
 
   const handleScheduleVisit = () => {
     setCurrentPage('contact');
+    navigate('/contact'); // ADD THIS LINE - navigates to Contact page
     // You could add logic to scroll to a specific section or open a modal
   };
 
   return (
-    <section id="contact-preview" className="section contact-preview-section bg-light text-white "  style={{ marginTop: "20px" }}>
+    <section id="contact-preview" className="section contact-preview-section bg-light" style={{ marginTop: "20px" }}>
       <Container>
         <Row className="text-center mb-5">
           <Col lg={8} className="mx-auto">
             <h2 className={`section-title ${getFontClass()}`}>
-              {t('contactTitle')}
+              {t('contactTitle', 'Get In Touch')}
             </h2>
-           <p id="cntpr" className={`lead ${getFontClass()}`}>
-  {t('contactDescription', "Get in touch with us. We're here to help and answer any questions you might have.")}
-</p>
+            <p id="cntpr" className={`lead ${getFontClass()}`}>
+              {t('contactDescription', "Get in touch with us. We're here to help and answer any questions you might have.")}
+            </p>
           </Col>
         </Row>
 
@@ -82,14 +86,13 @@ const ContactPreview = () => {
 
         <Row>
           <Col className="text-center">
-           <Button 
-  variant="primary" 
-  size="lg" 
-  className="me-3"
-  onClick={handleContactUs}
->
-  {t('contactUs', 'Contact Us')}
-</Button>
+            <Button 
+              className="btn-contact" // CHANGED TO CUSTOM STYLING
+              size="lg"
+              onClick={handleContactUs}
+            >
+              {t('contactUs', 'Contact Us')}
+            </Button>
           </Col>
         </Row>
       </Container>

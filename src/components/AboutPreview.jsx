@@ -1,9 +1,11 @@
 import React from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { useLanguage } from '../context/LanguageContext';
+import { useNavigate } from 'react-router-dom';
 
 const AboutPreview = () => {
   const { currentLanguage, t, setCurrentPage } = useLanguage();
+  const navigate = useNavigate();
 
   const getFontClass = () => {
     switch(currentLanguage) {
@@ -15,38 +17,38 @@ const AboutPreview = () => {
 
   const handleViewMore = () => {
     setCurrentPage('about');
+    navigate('/about');
   };
 
   return (
-    <section id="about-preview" className="section about-preview-section " >
+    <section id="about-preview" className="section about-preview-section">
       <Container>
         <Row className="align-items-center">
           <Col lg={6} className="mb-4 mb-lg-0">
-           <img
-  src="/images/Enviromental Field/enviromental01.jpg"
-  alt="About Nallor Vattam"
-  className="about-image img-fluid w-100 rounded-3"
-  style={{ height: '400px', objectFit: 'cover' }}
-  onError={(e) => {
-    e.target.onerror = null; // prevent infinite loop
-    e.target.src = "/images/FieldofAwareness/awareness01.jpg";
-  }}
-/>
-
+            <img
+              src="/images/Enviromental Field/enviromental01.jpg"
+              alt="About Nallor Vattam"
+              className="about-image img-fluid w-100 rounded-3"
+              style={{ height: '400px', objectFit: 'cover' }}
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src = "/images/FieldofAwareness/awareness01.jpg";
+              }}
+            />
           </Col>
           <Col lg={6}>
             <div className="about-preview-content">
               <h2 className={`section-title text-start ${getFontClass()}`}>
-                {t('aboutTitle')}
+                {t('aboutTitle', 'About Nallor Vattam')}
               </h2>
               <p className={`about-text ${getFontClass()} mb-4`}>
-                {t('aboutText1')}
+                {t('aboutText1', 'Nallor Vattam is a vibrant community organization dedicated to social welfare, cultural preservation, and educational development. We strive to create positive change through collaborative efforts and community engagement.')}
               </p>
               <p className={`about-text ${getFontClass()} mb-4`}>
-                {t('aboutText2')}
+                {t('aboutText2', 'Our mission is to empower individuals and strengthen communities through various initiatives including educational programs, health camps, environmental awareness, and cultural events that celebrate our rich heritage.')}
               </p>
               <p className={`about-text ${getFontClass()} mb-4`}>
-                {t('aboutText3')}
+                {t('aboutText3', 'With a strong network of volunteers and community partners, we work tirelessly to address social challenges and create opportunities for growth and development across all sections of society.')}
               </p>
               
               <div className="about-highlights mb-4">
@@ -100,12 +102,11 @@ const AboutPreview = () => {
 
               <div className="about-actions">
                 <Button 
-                  variant="primary" 
-                  size="lg" 
-                  className="me-3"
+                  className="btn-about"
+                  size="lg"
                   onClick={handleViewMore}
                 >
-                  Learn More About Us
+                  {t('learnMoreAboutUs', 'Learn More About Us')}
                 </Button>
               </div>
             </div>

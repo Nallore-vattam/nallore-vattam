@@ -16,30 +16,60 @@ const About = () => {
   const teamMembers = [
     {
       name: 'Yathin',
-      role: 'President',
+      role: t('president'),
       image: '/images/Enviromental Field/enviromental01.jpg',
-      description: 'Leading community initiatives for over 10 years'
+      description: t('presidentDesc')
     },
     {
       name: 'Aditya',
-      role: 'Secretary',
+      role: t('secretary'),
       image: '/images/FieldofBiology/biology01.jpg',
-      description: 'Dedicated to women empowerment programs'
+      description: t('secretaryDesc')
     },
     {
       name: 'Madhav',
-      role: 'Treasurer',
+      role: t('treasurer'),
       image: '/images/VillageField/village01.jpg',
-      description: 'Financial management and resource allocation'
+      description: t('treasurerDesc')
     }
   ];
 
   const milestones = [
-    { year: '2014', event: 'Organization Founded', description: 'Started with 50 members' },
-    { year: '2016', event: 'First Community Center', description: 'Established permanent space' },
-    { year: '2018', event: 'Education Program Launch', description: 'Scholarships for students' },
-    { year: '2020', event: 'Digital Transformation', description: 'Online community platform' },
-    { year: '2023', event: '500+ Members', description: 'Community growth milestone' }
+    { 
+      year: '2014', 
+      event: t('organizationFounded'), 
+      description: t('startedWith50Members'),
+      icon: '🏛️',
+      color: 'primary'
+    },
+    { 
+      year: '2016', 
+      event: t('firstCommunityCenter'), 
+      description: t('establishedPermanentSpace'),
+      icon: '🏠',
+      color: 'success'
+    },
+    { 
+      year: '2018', 
+      event: t('educationProgramLaunch'), 
+      description: t('scholarshipsForStudents'),
+      icon: '🎓',
+      color: 'info'
+    },
+    { 
+      year: '2020', 
+      event: t('digitalTransformation'), 
+      description: t('onlineCommunityPlatform'),
+      icon: '💻',
+      color: 'warning'
+    },
+    { 
+      year: '2023', 
+      event: t('members500'), 
+      description: t('communityGrowthMilestone'),
+      icon: '👥',
+      color: 'danger'
+    }
   ];
 
   return (
@@ -82,7 +112,7 @@ const About = () => {
       </section>
 
       {/* Mission & Vision */}
-      <section className="section mission-vision-section"  style={{ marginTop: "20px" }}>
+      <section className="section mission-vision-section" style={{ marginTop: "20px" }}>
         <Container>
           <Row className="g-4">
             <Col lg={6}>
@@ -119,28 +149,61 @@ const About = () => {
         </Container>
       </section>
 
-      {/* History Timeline */}
-      <section className="section timeline-section bg-light" style={{ marginTop: "20px" }}>
+      {/* History Timeline - Updated to Card Style */}
+      <section className="section milestones-section" style={{ padding: '60px 0' }}>
         <Container>
-          <h2 className={`section-title text-center ${getFontClass()}`}>
+          <h2 className={`section-title text-center mb-5 ${getFontClass()}`}>
             {t('ourJourney')}
           </h2>
-          <div className="timeline">
+          <Row className="g-4">
             {milestones.map((milestone, index) => (
-              <div key={index} className="timeline-item">
-                <div className="timeline-year">{milestone.year}</div>
-                <div className="timeline-content">
-                  <h5 className={getFontClass()}>{milestone.event}</h5>
-                  <p className={`text-muted ${getFontClass()}`}>{milestone.description}</p>
-                </div>
-              </div>
+              <Col lg={4} md={6} key={index}>
+                <Card 
+                  className={`milestone-card h-100 border-${milestone.color} shadow-sm`}
+                  style={{ 
+                    borderTop: `4px solid var(--bs-${milestone.color})`,
+                    transition: 'transform 0.3s ease, box-shadow 0.3s ease'
+                  }}
+                >
+                  <Card.Body className="text-center p-4">
+                    {/* Year Badge */}
+                    <div 
+                      className={`milestone-year-badge bg-${milestone.color} text-white rounded-pill mb-3 mx-auto`}
+                      style={{ 
+                        width: '80px', 
+                        height: '80px', 
+                        display: 'flex', 
+                        alignItems: 'center', 
+                        justifyContent: 'center',
+                        fontSize: '1.5rem',
+                        fontWeight: 'bold'
+                      }}
+                    >
+                      {milestone.year}
+                    </div>
+
+                    {/* Icon */}
+                    <div className="milestone-icon mb-3" style={{ fontSize: '3rem' }}>
+                      {milestone.icon}
+                    </div>
+
+                    {/* Content */}
+                    <Card.Title className={`${getFontClass()} h5 mb-3`}>
+                      {milestone.event}
+                    </Card.Title>
+                    <Card.Text className={`${getFontClass()} text-muted`}>
+                      {milestone.description}
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              </Col>
             ))}
-          </div>
+          </Row>
         </Container>
       </section>
 
       {/* Team Section */}
-      <section className="section team-section">
+      <section className="section team-section bg-light">
         <Container>
           <h2 className={`section-title text-center ${getFontClass()}`}>
             {t('ourLeadershipTeam')}
@@ -148,7 +211,7 @@ const About = () => {
           <Row className="g-4">
             {teamMembers.map((member, index) => (
               <Col lg={4} md={6} key={index}>
-                <Card className="team-card text-center">
+                <Card className="team-card text-center h-100">
                   <Card.Img 
                     variant="top" 
                     src={member.image}
@@ -157,10 +220,10 @@ const About = () => {
                       e.target.src = '/images/FieldofAwareness/awareness01.jpg';
                     }}
                   />
-                  <Card.Body>
+                  <Card.Body className="d-flex flex-column">
                     <Card.Title className={getFontClass()}>{member.name}</Card.Title>
                     <Card.Subtitle className="mb-2 text-primary">{member.role}</Card.Subtitle>
-                    <Card.Text className={getFontClass()}>
+                    <Card.Text className={`${getFontClass()} flex-grow-1`}>
                       {member.description}
                     </Card.Text>
                   </Card.Body>

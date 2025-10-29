@@ -7,6 +7,7 @@ import HomePage from './pages/Home';
 import AboutPage from './pages/About';
 import NavbarAutoClose from './components/NavbarAutoClose'; 
 import ServicesPage from './pages/Services';
+import ServiceDetail from './pages/ServiceDetail';
 import GalleryPage from './pages/Gallery';
 import ContactPage from './pages/Contact';
 import 'bootstrap-icons/font/bootstrap-icons.css';
@@ -16,12 +17,14 @@ function App() {
     <LanguageProvider>
       <Router>
         <div className="App">
-          <Header /> <NavbarAutoClose />
+          <Header /> 
+          <NavbarAutoClose />
           <main style={{ minHeight: '100vh' }}>
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/services" element={<ServicesPage />} />
+              <Route path="/services/:serviceKey" element={<ServiceDetail />} />
               <Route path="/gallery" element={<GalleryPage />} />
               <Route path="/contact" element={<ContactPage />} />
             </Routes>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Button, Modal } from 'react-bootstrap';
 import { useLanguage } from '../context/LanguageContext';
+import domainsData from '../components/mainjsons/Services.json';
 
 const Gallery = () => {
   const { currentLanguage, t } = useLanguage();
@@ -16,31 +17,42 @@ const Gallery = () => {
     }
   };
 
+  // Get domains from Services.json for consistent categories
+  const domains = domainsData.domains.map(domain => ({
+    id: domain.key,
+    name: t(domain.key) || domain.title,
+    icon: domain.icon
+  }));
+
+  // Add "all" category
   const categories = [
-    { id: 'all', name: t('allPhotos') },
-    { id: 'cultural', name: t('culturalEvents') },
-    { id: 'education', name: t('education') },
-    { id: 'health', name: t('healthCamps') },
-    { id: 'community', name: t('community') }
+    { id: 'all', name: t('allPhotos') || 'All Photos' },
+    ...domains
   ];
 
-  // Updated image paths for public folder
+  // Safe translation function
+  const safeTranslate = (key, fallback = '') => {
+    const translated = t(key);
+    return translated && translated !== key ? translated : fallback;
+  };
+
+  // Updated image paths mapped to domain categories using exact keys from Services.json
   const images = [
-    { id: 1, src: "/images/WomensField/womesn01.jpg", category: 'cultural', title: t('traditionalDance') },
-    { id: 2, src: "/images/EnviromentalField/enviromental01.jpg", category: 'education', title: t('studentScholarship') },
-    { id: 3, src: "/images/FieldofAwareness/awareness01.jpg", category: 'health', title: t('freeHealthCheckup') },
-    { id: 4, src: "/images/FieldofBiology/biology01.jpg", category: 'community', title: t('communityMeeting') },
-    { id: 5, src: "/images/GovtDomain/govt01.jpg", category: 'cultural', title: t('festivalCelebration') },
-    { id: 6, src: "/images/SettingsDomain/settings01.jpg", category: 'education', title: t('computerTraining') },
-    { id: 7, src: "/images/StudentField/students01.jpg", category: 'health', title: t('dentalCare') },
-    { id: 8, src: "/images/VillageField/village01.jpg", category: 'community', title: t('youthSports') },
-    { id: 9, src: "/images/WorldDomain/world01.jpg", category: 'cultural', title: t('musicProgram') },
-    { id: 10, src: "/images/YouthField/youth01.jpg", category: 'education', title: t('libraryInauguration') },
-    { id: 11, src: "/images/EnviromentalField/enviromental02.jpg", category: 'health', title: t('eyeTesting') },
-    { id: 12, src: "/images/FieldofAwareness/awareness02.jpg", category: 'community', title: t('cleanlinessDrive') },
-    { id: 13, src: "/images/FieldofAwareness/awareness03.jpg", category: 'cultural', title: t('artExhibition') },
-    { id: 14, src: "/images/StudentField/students02.jpg", category: 'education', title: t('scienceFair') },
-    { id: 15, src: "/images/VillageField/village02.jpg", category: 'health', title: t('bloodDonation') }
+    { id: 1, src: "/images/WomensField/womesn01.jpg", category: 'womensDomain', title: safeTranslate('womensEmpowerment', 'Women Empowerment Program') },
+    { id: 2, src: "/images/EnviromentalField/enviromental01.jpg", category: 'environmentalDomain', title: safeTranslate('environmentalProtection', 'Environmental Protection Initiative') },
+    { id: 3, src: "/images/FieldofAwareness/awareness01.jpg", category: 'awarenessDomain', title: safeTranslate('publicAwareness', 'Public Awareness Campaign') },
+    { id: 4, src: "/images/FieldofBiology/biology01.jpg", category: 'domainOfBiology', title: safeTranslate('agriculturalResearch', 'Agricultural Research Program') },
+    { id: 5, src: "/images/GovtDomain/govt01.jpg", category: 'governmentDomain', title: safeTranslate('publicServices', 'Public Services Outreach') },
+    { id: 6, src: "/images/SettingsDomain/settings01.jpg", category: 'settingsDomain', title: safeTranslate('technicalSupport', 'Technical Support Session') },
+    { id: 7, src: "/images/StudentField/students01.jpg", category: 'studentDomain', title: safeTranslate('educationalSupport', 'Educational Support Program') },
+    { id: 8, src: "/images/VillageField/village01.jpg", category: 'villageDomain', title: safeTranslate('communityDevelopment', 'Community Development Project') },
+    { id: 9, src: "/images/WorldDomain/world01.jpg", category: 'worldDomain', title: safeTranslate('globalPartnerships', 'Global Partnerships Event') },
+    { id: 10, src: "/images/YouthField/youth01.jpg", category: 'youthDomain', title: safeTranslate('youthLeadership', 'Youth Leadership Program') },
+    { id: 11, src: "/images/EnviromentalField/enviromental02.jpg", category: 'environmentalDomain', title: safeTranslate('cleanEnergy', 'Clean Energy Initiative') },
+    { id: 12, src: "/images/FieldofAwareness/awareness02.jpg", category: 'awarenessDomain', title: safeTranslate('educationalCampaigns', 'Educational Campaign Workshop') },
+    { id: 13, src: "/images/FieldofAwareness/awareness03.jpg", category: 'awarenessDomain', title: safeTranslate('communityWorkshops', 'Community Workshop Session') },
+    { id: 14, src: "/images/StudentField/students02.jpg", category: 'studentDomain', title: safeTranslate('careerCounseling', 'Career Counseling Session') },
+    { id: 15, src: "/images/VillageField/village02.jpg", category: 'villageDomain', title: safeTranslate('ruralWelfare', 'Rural Welfare Program') }
   ];
 
   const filteredImages = filter === 'all' ? images : images.filter(img => img.category === filter);
@@ -126,6 +138,7 @@ const Gallery = () => {
                  className={`gallery-filter-btn me-2 mb-2 ${filter === category.id ? 'active' : 'btn-outline-primary-custom'}`}
                  onClick={() => setFilter(category.id)}
                  >
+                 {category.icon && <span className="me-1">{category.icon}</span>}
                  {category.name}
                 </Button>
                 ))}
@@ -140,7 +153,7 @@ const Gallery = () => {
         <Container>
           <Row className="g-4">
             {filteredImages.map(image => (
-              <Col xl={3} lg={4} md={6} key={image.id}> {/* Changed to xl={3} for 4 images per row */}
+              <Col xl={3} lg={4} md={6} key={image.id}>
                 <div 
                   className="gallery-item position-relative cursor-pointer"
                   onClick={() => handleImageClick(image)}
@@ -170,57 +183,79 @@ const Gallery = () => {
       </section>
 
       {/* Enhanced Image Modal with Navigation Arrows */}
-      <Modal 
-        show={!!selectedImage} 
-        onHide={() => setSelectedImage(null)} 
-        size="lg" 
-        centered
+      {/* Enhanced Image Modal with Navigation Arrows */}
+<Modal 
+  show={!!selectedImage} 
+  onHide={() => setSelectedImage(null)} 
+  size="lg" 
+  centered
+  className="gallery-modal"
+>
+  <Modal.Header closeButton className="border-0 pb-0">
+    <Modal.Title className={`${getFontClass()} fs-6`}>
+      {selectedImage?.title}
+    </Modal.Title>
+  </Modal.Header>
+  <Modal.Body className="text-center position-relative p-0">
+    {/* Previous Button */}
+    {filteredImages.length > 1 && (
+      <button 
+        className="btn btn-primary position-absolute start-0 top-50 translate-middle-y rounded-circle d-flex align-items-center justify-content-center"
+        style={{ 
+          left: '5px', 
+          zIndex: 10,
+          width: '40px',
+          height: '40px',
+          fontSize: '16px',
+          fontWeight: 'bold'
+        }}
+        onClick={handlePrevImage}
       >
-        <Modal.Header closeButton>
-          <Modal.Title className={getFontClass()}>
-            {selectedImage?.title}
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body className="text-center position-relative">
-          {/* Previous Button */}
-          {filteredImages.length > 1 && (
-            <button 
-              className="btn btn-primary position-absolute start-0 top-50 translate-middle-y"
-              style={{ left: '10px', zIndex: 10 }}
-              onClick={handlePrevImage}
-            >
-              ‹
-            </button>
-          )}
-          
-          {/* Main Image */}
-          <img 
-            src={selectedImage?.src} 
-            alt={selectedImage?.title}
-            className="img-fluid rounded-3"
-            style={{ maxHeight: '70vh', objectFit: 'contain' }}
-            onError={(e) => {
-              e.target.src = '/images/FieldofAwareness/awareness01.jpg';
-            }}
-          />
+        ‹
+      </button>
+    )}
+    
+    {/* Main Image */}
+    <div className="modal-image-container p-3">
+      <img 
+        src={selectedImage?.src} 
+        alt={selectedImage?.title}
+        className="img-fluid rounded-3"
+        style={{ 
+          maxHeight: '60vh', 
+          width: '100%',
+          objectFit: 'contain' 
+        }}
+        onError={(e) => {
+          e.target.src = '/images/FieldofAwareness/awareness01.jpg';
+        }}
+      />
+    </div>
 
-          {/* Next Button */}
-          {filteredImages.length > 1 && (
-            <button 
-              className="btn btn-primary position-absolute end-0 top-50 translate-middle-y"
-              style={{ right: '10px', zIndex: 10 }}
-              onClick={handleNextImage}
-            >
-              ›
-            </button>
-          )}
-        </Modal.Body>
-        <Modal.Footer>
-          <small className="text-muted">
-            {currentImageIndex + 1} of {filteredImages.length} - Category: {categories.find(cat => cat.id === selectedImage?.category)?.name}
-          </small>
-        </Modal.Footer>
-      </Modal>
+    {/* Next Button */}
+    {filteredImages.length > 1 && (
+      <button 
+        className="btn btn-primary position-absolute end-0 top-50 translate-middle-y rounded-circle d-flex align-items-center justify-content-center"
+        style={{ 
+          right: '5px', 
+          zIndex: 10,
+          width: '40px',
+          height: '40px',
+          fontSize: '16px',
+          fontWeight: 'bold'
+        }}
+        onClick={handleNextImage}
+      >
+        ›
+      </button>
+    )}
+  </Modal.Body>
+  <Modal.Footer className="border-0 pt-0">
+    <small className={`text-muted ${getFontClass()}`}>
+      {currentImageIndex + 1} of {filteredImages.length} - Domain: {categories.find(cat => cat.id === selectedImage?.category)?.name}
+    </small>
+  </Modal.Footer>
+</Modal>
     </div>
   );
 };

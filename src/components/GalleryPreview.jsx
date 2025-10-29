@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { useLanguage } from '../context/LanguageContext';
+import { useNavigate } from 'react-router-dom'; // ADD THIS IMPORT
 
 // Simplified Image component - remove BASE_URL since we're using absolute paths
 const ImageWithFallback = ({ src, alt, className, style, fallback }) => {
@@ -20,6 +21,7 @@ const ImageWithFallback = ({ src, alt, className, style, fallback }) => {
 
 const GalleryPreview = () => {
   const { currentLanguage, t, setCurrentPage } = useLanguage();
+  const navigate = useNavigate(); // ADD THIS HOOK
 
   const getFontClass = () => {
     switch(currentLanguage) {
@@ -55,6 +57,7 @@ const GalleryPreview = () => {
 
   const handleViewGallery = () => {
     setCurrentPage('gallery');
+    navigate('/gallery'); // ADD THIS LINE - navigates to Gallery page
   };
 
   return (
@@ -96,7 +99,7 @@ const GalleryPreview = () => {
         <Row className="mt-4">
           <Col className="text-center">
             <Button 
-              variant="primary" 
+              className="btn-gallery"
               size="lg"
               onClick={handleViewGallery}
             >
