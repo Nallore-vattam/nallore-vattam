@@ -40,9 +40,6 @@ const ServiceNavigation = ({ currentServiceKey }) => {
   return (
     <section className="service-navigation py-5">
       <Container>
-        <h3 className={`text-center mb-4 ${getFontClass()} fw-bold`}>
-          {safeTranslate('exploreOurServices', 'Explore Our Services')}
-        </h3>
         
         {/* Horizontal Navigation for larger screens */}
         <div className="d-none d-lg-block">
