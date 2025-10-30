@@ -38,7 +38,7 @@ const ServiceNavigation = ({ currentServiceKey }) => {
   const services = domainsData.domains;
 
   return (
-    <section className="service-navigation py-5">
+    <section className="service-navigation py-5" style={{ marginTop: 35 }}>
       <Container>
         
         {/* Horizontal Navigation for larger screens */}

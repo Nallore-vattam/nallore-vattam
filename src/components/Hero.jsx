@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { useLanguage } from '../context/LanguageContext';
-import { useNavigate } from 'react-router-dom'; // Add this import
+import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const { currentLanguage, t, changePage } = useLanguage();
-  const navigate = useNavigate(); // Add this hook
+  const navigate = useNavigate();
   
   const slides = [
     {
@@ -26,13 +26,62 @@ const Hero = () => {
     }
   ];
 
+  // Navigation functions
+  const nextSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  }, [slides.length]);
+
+  const prevSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  }, [slides.length]);
+
+  // Auto slide
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
+      nextSlide();
     }, 5000);
     
     return () => clearInterval(interval);
-  }, [slides.length]);
+  }, [nextSlide]);
+
+  // Keyboard event listener for arrow keys
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      // Check if we're in the hero section or its children
+      const heroSection = document.getElementById('home');
+      if (!heroSection) return;
+
+      const isInHeroSection = heroSection.contains(document.activeElement) || 
+                             document.activeElement === document.body;
+
+      if (isInHeroSection) {
+        switch(event.key) {
+          case 'ArrowLeft':
+            event.preventDefault();
+            prevSlide();
+            break;
+          case 'ArrowRight':
+            event.preventDefault();
+            nextSlide();
+            break;
+          default:
+            break;
+        }
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [prevSlide, nextSlide]);
+
+  // Click event handlers for left/right sides
+  const handleLeftClick = () => {
+    prevSlide();
+  };
+
+  const handleRightClick = () => {
+    nextSlide();
+  };
 
   const getFontClass = () => {
     switch(currentLanguage) {
@@ -43,12 +92,10 @@ const Hero = () => {
   };
 
   const navigateToAbout = () => {
-    // Try multiple navigation methods
     const aboutSection = document.getElementById('about');
     if (aboutSection) {
       aboutSection.scrollIntoView({ behavior: 'smooth' });
     } else {
-      // Fallback to page navigation
       if (changePage) {
         changePage('about');
       } else {
@@ -58,14 +105,12 @@ const Hero = () => {
   };
 
   const navigateToContact = () => {
-    // Try multiple navigation methods
     if (changePage) {
       changePage('contact');
     } else {
       navigate('/contact');
     }
     
-    // Fallback
     if (!changePage && !navigate) {
       window.location.href = '/contact';
     }
@@ -80,11 +125,25 @@ const Hero = () => {
       <div 
         className="hero-background"
         style={{
-          backgroundImage: `linear-gradient(135deg, rgba(30, 27, 75, 0.92), rgba(55, 48, 163, 0.88)), url(${slides[currentSlide].background})`,
+          backgroundImage: `linear-gradient(135deg, rgba(30, 27, 75, 0.65), rgba(55, 48, 163, 0.55)), url(${slides[currentSlide].background})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
         }}
+      />
+
+      {/* Clickable Left Side */}
+      <div 
+        className="hero-click-area left-click-area"
+        onClick={handleLeftClick}
+        title="Previous slide"
+      />
+
+      {/* Clickable Right Side */}
+      <div 
+        className="hero-click-area right-click-area"
+        onClick={handleRightClick}
+        title="Next slide"
       />
 
       {/* Floating Particles */}
@@ -153,7 +212,8 @@ const Hero = () => {
           overflow: hidden;
           height: 70vh;
           min-height: 400px;
-          background: #000;
+          background: transparent;
+          cursor: default; /* Default cursor for entire section */
         }
 
         .hero-background {
@@ -163,6 +223,54 @@ const Hero = () => {
           width: 100%;
           height: 100%;
           z-index: 1;
+        }
+
+        /* Clickable areas for left/right navigation */
+        .hero-click-area {
+          position: absolute;
+          top: 0;
+          height: 100%;
+          width: 25%; /* Adjust width as needed */
+          z-index: 4; /* Above content but below indicators */
+          cursor: pointer;
+          transition: background-color 0.2s ease;
+        }
+
+        .left-click-area {
+          left: 0;
+        }
+
+        .right-click-area {
+          right: 0;
+        }
+
+        /* Hover effects for clickable areas */
+        .hero-click-area:hover {
+          background: rgba(255, 255, 255, 0.05);
+        }
+
+        .left-click-area:hover::before {
+          content: '‹';
+          position: absolute;
+          left: 20px;
+          top: 50%;
+          transform: translateY(-50%);
+          color: white;
+          font-size: 3rem;
+          font-weight: bold;
+          opacity: 0.7;
+        }
+
+        .right-click-area:hover::after {
+          content: '›';
+          position: absolute;
+          right: 20px;
+          top: 50%;
+          transform: translateY(-50%);
+          color: white;
+          font-size: 3rem;
+          font-weight: bold;
+          opacity: 0.7;
         }
 
         .hero-container {
@@ -332,6 +440,11 @@ const Hero = () => {
             padding: 0.6rem 1.3rem !important;
             font-size: 0.9rem !important;
           }
+
+          /* Make click areas smaller on mobile */
+          .hero-click-area {
+            width: 20%;
+          }
         }
 
         @media (max-width: 576px) {
@@ -358,6 +471,12 @@ const Hero = () => {
             min-width: 130px;
             padding: 0.5rem 1.1rem !important;
             font-size: 0.85rem !important;
+          }
+
+          /* Hide hover arrows on very small screens */
+          .hero-click-area:hover::before,
+          .hero-click-area:hover::after {
+            display: none;
           }
         }
 
@@ -389,7 +508,7 @@ const Hero = () => {
             height: 90vh;
             min-height: 650px;
           }
-
+          
           .hero-container {
             min-height: 650px;
           }

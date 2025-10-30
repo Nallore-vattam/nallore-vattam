@@ -1,6 +1,6 @@
 // src/pages/Services.jsx
-import React from 'react';
-import { Container, Row, Col, Card, Badge, Button, Accordion, Spinner } from 'react-bootstrap';
+import React, { useMemo } from 'react';
+import { Container, Row, Col, Card, Badge, Button, Accordion, Spinner, Tooltip, OverlayTrigger } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useLanguage } from '../context/LanguageContext';
 import domainsData from '../components/mainjsons/Services.json'; 
@@ -31,16 +31,29 @@ const Services = () => {
     );
   }
 
-  // Map JSON domains to the service structure
-  const services = domainsData.domains.map((domain, index) => ({
-    key: domain.key,
-    icon: domain.icon, 
-    title: domain.title,
-    description: domain.description,
-    features: domain.features || [],
-    duration: domain.duration, 
-    eligibility: domain.eligibility, 
-  }));
+  // Memoize processed services for better performance
+  const services = useMemo(() => {
+    return domainsData.domains.map((domain, index) => ({
+      key: domain.key,
+      icon: domain.icon, 
+      title: domain.title,
+      description: domain.description,
+      features: domain.features || [],
+      duration: domain.duration, 
+      eligibility: domain.eligibility, 
+    }));
+  }, []);
+
+  // Empty state handling
+  if (!services || services.length === 0) {
+    return (
+      <div className="text-center p-5">
+        <i className="bi bi-inbox fs-1 text-muted"></i>
+        <h3 className={getFontClass()}>No services available</h3>
+        <p className={getFontClass()}>Please check back later.</p>
+      </div>
+    );
+  }
 
   // Safe translation function with fallback
   const safeTranslate = (key, fallback = '') => {
@@ -58,8 +71,54 @@ const Services = () => {
     return `service-card-${colorNumber}`;
   };
 
+  // Function to render features with tooltips for long text
+  const renderFeatureBadge = (feature, idx) => {
+    const translatedFeature = safeTranslate(feature, feature);
+    
+    // If feature name is long, show tooltip
+    if (translatedFeature.length > 20) {
+      return (
+        <OverlayTrigger
+          key={idx}
+          placement="top"
+          overlay={<Tooltip>{translatedFeature}</Tooltip>}
+        >
+          <Badge bg="light" text="dark" className={getFontClass()}>
+            {translatedFeature.length > 25 
+              ? translatedFeature.substring(0, 25) + '...' 
+              : translatedFeature
+            }
+          </Badge>
+        </OverlayTrigger>
+      );
+    }
+
+    return (
+      <Badge key={idx} bg="light" text="dark" className={getFontClass()}>
+        {translatedFeature}
+      </Badge>
+    );
+  };
+
+  // Group features by category for better organization (optional)
+  const groupFeaturesByCategory = (features, domainIndex) => {
+    // You can customize this grouping logic based on your domain structure
+    const groups = {
+      primary: features.slice(0, 4),
+      secondary: features.slice(4, 7),
+      additional: features.slice(7, 10)
+    };
+    
+    return Object.entries(groups)
+      .filter(([_, groupFeatures]) => groupFeatures.length > 0)
+      .map(([category, groupFeatures]) => ({
+        category,
+        features: groupFeatures
+      }));
+  };
+
   // Translated FAQs with better fallbacks
-  const faqs = [
+  const faqs = useMemo(() => [
     {
       question: t('faq1Question') || 'How do I apply for services?',
       answer: t('faq1Answer') || 'You can apply through our online portal or visit our office.',
@@ -71,11 +130,19 @@ const Services = () => {
     {
       question: t('faq3Question') || 'How long does approval take?',
       answer: t('faq3Answer') || 'Approval typically takes 2-3 business days.',
+    },
+    {
+      question: t('faq4Question') || 'What documents are required for registration?',
+      answer: t('faq4Answer') || 'Basic identity and address proof are required for most services.',
+    },
+    {
+      question: t('faq5Question') || 'Are these services completely free?',
+      answer: t('faq5Answer') || 'Most of our community services are free of cost.',
     }
-  ].filter(faq => faq.question && faq.answer);
+  ].filter(faq => faq.question && faq.answer), [t]);
 
   // Process steps data
-  const processSteps = [
+  const processSteps = useMemo(() => [
     { 
       icon: 'bi-person-plus', 
       title: 'register', 
@@ -96,7 +163,7 @@ const Services = () => {
       title: 'participate', 
       desc: 'joinProgram',
     }
-  ];
+  ], []);
 
   return (
     <div className="services-page">
@@ -117,14 +184,16 @@ const Services = () => {
                 <p className={`hero-subtitle ${getFontClass()}`}>
                   {safeTranslate('servicesSubtitle', 'Comprehensive community development programs designed to create lasting impact and sustainable change')}
                 </p>
-              </div>
+                </div>
             </Col>
           </Row>
         </Container>
       </section>
 
       {/* Service Navigation */}
-      <ServiceNavigation />
+      <div style={{ marginTop: -50 }}>
+        <ServiceNavigation />
+      </div>
 
       {/* Services Grid Section - 2 Cards Per Row */}
       <section id="services-grid" className="section services-grid-section">
@@ -148,18 +217,36 @@ const Services = () => {
                       </div>
                     </div>
 
+                    {/* Enhanced Features Section for 10 features */}
                     {service.features.length > 0 && (
                       <div className="service-features mb-3">
-                        <h6 className={`${getFontClass()} mb-2 fw-semibold`}>
-                          {safeTranslate('keyFeatures', 'Key Features')}:
-                        </h6>
-                        <div className="d-flex flex-wrap gap-2">
-                          {service.features.map((feature, idx) => (
-                            <Badge key={idx} bg="light" text="dark" className={getFontClass()}>
-                              {safeTranslate(feature, feature)}
-                            </Badge>
-                          ))}
+                        <div className="d-flex justify-content-between align-items-center mb-2">
+                          <h6 className={`${getFontClass()} mb-0 fw-semibold`}>
+                            {safeTranslate('keyFeatures', 'Key Initiatives')}:
+                          </h6>
+                          <small className="text-muted">
+                            {service.features.length} {safeTranslate('features', 'features')}
+                          </small>
                         </div>
+                        
+                        {/* Option 1: Scrollable features area */}
+                        <div 
+                          className="features-scrollable"
+                          style={{ 
+                            maxHeight: '120px', 
+                            overflowY: 'auto',
+                            padding: '12px',
+                            backgroundColor: '#f8f9fa',
+                            borderRadius: '8px',
+                            border: '1px solid #e9ecef'
+                          }}
+                        >
+                          <div className="d-flex flex-wrap gap-2">
+                            {service.features.map((feature, idx) => renderFeatureBadge(feature, idx))}
+                          </div>
+                        </div>
+
+                       
                       </div>
                     )}
 
@@ -177,10 +264,12 @@ const Services = () => {
                     <div className="service-actions">
                       <LinkContainer to={`/services/${service.key}`}>
                         <Button variant="primary" className="me-2">
+                          <i className="bi bi-info-circle me-2"></i>
                           {safeTranslate('learnMoreBtn', 'Learn More')}
                         </Button>
                       </LinkContainer>
                       <Button variant="outline-primary">
+                        <i className="bi bi-send me-2"></i>
                         {safeTranslate('applyNow', 'Apply Now')}
                       </Button>
                     </div>
@@ -201,8 +290,11 @@ const Services = () => {
           <Row className="text-center g-4">
             {processSteps.map((step, index) => (
               <Col lg={3} md={6} key={index}>
-                <div className="process-card p-4 bg-white h-100 rounded shadow-sm">
-                  <div className="process-icon mb-3 text-primary">
+                <div className="process-card p-4 bg-white h-100 rounded shadow-sm position-relative">
+                  <div className="process-step-number position-absolute top-0 start-50 translate-middle bg-primary text-white rounded-circle d-flex align-items-center justify-content-center fw-bold">
+                    {index + 1}
+                  </div>
+                  <div className="process-icon mb-3 text-primary mt-3">
                     <i className={`bi ${step.icon} fs-2`}></i>
                   </div>
                   <h5 className={`${getFontClass()} fw-bold`}>
@@ -232,12 +324,14 @@ const Services = () => {
                     <Accordion.Item 
                       eventKey={index.toString()} 
                       key={index}
-                      className="mb-3 rounded shadow-sm"
+                      className="mb-3 rounded shadow-sm border-0"
                     >
-                      <Accordion.Header className={`${getFontClass()} fw-semibold`}>
+                      <Accordion.Header className={`${getFontClass()} fw-semibold bg-white`}>
+                        <i className="bi bi-question-circle me-2 text-primary"></i>
                         {faq.question}
                       </Accordion.Header>
-                      <Accordion.Body className={getFontClass()}>
+                      <Accordion.Body className={getFontClass() + ' bg-light'}>
+                        <i className="bi bi-info-circle me-2 text-secondary"></i>
                         {faq.answer}
                       </Accordion.Body>
                     </Accordion.Item>
@@ -248,6 +342,8 @@ const Services = () => {
           </Container>
         </section>
       )}
+
+     
     </div>
   );
 };

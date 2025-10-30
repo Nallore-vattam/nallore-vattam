@@ -194,10 +194,13 @@ const Contact = () => {
                         placeholder={t('message')}
                       />
                     </Form.Group>
-
-                    <Button type="submit" variant="primary" size="lg" className="w-100">
-                      {t('send')}
-                    </Button>
+<Button 
+  className="btn-about"
+  size="lg"
+  type="submit"
+>
+  {t('send')}
+</Button>
                   </Form>
                 </Card.Body>
               </Card>

@@ -1,23 +1,19 @@
-import React from 'react';
-import { Container, Row, Col, Card, Button, Badge } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import { useLanguage } from '../context/LanguageContext';
 import domainsData from '../components/mainjsons/Services.json';
 import { useNavigate } from 'react-router-dom';
+import './SolarSystemServices.css';
 
 const ServicesPreview = () => {
-  const { currentLanguage, t, setCurrentPage, isTranslating } = useLanguage();
+  const { currentLanguage, t, isTranslating } = useLanguage();
   const navigate = useNavigate();
+  const [positions, setPositions] = useState([]);
+  const [isPaused, setIsPaused] = useState(false);
 
-  // Get services data from the same JSON file
-  const services = domainsData.domains.slice(0, 4).map((domain, index) => ({
-    key: domain.key,
-    icon: domain.icon,
-    title: domain.title,
-    description: domain.description,
-    features: domain.features || [],
-    duration: domain.duration,
-    eligibility: domain.eligibility,
-    colorClass: `service-card-${(index % 10) + 1}`
+  const domains = domainsData.domains.map((domain, index) => ({
+    ...domain,
+    color: getDomainColor(index)
   }));
 
   const getFontClass = () => {
@@ -28,202 +24,179 @@ const ServicesPreview = () => {
     }
   };
 
-  const handleViewMore = () => {
-    if (setCurrentPage) {
-      setCurrentPage('services');
-    }
-    navigate('/services');
-  };
-
-  const handleGetInvolved = () => {
-    if (setCurrentPage) {
-      setCurrentPage('contact');
-    }
-    navigate('/contact');
-  };
-
-  // Safe translation function with fallback
   const safeTranslate = (key, fallback = '') => {
     const translated = t(key);
     return translated && translated !== key ? translated : fallback;
   };
 
-  // Show loading state if translating
+  // Initialize random positions scattered around
+  useEffect(() => {
+    const initialPositions = domains.map((_, index) => {
+      // Random positions scattered around the container (not just edges)
+      const angle = Math.random() * 2 * Math.PI;
+      const distance = 10 + Math.random() * 35; // 10% to 45% from center
+      const x = Math.cos(angle) * distance;
+      const y = Math.sin(angle) * distance;
+      
+      return {
+        x: x,
+        y: y,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        rotation: Math.random() * 360
+      };
+    });
+    setPositions(initialPositions);
+  }, []);
+
+  // Animation loop
+  useEffect(() => {
+    if (isPaused) return;
+
+    const animate = () => {
+      setPositions(prev => prev.map(pos => {
+        let newX = pos.x + pos.vx;
+        let newY = pos.y + pos.vy;
+        let newVx = pos.vx;
+        let newVy = pos.vy;
+
+        // Bounce off edges
+        if (newX < -40 || newX > 40) newVx = -newVx;
+        if (newY < -40 || newY > 40) newVy = -newVy;
+
+        return {
+          x: newX,
+          y: newY,
+          vx: newVx,
+          vy: newVy,
+          rotation: (pos.rotation + 0.1) % 360
+        };
+      }));
+    };
+
+    const interval = setInterval(animate, 50);
+    return () => clearInterval(interval);
+  }, [isPaused]);
+
+  const handleDomainClick = (domain) => {
+    navigate('/services');
+  };
+
+  const handleContainerHover = () => {
+    setIsPaused(true);
+  };
+
+  const handleContainerLeave = () => {
+    setIsPaused(false);
+  };
+
+  const handleViewMore = () => {
+    navigate('/services');
+  };
+
   if (isTranslating) {
     return (
-      <section id="services-preview" className="section services-preview-section bg-light">
+      <section id="services-preview" className="services-preview-section floating-preview">
         <Container>
-          <Row className="text-center">
-            <Col>
-              <div className="text-center p-4">
-                <span className="spinner-border spinner-border-sm me-2"></span>
-              </div>
-            </Col>
-          </Row>
+          <div className="text-center p-4">
+            <div className="spinner-border text-light"></div>
+            <p className={getFontClass()}>Loading domains...</p>
+          </div>
         </Container>
       </section>
     );
   }
 
   return (
-    <section id="services-preview" className="section services-preview-section" style={{
-      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-      padding: '5rem 0'
-    }}>
+    <section id="services-preview" className="services-preview-section floating-preview">
       <Container>
-        {/* Modern Header Section with Different Background */}
-        <Row className="text-center mb-5">
+        {/* Header */}
+        <Row className="text-center mb-4">
           <Col lg={8} className="mx-auto">
-            <div className="premium-content-box" style={{
-              background: 'rgba(255, 255, 255, 0.95)',
-              backdropFilter: 'blur(20px)',
-              borderRadius: '20px',
-              padding: '3rem 2rem',
-              boxShadow: '0 15px 35px rgba(0,0,0,0.1)',
-              border: '1px solid rgba(255,255,255,0.3)'
-            }}>
-              <h2 className={`section-title premium-hero-title ${getFontClass()}`} style={{
-                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-                marginBottom: '1rem',
-                textShadow: 'none' // Explicitly remove text shadow
-              }}>
+            <div className="premium-content-box floating-header">
+              <h2 className={`section-title premium-hero-title ${getFontClass()}`}>
                 {safeTranslate('ourServices', 'Our Services')}
               </h2>
-              <p className={`lead premium-hero-subtitle ${getFontClass()}`} style={{
-                color: '#6c757d',
-                fontSize: '1.2rem',
-                marginBottom: '0',
-                textShadow: 'none' // Explicitly remove text shadow
-              }}>
-                {safeTranslate('servicesSubtitle', 'Comprehensive community development programs designed to create lasting impact and sustainable change')}
+              <p className={`lead premium-hero-subtitle ${getFontClass()}`}>
+                {safeTranslate('servicesSubtitle', 'Comprehensive community development programs')}
               </p>
             </div>
           </Col>
         </Row>
 
-        {/* Services Grid with Different Background Colors */}
-        <Row className="g-4">
-          {services.map((service, index) => (
-            <Col lg={3} md={6} key={index}>
-              <Card className={`service-preview-card h-100`} style={{
-                background: getCardBackground(index),
-                border: 'none',
-                borderRadius: '15px',
-                boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
-                transition: 'all 0.3s ease'
-              }}>
-                <Card.Body className="p-4">
-                  <div className="d-flex align-items-start mb-3">
-                    <div className="service-icon-large me-3" style={{
-                      color: getIconColor(index),
-                      textShadow: 'none' // Remove icon shadow
-                    }}>
-                      <span style={{ fontSize: '2.5rem' }}>{service.icon}</span>
-                    </div>
-                    <div className="flex-grow-1">
-                      <Card.Title className={`${getFontClass()} mb-3`} style={{
-                        color: getTextColor(index),
-                        textShadow: 'none' // Remove text shadow
-                      }}>
-                        {safeTranslate(service.key, service.title)}
-                      </Card.Title>
-                    </div>
-                  </div>
+        {/* Floating Domains Container */}
+        <Row className="justify-content-center">
+          <Col xl={8} lg={10} md={12}>
+            <div 
+              className="floating-container"
+              onMouseEnter={handleContainerHover}
+              onMouseLeave={handleContainerLeave}
+            >
+              
+              {/* Mission Center */}
+              <div className="mission-center">
+                <div className="mission-glow"></div>
+                <div className="mission-content">
+                  <h4 className={getFontClass()}>Our Mission</h4>
+                  <p className={getFontClass()}>Community Development</p>
+                </div>
+              </div>
 
-                  {/* Key Features as the main content */}
-                  {service.features.length > 0 && (
-                    <div className="service-features mb-4">
-                      <h6 className={`${getFontClass()} mb-3`} style={{
-                        color: getTextColor(index),
-                        opacity: 0.9,
-                        textShadow: 'none' // Remove text shadow
-                      }}>
-                        {safeTranslate('keyFeatures', 'Key Features')}:
-                      </h6>
-                      <div className="features-list">
-                        {service.features.slice(0, 4).map((feature, idx) => (
-                          <div key={idx} className={`feature-item d-flex align-items-center mb-2 ${getFontClass()}`} style={{
-                            color: getTextColor(index),
-                            textShadow: 'none' // Remove text shadow
-                          }}>
-                            <i className="bi bi-check-circle-fill me-2 small" style={{
-                              color: getIconColor(index),
-                              textShadow: 'none' // Remove icon shadow
-                            }}></i>
-                            <span className="small">
-                              {safeTranslate(feature, feature)}
-                            </span>
-                          </div>
-                        ))}
-                        {service.features.length > 4 && (
-                          <div className={`feature-more small ${getFontClass()}`} style={{
-                            color: getTextColor(index),
-                            opacity: 0.7,
-                            textShadow: 'none' // Remove text shadow
-                          }}>
-                            <i className="bi bi-plus-circle me-1"></i>
-                            {service.features.length - 4} more features
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Service Meta Info */}
-                  <div className="service-meta d-flex justify-content-between small mb-3" style={{
-                    color: getTextColor(index),
-                    opacity: 0.8,
-                    textShadow: 'none' // Remove text shadow
-                  }}>
-                    <span className={getFontClass()}>
-                      <i className="bi bi-clock me-1"></i>
-                      {safeTranslate(service.duration, service.duration)}
-                    </span>
-                    <span className={getFontClass()}>
-                      <i className="bi bi-person me-1"></i>
-                      {safeTranslate(service.eligibility, service.eligibility)}
-                    </span>
+              {/* Floating Domain Cards */}
+              {domains.map((domain, index) => {
+                const position = positions[index] || { x: 0, y: 0, rotation: 0 };
+                
+                return (
+                  <div
+                    key={index}
+                    className="floating-domain"
+                    style={{
+                      transform: `translate(${position.x}%, ${position.y}%) rotate(${position.rotation}deg)`,
+                      '--domain-color': domain.color
+                    }}
+                    onClick={() => handleDomainClick(domain)}
+                  >
+                    <Card className="domain-card floating-card">
+                      <Card.Body className="domain-card-body">
+                        <div className="domain-icon">
+                          <span>{domain.icon}</span>
+                        </div>
+                        <div className={`domain-name ${getFontClass()}`}>
+                          {safeTranslate(domain.key, domain.title)}
+                        </div>
+                      </Card.Body>
+                    </Card>
                   </div>
-                </Card.Body>
-              </Card>
-            </Col>
-          ))}
+                );
+              })}
+            </div>
+
+            {/* Navigation Help */}
+            <div className="navigation-help text-center mt-3">
+              <p className={`help-text ${getFontClass()}`}>
+                Click any domain to explore • Hover to pause
+              </p>
+            </div>
+          </Col>
         </Row>
 
         {/* Action Buttons */}
-        <Row className="mt-5">
+        <Row className="mt-4">
           <Col className="text-center">
-            <div className="service-actions">
+            <div className="service-actions floating-actions">
               <Button 
-                variant="light" 
+                variant="primary" 
                 size="lg" 
-                className="me-3"
+                className="floating-btn me-2 mb-2"
                 onClick={handleViewMore}
-                style={{
-                  background: 'rgba(255,255,255,0.9)',
-                  border: 'none',
-                  borderRadius: '50px',
-                  padding: '12px 30px',
-                  fontWeight: '600',
-                  textShadow: 'none' // Remove button text shadow
-                }}
               >
                 {safeTranslate('viewAllServices', 'View All Services')}
               </Button>
               <Button 
                 variant="outline-light" 
                 size="lg"
-                onClick={handleGetInvolved}
-                style={{
-                  borderRadius: '50px',
-                  padding: '12px 30px',
-                  fontWeight: '600',
-                  borderWidth: '2px',
-                  textShadow: 'none' // Remove button text shadow
-                }}
+                onClick={() => navigate('/contact')}
+                className="floating-btn mb-2"
               >
                 {safeTranslate('getInvolved', 'Get Involved')}
               </Button>
@@ -231,40 +204,16 @@ const ServicesPreview = () => {
           </Col>
         </Row>
       </Container>
-
-      <style jsx>{`
-        .service-preview-card:hover {
-          transform: translateY(-10px);
-          box-shadow: 0 20px 40px rgba(0,0,0,0.15) !important;
-        }
-        
-        /* Remove text shadows globally for this component */
-        .services-preview-section * {
-          text-shadow: none !important;
-        }
-      `}</style>
     </section>
   );
 };
 
-// Helper functions for different colors
-const getCardBackground = (index) => {
-  const backgrounds = [
-    'linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%)',
-    'linear-gradient(135deg, #48dbfb 0%, #0abde3 100%)',
-    'linear-gradient(135deg, #1dd1a1 0%, #10ac84 100%)',
-    'linear-gradient(135deg, #f368e0 0%, #ff9ff3 100%)'
+// Color function
+const getDomainColor = (index) => {
+  const colors = [
+    '#667eea', '#f093fb', '#4facfe', '#43e97b', '#fa709a',
+    '#a8edea', '#ff9f43', '#00d2d3', '#5f27cd', '#ee5a24'
   ];
-  return backgrounds[index % backgrounds.length];
-};
-
-const getIconColor = (index) => {
-  const colors = ['#ffffff', '#ffffff', '#ffffff', '#ffffff'];
-  return colors[index % colors.length];
-};
-
-const getTextColor = (index) => {
-  const colors = ['#ffffff', '#ffffff', '#ffffff', '#ffffff'];
   return colors[index % colors.length];
 };
 

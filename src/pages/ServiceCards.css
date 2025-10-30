@@ -1029,3 +1029,6 @@
     min-height: 100px;
   }
 }
+.features-scrollable {
+  background-color: #f8f9fa !important;
+}

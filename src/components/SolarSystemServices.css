@@ -1,0 +1,441 @@
+/* Floating Preview Section */
+.services-preview-section.floating-preview {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 2rem 0;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.services-preview-section.floating-preview::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Header */
+.floating-header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 12px;
+  padding: 1.5rem 1rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  border: 1px solid rgba(255,255,255,0.3);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.floating-header .premium-hero-title {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.floating-header .premium-hero-subtitle {
+  color: #6c757d;
+  font-size: 0.85rem;
+  margin-bottom: 0;
+  line-height: 1.3;
+}
+
+/* Floating Container - Much Smaller */
+.floating-container {
+  position: relative;
+  height: 350px;
+  margin: 0 auto;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  max-width: 800px;
+  min-height: 350px;
+}
+
+/* Mission Center - Smaller */
+.mission-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 5;
+  padding: 0.8rem;
+}
+
+.mission-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: missionGlow 4s ease-in-out infinite alternate;
+}
+
+.mission-content h4 {
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+
+.mission-content p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.65rem;
+  margin-bottom: 0;
+}
+
+/* Floating Domain Cards - Circular and Much Smaller */
+.floating-domain {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
+  z-index: 10;
+  cursor: pointer;
+  will-change: transform;
+}
+
+.domain-card.floating-card {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(255, 255, 255, 0.25) !important;
+  border-radius: 50% !important; /* Circular shape */
+  box-shadow: 
+    0 4px 15px rgba(0,0,0,0.15),
+    0 2px 6px rgba(0,0,0,0.1),
+    inset 0 1px 0 rgba(255,255,255,0.2) !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  width: 55px; /* Much smaller */
+  height: 55px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: float 6s ease-in-out infinite;
+  animation-delay: calc(var(--index) * 0.5s);
+}
+
+.floating-domain:hover .floating-card {
+  transform: scale(1.4) rotate(0deg) !important;
+  background: rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 
+    0 8px 25px rgba(0,0,0,0.25),
+    0 4px 12px rgba(0,0,0,0.15),
+    0 0 15px var(--domain-color, #667eea),
+    inset 0 1px 0 rgba(255,255,255,0.3) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  z-index: 20;
+  animation-play-state: paused;
+}
+
+.domain-card-body {
+  padding: 0.3rem !important;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.domain-icon {
+  font-size: 0.9rem; /* Smaller icon */
+  margin-bottom: 0.1rem;
+  color: white;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));
+  transition: all 0.3s ease;
+}
+
+.floating-domain:hover .domain-icon {
+  transform: scale(1.4);
+  color: var(--domain-color, #ffffff);
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+}
+
+.domain-name {
+  color: rgba(255, 255, 255, 0.95) !important;
+  font-size: 0.5rem !important; /* Much smaller text */
+  font-weight: 600 !important;
+  margin-bottom: 0 !important;
+  line-height: 1;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+  text-align: center;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.floating-domain:hover .domain-name {
+  color: white !important;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+/* Navigation Help */
+.navigation-help {
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 1rem;
+}
+
+.help-text {
+  font-size: 0.7rem;
+  margin-bottom: 0;
+}
+
+/* Floating Actions */
+.floating-actions {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.floating-btn {
+  border-radius: 18px !important;
+  padding: 8px 20px !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+  border: 1.5px solid transparent !important;
+  font-size: 0.8rem !important;
+}
+
+.floating-btn:first-child {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  border: none !important;
+}
+
+.floating-btn:first-child:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(102, 126, 234, 0.4);
+}
+
+.floating-btn:last-child {
+  background: transparent !important;
+  border-color: rgba(255, 255, 255, 0.8) !important;
+  color: white !important;
+}
+
+.floating-btn:last-child:hover {
+  background: rgba(255, 255, 255, 0.9) !important;
+  color: #667eea !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Animations */
+@keyframes missionGlow {
+  0% {
+    opacity: 0.05;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0.15;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Enhanced movement animation */
+.floating-domain {
+  animation: gentleMove 15s ease-in-out infinite;
+  animation-delay: calc(var(--index) * 0.7s);
+}
+
+@keyframes gentleMove {
+  0%, 100% {
+    transform: translate(calc(-50% + var(--x-move-1)), calc(-50% + var(--y-move-1)));
+  }
+  25% {
+    transform: translate(calc(-50% + var(--x-move-2)), calc(-50% + var(--y-move-2)));
+  }
+  50% {
+    transform: translate(calc(-50% + var(--x-move-3)), calc(-50% + var(--y-move-3)));
+  }
+  75% {
+    transform: translate(calc(-50% + var(--x-move-4)), calc(-50% + var(--y-move-4)));
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 1200px) {
+  .floating-container {
+    height: 320px;
+    max-width: 700px;
+  }
+}
+
+@media (max-width: 992px) {
+  .floating-container {
+    height: 300px;
+    max-width: 600px;
+  }
+  
+  .domain-card.floating-card {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .domain-icon {
+    font-size: 0.8rem;
+  }
+  
+  .domain-name {
+    font-size: 0.45rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-preview-section.floating-preview {
+    padding: 1.5rem 0;
+    min-height: auto;
+  }
+  
+  .floating-container {
+    height: 250px;
+    max-width: 100%;
+    margin: 0.5rem auto;
+  }
+  
+  .floating-header {
+    padding: 1rem 0.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .floating-header .premium-hero-title {
+    font-size: 1.3rem;
+  }
+  
+  .floating-header .premium-hero-subtitle {
+    font-size: 0.75rem;
+  }
+  
+  .mission-content h4 {
+    font-size: 0.8rem;
+  }
+  
+  .mission-content p {
+    font-size: 0.6rem;
+  }
+  
+  .domain-card.floating-card {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .domain-card-body {
+    padding: 0.25rem !important;
+  }
+  
+  .domain-icon {
+    font-size: 0.75rem;
+  }
+  
+  .domain-name {
+    font-size: 0.4rem !important;
+  }
+  
+  .floating-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 1rem;
+  }
+  
+  .floating-btn {
+    width: 100%;
+    max-width: 200px;
+    margin: 0 !important;
+    padding: 7px 16px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .floating-container {
+    height: 220px;
+  }
+  
+  .mission-glow {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .mission-content h4 {
+    font-size: 0.7rem;
+  }
+  
+  .mission-content p {
+    font-size: 0.55rem;
+  }
+  
+  .domain-card.floating-card {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .domain-icon {
+    font-size: 0.7rem;
+    margin-bottom: 0.05rem;
+  }
+  
+  .domain-name {
+    font-size: 0.35rem !important;
+  }
+  
+  .help-text {
+    font-size: 0.65rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .floating-container {
+    height: 200px;
+  }
+  
+  .domain-card.floating-card {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .domain-icon {
+    font-size: 0.65rem;
+  }
+  
+  .domain-name {
+    font-size: 0.3rem !important;
+    -webkit-line-clamp: 1;
+  }
+  
+  .floating-header .premium-hero-title {
+    font-size: 1.1rem;
+  }
+}

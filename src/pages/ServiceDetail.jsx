@@ -96,16 +96,6 @@ const ServiceDetail = () => {
                   <p className={`lead ${getFontClass()} mb-4`}>
                     {safeTranslate(service.description, service.description)}
                   </p>
-                  <div className="d-flex justify-content-center gap-3 flex-wrap">
-                    <Badge bg="light" text="dark" className="fs-6 p-2 service-meta-badge">
-                      <i className="bi bi-clock me-2"></i>
-                      {safeTranslate('duration', 'Duration')}: {safeTranslate(service.duration, service.duration)}
-                    </Badge>
-                    <Badge bg="light" text="dark" className="fs-6 p-2 service-meta-badge">
-                      <i className="bi bi-person me-2"></i>
-                      {safeTranslate('eligibility', 'Eligibility')}: {safeTranslate(service.eligibility, service.eligibility)}
-                    </Badge>
-                  </div>
                 </Card.Body>
               </Card>
 
@@ -154,9 +144,6 @@ const ServiceDetail = () => {
                     </Card.Header>
                     <Card.Body>
                       <div className="mb-3">
-                        <strong className={getFontClass()}>
-                          {safeTranslate('duration', 'Duration')}:
-                        </strong>
                         <p className={getFontClass()}>
                           {safeTranslate(service.duration, service.duration)}
                         </p>

@@ -1196,7 +1196,7 @@ html {
   
   .home-hero-section {
     min-height: auto;
-    background: white !important;
+    background: rgba(255, 255, 255, 0.847) !important;
   }
   
   .hero-overlay {
