@@ -282,7 +282,7 @@ const Services = () => {
       </section>
 
       {/* Process Section */}
-      <section className="section process-section bg-light">
+<section className="section process-section bg-light" style={{marginTop: '10px',marginBottom:'10px'}}>
         <Container>
           <h2 className={`section-title text-center mb-5 ${getFontClass()} fw-bold`}>
             {safeTranslate('howItWorks', 'How It Works')}

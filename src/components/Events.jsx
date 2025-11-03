@@ -66,52 +66,6 @@ const Events = () => {
     window.open(googleCalendarUrl, '_blank');
   };
 
-  const requestNotificationPermission = (event) => {
-    setSelectedEvent(event);
-    
-    if (!("Notification" in window)) {
-      alert("This browser does not support notifications");
-      return;
-    }
-
-    if (Notification.permission === "granted") {
-      scheduleNotification(event);
-    } else if (Notification.permission !== "denied") {
-      setShowNotificationModal(true);
-    }
-  };
-
-  const scheduleNotification = (event) => {
-    if (!("Notification" in window)) return;
-
-    const eventDate = new Date(`${event.date}T${event.time.split(' - ')[0]}`);
-    const now = new Date();
-    const timeUntilEvent = eventDate.getTime() - now.getTime();
-
-    if (timeUntilEvent > 0) {
-      // Schedule notification 1 hour before event
-      setTimeout(() => {
-        new Notification(`Upcoming Event: ${event.title}`, {
-          body: `Starts at ${event.time} at ${event.location}`,
-          icon: '/favicon.ico',
-          tag: event.id
-        });
-      }, timeUntilEvent - (60 * 60 * 1000)); // 1 hour before
-
-      // Immediate notification for testing
-      new Notification(`Event Reminder Added: ${event.title}`, {
-        body: `You'll be notified 1 hour before the event.`,
-        icon: '/favicon.ico'
-      });
-    }
-  };
-
-  const handleNotificationPermission = (permission) => {
-    setShowNotificationModal(false);
-    if (permission && selectedEvent) {
-      scheduleNotification(selectedEvent);
-    }
-  };
 
   const getCategoryColor = (category) => {
     switch(category) {
@@ -170,40 +124,7 @@ const Events = () => {
 
       {/* Notification Permission Modal */}
       <Modal show={showNotificationModal} onHide={() => setShowNotificationModal(false)} centered>
-        <Modal.Header closeButton>
-          <Modal.Title className={getFontClass()}>
-            <i className="bi bi-bell me-2"></i>
-            Enable Notifications
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <div className="text-center">
-            <i className="bi bi-bell-fill text-primary display-4 mb-3"></i>
-            <h5 className={getFontClass()}>Get event reminders</h5>
-            <p className={`text-muted ${getFontClass()}`}>
-              Allow notifications to receive reminders about upcoming events. 
-              We'll notify you 1 hour before each event starts.
-            </p>
-          </div>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button 
-            variant="outline-secondary" 
-            onClick={() => handleNotificationPermission(false)}
-          >
-            Maybe Later
-          </Button>
-          <Button 
-            variant="primary" 
-            onClick={() => {
-              Notification.requestPermission().then(permission => {
-                handleNotificationPermission(permission === 'granted');
-              });
-            }}
-          >
-            Allow Notifications
-          </Button>
-        </Modal.Footer>
+        
       </Modal>
     </>
   );

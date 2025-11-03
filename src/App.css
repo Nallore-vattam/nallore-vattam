@@ -2050,7 +2050,6 @@ h6.tamil-font {
     line-height: 1.1 !important;
   }
 }
-
 /* Tamil Font Line Spacing */
 p.tamil-font {
   line-height: 1.8 !important;
@@ -2075,25 +2074,133 @@ p.tamil-font {
   }
 }
 
+/* Tamil Font Line Spacing for Cards */
+.domain-card .tamil-font,
+.service-preview-card .tamil-font,
+.contact-method-card .tamil-font,
+.stat-card .tamil-font,
+.youtube-card .tamil-font,
+.event-card .tamil-font,
+.team-card .tamil-font,
+.milestone-card .tamil-font {
+  line-height: 1.7 !important;
+  letter-spacing: 0.02em;
+  word-spacing: 0.08em;
+}
+
+/* Specific fixes for card text elements */
+.card-text.tamil-font,
+.card-body .tamil-font,
+.domain-name.tamil-font,
+.service-description.tamil-font {
+  line-height: 1.7 !important;
+  letter-spacing: 0.02em;
+  word-spacing: 0.08em;
+}
+
+/* Fix for domain cards specifically */
+.domain-card p.tamil-font,
+.domain-card .domain-name.tamil-font {
+  line-height: 1.6 !important;
+  word-spacing: 0.06em;
+}
+
+/* Service cards line spacing */
+.service-preview-card p.tamil-font,
+.service-preview-card .card-text.tamil-font {
+  line-height: 1.7 !important;
+}
+
+/* Contact method cards */
+.contact-method-card p.tamil-font {
+  line-height: 1.6 !important;
+}
+
+/* Stats cards */
+.stat-card .tamil-font {
+  line-height: 1.5 !important; /* Slightly tighter for stats */
+}
+
+/* YouTube cards */
+.youtube-card .tamil-font {
+  line-height: 1.6 !important;
+}
+
+/* Event cards */
+.event-card .tamil-font {
+  line-height: 1.7 !important;
+}
+
+/* Team cards */
+.team-card .tamil-font {
+  line-height: 1.6 !important;
+}
+
+/* Milestone cards */
+.milestone-card .tamil-font {
+  line-height: 1.7 !important;
+}
+
+/* Responsive adjustments for cards */
+@media (max-width: 768px) {
+  .domain-card .tamil-font,
+  .service-preview-card .tamil-font,
+  .card-text.tamil-font {
+    line-height: 1.6 !important;
+    letter-spacing: 0.015em;
+    word-spacing: 0.06em;
+  }
+}
+
+@media (max-width: 576px) {
+  .domain-card .tamil-font,
+  .service-preview-card .tamil-font,
+  .card-text.tamil-font {
+    line-height: 1.5 !important;
+    letter-spacing: 0.01em;
+    word-spacing: 0.04em;
+  }
+  
+  /* Tighter spacing for mobile cards */
+  .domain-card p.tamil-font,
+  .service-preview-card p.tamil-font {
+    line-height: 1.5 !important;
+  }
+}
+
+/* Ensure proper spacing in card bodies */
+.card-body p.tamil-font {
+  margin-bottom: 0.8rem;
+  line-height: 1.7 !important;
+}
+
+.card-body .tamil-font:last-child {
+  margin-bottom: 0;
+}
+
+/* Fix for specific card content areas */
+.domain-description.tamil-font,
+.service-details.tamil-font,
+.contact-info.tamil-font {
+  line-height: 1.7 !important;
+  word-spacing: 0.08em;
+}
+
 /* Specific line spacing for different contexts */
 .hero-description.tamil-font {
-  line-height: 1 !important;
+  line-height: 1.7 !important;
 }
 
 .section-description.tamil-font {
   line-height: 1.8 !important;
 }
 
-.card-text.tamil-font {
-  line-height: 1 !important;
-}
-
 .footer p.tamil-font {
-  line-height: 1 !important;
+  line-height: 1.6 !important;
 }
 
 /* Optional: Add extra spacing for long Tamil paragraphs */
 .long-text.tamil-font {
-  line-height: 1 !important;
+  line-height: 1.9 !important;
   margin-bottom: 1.2rem;
 }
