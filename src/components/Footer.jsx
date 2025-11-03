@@ -1,13 +1,15 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 
-const Footer = ({ onPageChange }) => {
+const Footer = () => {
   const { currentLanguage, t } = useLanguage();
+  const navigate = useNavigate();
   const currentYear = new Date().getFullYear();
 
   const getFontClass = () => {
-    switch(currentLanguage) {
+    switch (currentLanguage) {
       case 'ta': return 'tamil-font';
       case 'hi': return 'hindi-font';
       default: return 'english-font';
@@ -15,75 +17,36 @@ const Footer = ({ onPageChange }) => {
   };
 
   const handlePageChange = (page) => {
-    onPageChange(page);
+    navigate(`/${page === 'home' ? '' : page}`);
     window.scrollTo(0, 0);
   };
 
   return (
-    <footer className="footer"  style={{ marginTop: "20px" }}>
+    <footer className="footer" style={{ marginTop: '20px' }}>
       <Container>
         <Row>
           <Col lg={4} md={6} className="mb-4">
             <h5 className={getFontClass()}>{t('projectName')}</h5>
             <p className={getFontClass()}>{t('footerDescription')}</p>
             <div className="social-icons">
-              <a href="#" aria-label="Facebook">
-                <i className="bi bi-facebook"></i>
-              </a>
-              <a href="#" aria-label="Twitter">
-                <i className="bi bi-twitter"></i>
-              </a>
-              <a href="#" aria-label="Instagram">
-                <i className="bi bi-instagram"></i>
-              </a>
-              <a href="#" aria-label="YouTube">
-                <i className="bi bi-youtube"></i>
-              </a>
+              <a href="#" aria-label="Facebook"><i className="bi bi-facebook"></i></a>
+              <a href="#" aria-label="Twitter"><i className="bi bi-twitter"></i></a>
+              <a href="#" aria-label="Instagram"><i className="bi bi-instagram"></i></a>
+              <a href="#" aria-label="YouTube"><i className="bi bi-youtube"></i></a>
             </div>
           </Col>
-          
+
           <Col lg={2} md={6} className="mb-4">
             <h5 className={getFontClass()}>{t('quickLinks')}</h5>
             <ul className="list-unstyled">
-              <li>
-                <span 
-                  className={`${getFontClass()} cursor-pointer text-white`}
-                  onClick={() => handlePageChange('home')}
-                  style={{ cursor: 'pointer' }}
-                >
-                  {t('home')}
-                </span>
-              </li>
-              <li>
-                <span 
-                  className={`${getFontClass()} cursor-pointer text-white`}
-                  onClick={() => handlePageChange('about')}
-                  style={{ cursor: 'pointer' }}
-                >
-                  {t('about')}
-                </span>
-              </li>
-              <li>
-                <span 
-                  className={`${getFontClass()} cursor-pointer text-white`}
-                  onClick={() => handlePageChange('services')}
-                  style={{ cursor: 'pointer' }}
-                >
-                  {t('services')}
-                </span>
-              </li>
-              <li>
-                <span 
-                  className={`${getFontClass()} cursor-pointer text-white`}
-                  onClick={() => handlePageChange('gallery')}
-                  style={{ cursor: 'pointer' }}
-                >
-                  {t('gallery')}
-                </span>
-              </li>
+              <li><span className={`${getFontClass()} cursor-pointer text-white`} onClick={() => handlePageChange('home')}>{t('home')}</span></li>
+              <li><span className={`${getFontClass()} cursor-pointer text-white`} onClick={() => handlePageChange('about')}>{t('about')}</span></li>
+              <li><span className={`${getFontClass()} cursor-pointer text-white`} onClick={() => handlePageChange('services')}>{t('services')}</span></li>
+              <li><span className={`${getFontClass()} cursor-pointer text-white`} onClick={() => handlePageChange('gallery')}>{t('gallery')}</span></li>
+              <li><span className={`${getFontClass()} cursor-pointer text-white`} onClick={() => handlePageChange('contact')}>{t('contact')}</span></li>
             </ul>
           </Col>
-          
+
           <Col lg={3} md={6} className="mb-4">
             <h5 className={getFontClass()}>{t('services')}</h5>
             <ul className="list-unstyled">
@@ -94,7 +57,7 @@ const Footer = ({ onPageChange }) => {
               <li><span className={getFontClass()}>| {t('service5')} | {t('service10')} |</span></li>
             </ul>
           </Col>
-          
+
           <Col lg={3} md={6} className="mb-4">
             <h5 className={getFontClass()}>{t('contactInfo')}</h5>
             <ul className="list-unstyled">
@@ -104,9 +67,9 @@ const Footer = ({ onPageChange }) => {
             </ul>
           </Col>
         </Row>
-        
+
         <hr className="my-4" />
-        
+
         <Row>
           <Col md={6}>
             <p className={`${getFontClass()} mb-0`}>
@@ -114,16 +77,10 @@ const Footer = ({ onPageChange }) => {
             </p>
           </Col>
           <Col md={6} className="text-md-end">
-            <span 
-              className={`${getFontClass()} me-3 cursor-pointer`}
-              style={{ cursor: 'pointer' }}
-            >
+            <span className={`${getFontClass()} me-3 cursor-pointer`}>
               {t('privacyPolicy')}
             </span>
-            <span 
-              className={`${getFontClass()} cursor-pointer`}
-              style={{ cursor: 'pointer' }}
-            >
+            <span className={`${getFontClass()} cursor-pointer`}>
               {t('termsOfService')}
             </span>
           </Col>

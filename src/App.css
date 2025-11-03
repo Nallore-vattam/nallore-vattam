@@ -1,17 +1,16 @@
 /* Global Styles - Violet/Dark Blue Color Scheme */
 :root {
-  --primary-color: #1e1b4b;
-  --secondary-color: #3730a3;
-  --accent-color: #6366f1;
+   --primary-color: #312e81; /* background base */
+  --secondary-color: #f5f7ff; /* soft surface */
+  --accent-color: #5b6ef5; /* blue-violet for energy */
   --light-color: #d9dfe6;
   --dark-color: #312e81;
-  --gold-color: #8b5cf6;
+--gold-color: #ffb84d;
   --text-dark: #0f172a;
-  --text-light: #475569;
+  --text-light: #555;
   --card-bg: #ffffff;
-  --gradient-primary: linear-gradient(135deg, #1e1b4b 0%, #3730a3 100%);
-  --gradient-accent: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-  
+--gradient-primary: #5b6ef5; /* Solid vibrant blue-violet for header */
+  --gradient-accent: linear-gradient(135deg, #ff8fab, #ffd86a);
   /* New Button Color Variables */
   --btn-primary: #7c3aed;
   --btn-secondary: #06b6d4;
@@ -58,8 +57,8 @@ body {
 /* Font Classes with Tamil Size Adjustments */
 .tamil-font {
   font-family: 'TAM', 'Latha', 'Noto Sans Tamil';
-  font-size: 0.9em;
-  line-height: 1.4;
+  font-size: 1em;
+  line-height: 1;
 }
 
 .english-font {
@@ -82,7 +81,7 @@ body {
 }
 
 .section-title.tamil-font {
-  font-size: clamp(1.6rem, 3.5vw, 2.3rem) !important;
+  font-size: clamp(1.8rem, 3.8vw, 2.3rem) !important;
   line-height: 1.3;
 }
 
@@ -698,36 +697,38 @@ html {
   border-color: #3b82f6;
   animation: buttonGlow 2s infinite;
 }
-
-/* Gallery Filter Buttons - Diamond Shape Green */
+/* Gallery Filter Buttons - Diamond Shape Green (Compact Desktop Layout) */
 .gallery-filter-btn {
   background: linear-gradient(135deg, #85d6a4, #97f7bd);
   color: white;
   border: 2px solid #affbcc;
   border-radius: 8px;
-  padding: 10px 24px !important;
+  padding: 6px 14px !important; /* Reduced padding */
   font-weight: 600;
-  font-size: 0.9rem !important;
+  font-size: 0.8rem !important; /* Slightly smaller font */
   transition: all 0.4s ease;
-  box-shadow: 0 4px 15px rgba(22, 101, 52, 0.3);
+  box-shadow: 0 3px 10px rgba(22, 101, 52, 0.3);
   transform: skew(-5deg);
   position: relative;
   overflow: hidden;
+  margin: 6px;
+  display: inline-block;
+  white-space: nowrap;
 }
 
 .gallery-filter-btn:hover {
   background: linear-gradient(135deg, #97f6bd, #84cca0);
   color: white;
   border-color: #96e9b4;
-  transform: skew(-5deg) translateY(-3px);
-  box-shadow: 0 8px 25px rgba(22, 101, 52, 0.5);
+  transform: skew(-5deg) translateY(-2px);
+  box-shadow: 0 6px 20px rgba(22, 101, 52, 0.5);
 }
 
 .gallery-filter-btn.active {
   background: linear-gradient(135deg, #49a469, #48a96e) !important;
   border-color: #7ef5a9 !important;
-  box-shadow: 0 0 20px rgba(198, 236, 212, 0.6) !important;
-  transform: skew(-5deg) scale(1.05);
+  box-shadow: 0 0 15px rgba(198, 236, 212, 0.6) !important;
+  transform: skew(-5deg) scale(1.04);
 }
 
 .gallery-filter-btn.btn-outline-primary {
@@ -741,8 +742,42 @@ html {
   background: linear-gradient(135deg, #166534, #14532d) !important;
   color: white !important;
   border-color: #8ae5ad !important;
-  transform: skew(-5deg) translateY(-3px);
+  transform: skew(-5deg) translateY(-2px);
 }
+
+/* Layout adjustment for desktop - 11 buttons per row */
+.gallery-filter-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .gallery-filter-btn {
+    padding: 6px 12px !important;
+    font-size: 0.8rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-filter-btn {
+    padding: 7px 14px !important;
+    font-size: 0.85rem !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .gallery-filter-btn {
+    padding: 8px 16px !important;
+    font-size: 0.9rem !important;
+    margin: 5px;
+  }
+}
+
 
 /* Secondary Button Style - MEDIUM SIZE */
 /* Outline Button Variants */
@@ -1741,24 +1776,27 @@ html {
 .footer a:hover {
   color: var(--gold-color);
 }
-
 .social-icons a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 38px;
   height: 38px;
-  background: rgba(255,255,255,0.12);
+  background: rgba(255, 255, 255, 0.12);
   border-radius: 50%;
   margin-right: 10px;
   transition: all 0.3s ease;
+  color: white; /* ✅ ensures icons are visible */
+  font-size: 1.1rem;
 }
 
 .social-icons a:hover {
   background: var(--gold-color);
+  color: #1e1b4b; /* ✅ dark violet contrast so icon is visible */
   transform: translateY(-2px);
   box-shadow: 0 6px 15px rgba(139, 92, 246, 0.4);
 }
+
 
 /* Additional missing animations */
 @keyframes scaleIn {
@@ -1929,4 +1967,133 @@ html {
   .milestone-icon {
     font-size: 2.5rem !important;
   }
+}
+
+/* Tamil Font Size Fixes for All Headings */
+h1.tamil-font {
+  font-size: clamp(1.8rem, 4vw, 3rem) !important;
+  line-height: 1.2;
+}
+
+h2.tamil-font {
+  font-size: clamp(1.6rem, 3.5vw, 2.5rem) !important;
+  line-height: 1.3;
+}
+
+h3.tamil-font {
+  font-size: clamp(1.4rem, 3vw, 2rem) !important;
+  line-height: 1.3;
+}
+
+h4.tamil-font {
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem) !important;
+  line-height: 1.4;
+}
+
+h5.tamil-font {
+  font-size: clamp(1.1rem, 2.2vw, 1.4rem) !important;
+  line-height: 1.4;
+}
+
+h6.tamil-font {
+  font-size: clamp(1rem, 2vw, 1.2rem) !important;
+  line-height: 1.4;
+}
+
+/* Specific fixes for your existing Tamil font classes */
+.hero-title.tamil-font {
+  font-size: clamp(1.8rem, 4vw, 3rem) !important;
+  line-height: 1.2;
+}
+
+.premium-hero-title.tamil-font {
+  font-size: clamp(2rem, 5vw, 3.2rem) !important;
+  line-height: 1.2;
+}
+
+.section-title.tamil-font {
+  font-size: clamp(1.8rem, 3.8vw, 2.3rem) !important;
+  line-height: 1.3;
+}
+
+.page-title.tamil-font {
+  font-size: clamp(1.8rem, 4vw, 2.8rem) !important;
+  line-height: 1.2;
+}
+
+/* Fix for domain names in floating cards */
+.domain-name.tamil-font {
+  font-size: 0.7rem !important; /* Slightly larger for Tamil */
+  line-height: 1.2 !important;
+  font-weight: 600 !important;
+}
+
+/* Mobile adjustments for Tamil */
+@media (max-width: 768px) {
+  h2.tamil-font {
+    font-size: clamp(1.4rem, 4vw, 2rem) !important;
+  }
+  
+  .domain-name.tamil-font {
+    font-size: 0.6rem !important;
+    line-height: 1.1 !important;
+  }
+}
+
+@media (max-width: 576px) {
+  h2.tamil-font {
+    font-size: clamp(1.3rem, 4.5vw, 1.8rem) !important;
+  }
+  
+  .domain-name.tamil-font {
+    font-size: 0.55rem !important;
+    line-height: 1.1 !important;
+  }
+}
+
+/* Tamil Font Line Spacing */
+p.tamil-font {
+  line-height: 1.8 !important;
+  letter-spacing: 0.02em;
+  word-spacing: 0.1em;
+}
+
+/* Adjust line spacing for different screen sizes */
+@media (max-width: 768px) {
+  p.tamil-font {
+    line-height: 1.7 !important;
+    letter-spacing: 0.015em;
+    word-spacing: 0.08em;
+  }
+}
+
+@media (max-width: 576px) {
+  p.tamil-font {
+    line-height: 1.6 !important;
+    letter-spacing: 0.01em;
+    word-spacing: 0.06em;
+  }
+}
+
+/* Specific line spacing for different contexts */
+.hero-description.tamil-font {
+  line-height: 1 !important;
+}
+
+.section-description.tamil-font {
+  line-height: 1.8 !important;
+}
+
+.card-text.tamil-font {
+  line-height: 1 !important;
+}
+
+.footer p.tamil-font {
+  line-height: 1 !important;
+}
+
+/* Optional: Add extra spacing for long Tamil paragraphs */
+.long-text.tamil-font {
+  line-height: 1 !important;
+  margin-bottom: 1.2rem;
 }

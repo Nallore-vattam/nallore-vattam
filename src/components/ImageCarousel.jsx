@@ -8,6 +8,14 @@ const SimpleImageCarousel = () => {
     setIndex(selectedIndex);
   };
 
+  const handleNext = () => {
+    setIndex((prevIndex) => (prevIndex + 1) % carouselItems.length);
+  };
+
+  const handlePrev = () => {
+    setIndex((prevIndex) => (prevIndex - 1 + carouselItems.length) % carouselItems.length);
+  };
+
   const carouselItems = [
     {
       image: "/images/contentsofweb/kalaamquotemain.jpg",
@@ -28,7 +36,22 @@ const SimpleImageCarousel = () => {
   ];
 
   return (
-    <section className="professional-carousel-section" style={{ padding: '0', margin: '0' }}>
+    <section 
+      className="professional-carousel-section" 
+      style={{ padding: '0', margin: '0' }}
+      onClick={(e) => {
+        // Get click position to determine left/right side
+        const clickX = e.clientX;
+        const windowWidth = window.innerWidth;
+        const isLeftSide = clickX < windowWidth / 2;
+        
+        if (isLeftSide) {
+          handlePrev();
+        } else {
+          handleNext();
+        }
+      }}
+    >
       <Container fluid className="p-0 m-0">
         <Carousel 
           activeIndex={index} 
@@ -42,16 +65,24 @@ const SimpleImageCarousel = () => {
             <span 
               aria-hidden="true" 
               className="custom-carousel-control custom-prev"
+              onClick={(e) => {
+                e.stopPropagation();
+                handlePrev();
+              }}
             >
-              ‹
+              
             </span>
           }
           nextIcon={
             <span 
               aria-hidden="true" 
               className="custom-carousel-control custom-next"
+              onClick={(e) => {
+                e.stopPropagation();
+                handleNext();
+              }}
             >
-              ›
+              
             </span>
           }
         >
@@ -64,7 +95,8 @@ const SimpleImageCarousel = () => {
                   height: '45vh',
                   minHeight: '250px',
                   position: 'relative',
-                  overflow: 'hidden'
+                  overflow: 'hidden',
+                  cursor: 'pointer'
                 }}
               >
                 {/* Background Overlay */}
@@ -111,6 +143,36 @@ const SimpleImageCarousel = () => {
                     }}
                   />
                 </div>
+
+                {/* Click area indicators (optional - for visual feedback) */}
+                <div 
+                  className="click-area-left position-absolute h-100"
+                  style={{
+                    width: '50%',
+                    left: 0,
+                    top: 0,
+                    zIndex: 3,
+                    cursor: 'pointer'
+                  }}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handlePrev();
+                  }}
+                />
+                <div 
+                  className="click-area-right position-absolute h-100"
+                  style={{
+                    width: '50%',
+                    right: 0,
+                    top: 0,
+                    zIndex: 3,
+                    cursor: 'pointer'
+                  }}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleNext();
+                  }}
+                />
               </div>
             </Carousel.Item>
           ))}
@@ -142,12 +204,12 @@ const SimpleImageCarousel = () => {
           border-radius: 0 !important;
         }
 
-        /* Small Control Buttons */
+        /* Transparent Control Buttons - No White Background */
         .professional-carousel .carousel-control-prev,
         .professional-carousel .carousel-control-next {
-          width: 30px;
-          height: 30px;
-          background: rgba(255, 255, 255, 0.95);
+          width: 40px;
+          height: 40px;
+          background: transparent !important;
           border: none;
           border-radius: 50%;
           opacity: 1;
@@ -155,9 +217,6 @@ const SimpleImageCarousel = () => {
           transform: translateY(-50%);
           transition: all 0.3s ease;
           backdrop-filter: blur(10px);
-          box-shadow: 
-            0 4px 12px rgba(0,0,0,0.15),
-            0 0 0 1px rgba(255,255,255,0.2);
           z-index: 10;
           margin: 0 !important;
         }
@@ -170,22 +229,23 @@ const SimpleImageCarousel = () => {
           right: 10px;
         }
 
-        /* Control icons */
+        /* Control icons - Transparent with white arrows */
         .professional-carousel .carousel-control-prev-icon,
         .professional-carousel .carousel-control-next-icon {
           background-image: none;
           width: auto;
           height: auto;
           margin: 0 !important;
+          background: transparent !important;
         }
 
         .professional-carousel .carousel-control-prev-icon::before,
         .professional-carousel .carousel-control-next-icon::before {
           content: '';
           display: block;
-          width: 8px;
-          height: 8px;
-          border: 2px solid var(--primary-color);
+          width: 12px;
+          height: 12px;
+          border: 2px solid rgba(255, 255, 255, 0.9);
           border-width: 2px 2px 0 0;
           transform: rotate(-135deg);
           transition: all 0.3s ease;
@@ -193,6 +253,23 @@ const SimpleImageCarousel = () => {
 
         .professional-carousel .carousel-control-next-icon::before {
           transform: rotate(45deg);
+        }
+
+        /* Hover effects for controls */
+        .professional-carousel .carousel-control-prev:hover,
+        .professional-carousel .carousel-control-next:hover {
+          background: rgba(255, 255, 255, 0.1) !important;
+          transform: translateY(-50%) scale(1.1);
+        }
+
+        .professional-carousel .carousel-control-prev:hover .carousel-control-prev-icon::before,
+        .professional-carousel .carousel-control-next:hover .carousel-control-next-icon::before {
+          border-color: white;
+          transform: rotate(-135deg) scale(1.2);
+        }
+
+        .professional-carousel .carousel-control-next:hover .carousel-control-next-icon::before {
+          transform: rotate(45deg) scale(1.2);
         }
 
         /* Carousel Indicators */
@@ -218,6 +295,19 @@ const SimpleImageCarousel = () => {
           transform: scale(1.2);
         }
 
+        /* Click areas - invisible but functional */
+        .click-area-left,
+        .click-area-right {
+          opacity: 0;
+          transition: opacity 0.3s ease;
+        }
+
+        .click-area-left:hover,
+        .click-area-right:hover {
+          opacity: 0.1;
+          background: rgba(255, 255, 255, 0.1);
+        }
+
         /* Tablet - Medium screens */
         @media (min-width: 768px) {
           .professional-carousel,
@@ -241,8 +331,8 @@ const SimpleImageCarousel = () => {
 
           .professional-carousel .carousel-control-prev,
           .professional-carousel .carousel-control-next {
-            width: 35px;
-            height: 35px;
+            width: 45px;
+            height: 45px;
           }
 
           .professional-carousel .carousel-control-prev {
@@ -300,13 +390,6 @@ const SimpleImageCarousel = () => {
 
         .professional-carousel .carousel-fade .carousel-item.active {
           opacity: 1;
-        }
-
-        /* Hover effects */
-        .professional-carousel .carousel-control-prev:hover,
-        .professional-carousel .carousel-control-next:hover {
-          background: white;
-          transform: translateY(-50%) scale(1.1);
         }
 
         /* Ensure container has no spacing */

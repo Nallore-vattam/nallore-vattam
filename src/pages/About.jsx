@@ -93,18 +93,6 @@ const About = () => {
                 <p className={`hero-subtitle ${getFontClass()}`}>
                   {t('aboutSubtitle')}
                 </p>
-                
-                {/* About Info Preview */}
-                <div className="contact-preview mt-4" >
-                  <div className="contact-preview-item">
-                    <i className="bi bi-people text-primary me-2"></i>
-                    <span className={getFontClass()}>500+ Community Members</span>
-                  </div>
-                  <div className="contact-preview-item">
-                    <i className="bi bi-award text-primary me-2"></i>
-                    <span className={getFontClass()}>10+ Years of Service</span>
-                  </div>
-                </div>
               </div>
             </Col>
           </Row>

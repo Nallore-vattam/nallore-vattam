@@ -292,7 +292,6 @@ const Services = () => {
               <Col lg={3} md={6} key={index}>
                 <div className="process-card p-4 bg-white h-100 rounded shadow-sm position-relative">
                   <div className="process-step-number position-absolute top-0 start-50 translate-middle bg-primary text-white rounded-circle d-flex align-items-center justify-content-center fw-bold">
-                    {index + 1}
                   </div>
                   <div className="process-icon mb-3 text-primary mt-3">
                     <i className={`bi ${step.icon} fs-2`}></i>

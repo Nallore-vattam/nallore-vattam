@@ -132,80 +132,13 @@ const ServiceDetail = () => {
                 </Row>
               )}
 
-              {/* Detailed Information */}
-              <Row className="mb-5">
-                <Col lg={6}>
-                  <Card className={`h-100 border-0 shadow-sm ${currentColorClass}`}>
-                    <Card.Header className="service-info-header">
-                      <h5 className={`mb-0 ${getFontClass()} fw-bold`}>
-                        <i className="bi bi-info-circle me-2"></i>
-                        {safeTranslate('serviceDetails', 'Service Details')}
-                      </h5>
-                    </Card.Header>
-                    <Card.Body>
-                      <div className="mb-3">
-                        <p className={getFontClass()}>
-                          {safeTranslate(service.duration, service.duration)}
-                        </p>
-                      </div>
-                      <div className="mb-3">
-                        <strong className={getFontClass()}>
-                          {safeTranslate('eligibility', 'Eligibility')}:
-                        </strong>
-                        <p className={getFontClass()}>
-                          {safeTranslate(service.eligibility, service.eligibility)}
-                        </p>
-                      </div>
-                      <div>
-                        <strong className={getFontClass()}>
-                          {safeTranslate('serviceType', 'Service Type')}:
-                        </strong>
-                        <p className={getFontClass()}>
-                          {safeTranslate('communityService', 'Community Service')}
-                        </p>
-                      </div>
-                    </Card.Body>
-                  </Card>
-                </Col>
-                <Col lg={6}>
-                  <Card className={`h-100 border-0 shadow-sm ${currentColorClass}`}>
-                    <Card.Header className="service-apply-header">
-                      <h5 className={`mb-0 ${getFontClass()} fw-bold`}>
-                        <i className="bi bi-question-circle me-2"></i>
-                        {safeTranslate('howToApply', 'How to Apply')}
-                      </h5>
-                    </Card.Header>
-                    <Card.Body>
-                      <ol className={getFontClass()}>
-                        <li>{safeTranslate('step1Apply', 'Check eligibility requirements')}</li>
-                        <li>{safeTranslate('step2Apply', 'Fill out the application form')}</li>
-                        <li>{safeTranslate('step3Apply', 'Submit required documents')}</li>
-                        <li>{safeTranslate('step4Apply', 'Wait for approval notification')}</li>
-                        <li>{safeTranslate('step5Apply', 'Start receiving services')}</li>
-                      </ol>
-                      <div className="mt-3">
-                        <small className="text-muted">
-                          {safeTranslate('contactForHelp', 'Contact our support team for assistance')}
-                        </small>
-                      </div>
-                    </Card.Body>
-                  </Card>
-                </Col>
-              </Row>
 
               {/* Action Buttons */}
               <Row className="mb-5">
                 <Col className="text-center">
-                  <h3 className={`mb-4 ${getFontClass()} fw-bold`}>
-                    {safeTranslate('readyToGetStarted', 'Ready to Get Started?')}
-                  </h3>
                   <Button variant="primary" size="lg" className={`me-3 px-4 py-2 service-action-btn ${currentColorClass}`}>
                     <i className="bi bi-pencil me-2"></i>
                     {safeTranslate('applyNow', 'Apply Now')}
-                  </Button>
-                  <Button variant="outline-primary" size="lg" className={`me-3 px-4 py-2 service-action-btn ${currentColorClass}`}>
-                    <i className="bi bi-telephone me-2"></i>
-                    {safeTranslate('contactCoordinator', 'Contact Coordinator')}
                   </Button>
                   <Button variant="outline-secondary" size="lg" className="px-4 py-2" onClick={() => navigate('/services')}>
                     <i className="bi bi-arrow-left me-2"></i>

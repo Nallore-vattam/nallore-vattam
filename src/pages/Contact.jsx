@@ -93,16 +93,6 @@ const Contact = () => {
                 </p>
                 
                 {/* Contact Info Preview */}
-                <div className="contact-preview mt-4">
-                  <div className="contact-preview-item">
-                    <i className="bi bi-telephone text-primary me-2"></i>
-                    <span className={getFontClass()}>{t('phone')}</span>
-                  </div>
-                  <div className="contact-preview-item">
-                    <i className="bi bi-envelope text-primary me-2"></i>
-                    <span className={getFontClass()}>{t('emailAddress')}</span>
-                  </div>
-                </div>
               </div>
             </Col>
           </Row>

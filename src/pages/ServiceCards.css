@@ -1,534 +1,669 @@
-/* Service Cards Styling - Unique Colors for Each Card */
+/* Service Cards Styling - Balanced Dark Cards */
 :root {
-  --card-1-color: #1e40af; /* Royal Blue */
-  --card-1-bg: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
-  --card-2-color: #059669; /* Emerald Green */
-  --card-2-bg: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
-  --card-3-color: #dc2626; /* Ruby Red */
-  --card-3-bg: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
-  --card-4-color: #7c3aed; /* Amethyst Purple */
-  --card-4-bg: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
-  --card-5-color: #ea580c; /* Amber Orange */
-  --card-5-bg: linear-gradient(135deg, #ffedd5 0%, #fed7aa 100%);
-  --card-6-color: #0891b2; /* Cyan Blue */
-  --card-6-bg: linear-gradient(135deg, #cffafe 0%, #a5f3fc 100%);
-  --card-7-color: #be185d; /* Magenta Pink */
-  --card-7-bg: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%);
-  --card-8-color: #65a30d; /* Lime Green */
-  --card-8-bg: linear-gradient(135deg, #ecfccb 0%, #d9f99d 100%);
-  --card-9-color: #4338ca; /* Indigo */
-  --card-9-bg: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
-  --card-10-color: #0f766e; /* Teal */
-  --card-10-bg: linear-gradient(135deg, #ccfbf1 0%, #99f6e4 100%);
+   --card-1-color: #6a5acd;
+  --card-1-bg: linear-gradient(135deg, #a5b4fc 0%, #c7d2fe 100%);
+  --card-2-color: #10b981;
+  --card-2-bg: linear-gradient(135deg, #99f6e4 0%, #6ee7b7 100%);
+  --card-3-color: #f97316;
+  --card-3-bg: linear-gradient(135deg, #fed7aa 0%, #fdba74 100%);
+  --card-4-color: #ec4899;
+  --card-4-bg: linear-gradient(135deg, #fbcfe8 0%, #f9a8d4 100%);
+  --card-5-color: #3b82f6;
+  --card-5-bg: linear-gradient(135deg, #bfdbfe 0%, #93c5fd 100%);
+  --card-6-color: #84cc16;
+  --card-6-bg: linear-gradient(135deg, #d9f99d 0%, #a3e635 100%);
+  --card-7-color: #14b8a6;
+  --card-7-bg: linear-gradient(135deg, #99f6e4 0%, #5eead4 100%);
+  --card-8-color: #eab308;
+  --card-8-bg: linear-gradient(135deg, #fef08a 0%, #fde047 100%);
+  --card-9-color: #a855f7;
+  --card-9-bg: linear-gradient(135deg, #e9d5ff 0%, #c084fc 100%);
+  --card-10-color: #f43f5e;
+  --card-10-bg: linear-gradient(135deg, #fecdd3 0%, #fda4af 100%);
 }
 
-/* Service Detail Cards - 2 per row with unique colors - SMALLER SIZE */
-.service-detail-card {
-  border: none !important;
-  border-radius: 16px !important;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1) !important;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
-  overflow: hidden !important;
-  height: 100% !important;
-  position: relative !important;
-  border: 1px solid rgba(255, 255, 255, 0.8) !important;
-  backdrop-filter: blur(10px) !important;
-  min-height: 320px !important;
+/* Services Page Base Styles */
+.services-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f9fafb 0%, #f1f5f9 100%);
+  padding-top: 80px;
 }
 
-/* Individual card color classes */
+.services-page-header {
+  background: #ffffff;
+  padding: 4rem 0;
+  text-align: center;
+  color: #1e293b;
+  border-bottom: 2px solid #e2e8f0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+
+}
+
+.services-page-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+  background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.services-page-subtitle {
+  font-size: 1.3rem;
+  color: #475569;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.service-navigation-container {
+  background: #ffffff;
+  padding: 2rem 0;
+  border-bottom: 2px solid #e2e8f0;
+  position: sticky;
+  top: 80px;
+  z-index: 100;
+}
+.service-nav-title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 1.5rem;
+}
+
+.service-nav-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.service-nav-btn {
+  padding: 0.8rem 1.5rem;
+  border: 2px solid #cbd5e1;
+  background: #f8fafc;
+  color: #1e293b;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  min-width: 120px;
+}
+
+
+.service-nav-btn:hover,
+.service-nav-btn.active {
+  background: linear-gradient(135deg, #a5b4fc, #93c5fd);
+  color: #1e293b;
+  box-shadow: 0 4px 12px rgba(147, 197, 253, 0.4);
+  transform: translateY(-3px);
+}
+
+/* Services Container - Limited Display */
+.services-container {
+  padding: 3rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+/* Limited Display - Show only first 4 cards by default */
+.services-grid .service-detail-card:nth-child(n+5) {
+  display: none;
+}
+
+.services-grid.show-all .service-detail-card {
+  display: flex !important;
+}
+
+/* View More/Less Toggle */
+.services-toggle-container {
+  text-align: center;
+  margin: 3rem 0 1rem 0;
+}
+.services-toggle-btn {
+  background: linear-gradient(135deg, #4f46e5, #3b82f6);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.services-toggle-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+}
+
+/* Balanced Dark Cards with Brighter Accents */
 .service-card-1 {
   background: var(--card-1-bg) !important;
-  border-top: 4px solid var(--card-1-color) !important;
+  border: 1px solid var(--card-1-color) !important;
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3) !important;
 }
 
 .service-card-2 {
   background: var(--card-2-bg) !important;
-  border-top: 4px solid var(--card-2-color) !important;
+  border: 1px solid var(--card-2-color) !important;
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3) !important;
 }
 
 .service-card-3 {
   background: var(--card-3-bg) !important;
-  border-top: 4px solid var(--card-3-color) !important;
+  border: 1px solid var(--card-3-color) !important;
+  box-shadow: 0 8px 25px rgba(239, 68, 68, 0.3) !important;
 }
 
 .service-card-4 {
   background: var(--card-4-bg) !important;
-  border-top: 4px solid var(--card-4-color) !important;
+  border: 1px solid var(--card-4-color) !important;
+  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3) !important;
 }
 
 .service-card-5 {
   background: var(--card-5-bg) !important;
-  border-top: 4px solid var(--card-5-color) !important;
+  border: 1px solid var(--card-5-color) !important;
+  box-shadow: 0 8px 25px rgba(249, 115, 22, 0.3) !important;
 }
 
 .service-card-6 {
   background: var(--card-6-bg) !important;
-  border-top: 4px solid var(--card-6-color) !important;
+  border: 1px solid var(--card-6-color) !important;
+  box-shadow: 0 8px 25px rgba(6, 182, 212, 0.3) !important;
 }
 
 .service-card-7 {
   background: var(--card-7-bg) !important;
-  border-top: 4px solid var(--card-7-color) !important;
+  border: 1px solid var(--card-7-color) !important;
+  box-shadow: 0 8px 25px rgba(236, 72, 153, 0.3) !important;
 }
 
 .service-card-8 {
   background: var(--card-8-bg) !important;
-  border-top: 4px solid var(--card-8-color) !important;
+  border: 1px solid var(--card-8-color) !important;
+  box-shadow: 0 8px 25px rgba(132, 204, 22, 0.3) !important;
 }
 
 .service-card-9 {
   background: var(--card-9-bg) !important;
-  border-top: 4px solid var(--card-9-color) !important;
+  border: 1px solid var(--card-9-color) !important;
+  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3) !important;
 }
 
 .service-card-10 {
   background: var(--card-10-bg) !important;
-  border-top: 4px solid var(--card-10-color) !important;
+  border: 1px solid var(--card-10-color) !important;
+  box-shadow: 0 8px 25px rgba(20, 184, 166, 0.3) !important;
 }
-
-.service-detail-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  transform: scaleX(0);
-  transition: transform 0.4s ease;
+/* Service Cards */
+.service-detail-card {
+  border: none;
+  border-radius: 18px;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  background: #ffffff;
 }
 
 .service-detail-card:hover {
-  transform: translateY(-8px) !important;
-  box-shadow: 
-    0 15px 35px rgba(0, 0, 0, 0.15),
-    0 0 0 1px rgba(99, 102, 241, 0.1) !important;
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
 }
 
-.service-detail-card:hover::before {
-  transform: scaleX(1);
+/* Card Header & Icon */
+.service-card-header {
+  padding: 2rem 2rem 1rem 2rem;
+  text-align: center;
 }
 
-/* Unique colors for top border animation */
-.service-card-1::before { background: var(--card-1-color) !important; }
-.service-card-2::before { background: var(--card-2-color) !important; }
-.service-card-3::before { background: var(--card-3-color) !important; }
-.service-card-4::before { background: var(--card-4-color) !important; }
-.service-card-5::before { background: var(--card-5-color) !important; }
-.service-card-6::before { background: var(--card-6-color) !important; }
-.service-card-7::before { background: var(--card-7-color) !important; }
-.service-card-8::before { background: var(--card-8-color) !important; }
-.service-card-9::before { background: var(--card-9-color) !important; }
-.service-card-10::before { background: var(--card-10-color) !important; }
+/* Colored Card Variants */
+.service-card-1 .service-icon-large { background: var(--card-1-color); }
+.service-card-2 .service-icon-large { background: var(--card-2-color); }
+.service-card-3 .service-icon-large { background: var(--card-3-color); }
+.service-card-4 .service-icon-large { background: var(--card-4-color); }
+.service-card-5 .service-icon-large { background: var(--card-5-color); }
+.service-card-6 .service-icon-large { background: var(--card-6-color); }
+.service-card-7 .service-icon-large { background: var(--card-7-color); }
+.service-card-8 .service-icon-large { background: var(--card-8-color); }
+.service-card-9 .service-icon-large { background: var(--card-9-color); }
+.service-card-10 .service-icon-large { background: var(--card-10-color); }
 
-/* Service Icon Styling - SMALLER */
+
 .service-icon-large {
-  width: 60px !important;
-  height: 60px !important;
-  border-radius: 16px !important;
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  font-size: 1.5rem !important;
-  transition: all 0.4s ease;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2) !important;
+  font-size: 2rem;
+  margin: 0 auto 1rem auto;
 }
-
-/* Unique icon backgrounds for each card */
-.service-card-1 .service-icon-large {
-  background: linear-gradient(135deg, var(--card-1-color) 0%, #3b82f6 100%) !important;
-}
-.service-card-2 .service-icon-large {
-  background: linear-gradient(135deg, var(--card-2-color) 0%, #10b981 100%) !important;
-}
-.service-card-3 .service-icon-large {
-  background: linear-gradient(135deg, var(--card-3-color) 0%, #ef4444 100%) !important;
-}
-.service-card-4 .service-icon-large {
-  background: linear-gradient(135deg, var(--card-4-color) 0%, #a855f7 100%) !important;
-}
-.service-card-5 .service-icon-large {
-  background: linear-gradient(135deg, var(--card-5-color) 0%, #f97316 100%) !important;
-}
-.service-card-6 .service-icon-large {
-  background: linear-gradient(135deg, var(--card-6-color) 0%, #06b6d4 100%) !important;
-}
-.service-card-7 .service-icon-large {
-  background: linear-gradient(135deg, var(--card-7-color) 0%, #ec4899 100%) !important;
-}
-.service-card-8 .service-icon-large {
-  background: linear-gradient(135deg, var(--card-8-color) 0%, #84cc16 100%) !important;
-}
-.service-card-9 .service-icon-large {
-  background: linear-gradient(135deg, var(--card-9-color) 0%, #6366f1 100%) !important;
-}
-.service-card-10 .service-icon-large {
-  background: linear-gradient(135deg, var(--card-10-color) 0%, #14b8a6 100%) !important;
-}
-
 .service-detail-card:hover .service-icon-large {
-  transform: scale(1.08) rotate(3deg) !important;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25) !important;
+  transform: scale(1.1) !important;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.4) !important;
 }
 
-/* Card Title Styling - SMALLER */
+
+.service-card-body {
+  padding: 1.5rem 2rem;
+  flex-grow: 1;
+}
+
+
 .service-detail-card .card-title {
-  font-size: 1.2rem !important;
-  font-weight: 700;
-  margin-bottom: 0.6rem !important;
-  line-height: 1.3;
-}
-
-/* Unique title colors for each card */
-.service-card-1 .card-title { color: var(--card-1-color) !important; }
-.service-card-2 .card-title { color: var(--card-2-color) !important; }
-.service-card-3 .card-title { color: var(--card-3-color) !important; }
-.service-card-4 .card-title { color: var(--card-4-color) !important; }
-.service-card-5 .card-title { color: var(--card-5-color) !important; }
-.service-card-6 .card-title { color: var(--card-6-color) !important; }
-.service-card-7 .card-title { color: var(--card-7-color) !important; }
-.service-card-8 .card-title { color: var(--card-8-color) !important; }
-.service-card-9 .card-title { color: var(--card-9-color) !important; }
-.service-card-10 .card-title { color: var(--card-10-color) !important; }
-
-/* Card Text Styling - SMALLER */
-.service-detail-card .card-text {
-  color: #374151;
-  line-height: 1.5 !important;
+  font-size: 1.3rem !important;
+  font-weight: 700 !important;
   margin-bottom: 1rem !important;
-  font-size: 0.9rem !important;
-  font-weight: 500;
+  line-height: 1.3 !important;
+  text-align: center !important;
+  color:#1e293b!important;
 }
 
-/* Features Badges with unique colors - SMALLER */
+.service-detail-card .card-text {
+  color: #475569 !important;
+  line-height: 1.7 !important;
+  margin-bottom: 1.5rem !important;
+  font-size: 1rem !important;
+  font-weight: 500 !important;
+  text-align: center !important;
+}
+
+/* Features Section - Colored Subdomain Text */
+.service-features-section {
+  margin: 1.5rem 0 !important;
+}
+
+.service-features-title {
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  color: #f1f5f9 !important;
+  margin-bottom: 1rem !important;
+  text-align: center !important;
+}
+
+.service-features {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 0.5rem !important;
+  justify-content: center !important;
+}
+
+/* Colored Subdomain badges */
+.service-card-1 .badge {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: #6d8aae !important;
+  border: 1px solid rgba(59, 130, 246, 0.4) !important;
+}
+
+.service-card-2 .badge {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: #82bea2 !important;
+  border: 1px solid rgba(16, 185, 129, 0.4) !important;
+}
+
+.service-card-3 .badge {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: #906161 !important;
+  border: 1px solid rgba(239, 68, 68, 0.4) !important;
+}
+
+.service-card-4 .badge {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: #6f63a0 !important;
+  border: 1px solid rgba(139, 92, 246, 0.4) !important;
+}
+
+.service-card-5 .badge {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: #9c7d59 !important;
+  border: 1px solid rgba(249, 115, 22, 0.4) !important;
+}
+
+.service-card-6 .badge {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: #558c92 !important;
+  border: 1px solid rgba(6, 182, 212, 0.4) !important;
+}
+
+.service-card-7 .badge {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: #a26587 !important;
+  border: 1px solid rgba(236, 72, 153, 0.4) !important;
+}
+
+.service-card-8 .badge {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: #97af6b !important;
+  border: 1px solid rgba(132, 204, 22, 0.4) !important;
+}
+
+.service-card-9 .badge {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: #6a749e !important;
+  border: 1px solid rgba(99, 102, 241, 0.4) !important;
+}
+
+.service-card-10 .badge {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: #4f7f76 !important;
+  border: 1px solid rgba(20, 184, 166, 0.4) !important;
+}
+
 .service-features .badge {
-  border: 1px solid;
-  padding: 0.4rem 0.8rem !important;
-  border-radius: 20px !important;
-  font-weight: 500;
-  font-size: 0.75rem !important;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid #e2e8f0;
+  color: #1e293b;
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
   transition: all 0.3s ease;
-}
-
-/* Unique badge colors for each card */
-.service-card-1 .badge { 
-  background: rgba(30, 64, 175, 0.15) !important; 
-  color: var(--card-1-color) !important;
-  border-color: var(--card-1-color) !important;
-}
-.service-card-2 .badge { 
-  background: rgba(5, 150, 105, 0.15) !important; 
-  color: var(--card-2-color) !important;
-  border-color: var(--card-2-color) !important;
-}
-.service-card-3 .badge { 
-  background: rgba(220, 38, 38, 0.15) !important; 
-  color: var(--card-3-color) !important;
-  border-color: var(--card-3-color) !important;
-}
-.service-card-4 .badge { 
-  background: rgba(124, 58, 237, 0.15) !important; 
-  color: var(--card-4-color) !important;
-  border-color: var(--card-4-color) !important;
-}
-.service-card-5 .badge { 
-  background: rgba(234, 88, 12, 0.15) !important; 
-  color: var(--card-5-color) !important;
-  border-color: var(--card-5-color) !important;
-}
-.service-card-6 .badge { 
-  background: rgba(8, 145, 178, 0.15) !important; 
-  color: var(--card-6-color) !important;
-  border-color: var(--card-6-color) !important;
-}
-.service-card-7 .badge { 
-  background: rgba(190, 24, 93, 0.15) !important; 
-  color: var(--card-7-color) !important;
-  border-color: var(--card-7-color) !important;
-}
-.service-card-8 .badge { 
-  background: rgba(101, 163, 13, 0.15) !important; 
-  color: var(--card-8-color) !important;
-  border-color: var(--card-8-color) !important;
-}
-.service-card-9 .badge { 
-  background: rgba(67, 56, 202, 0.15) !important; 
-  color: var(--card-9-color) !important;
-  border-color: var(--card-9-color) !important;
-}
-.service-card-10 .badge { 
-  background: rgba(15, 118, 110, 0.15) !important; 
-  color: var(--card-10-color) !important;
-  border-color: var(--card-10-color) !important;
 }
 
 .service-features .badge:hover {
-  transform: translateY(-1px) !important;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15) !important;
+  transform: translateY(-2px);
+  background: #f1f5f9;
 }
 
-/* Service Meta Information - SMALLER */
-.service-meta {
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 0.8rem 0 !important;
-  margin: 1rem 0 !important;
+.service-card-footer {
+  padding: 1.5rem 2rem !important;
+  border-top: 1px solid rgba(255,255,255,0.15) !important;
+  background: rgba(255,255,255,0.08) !important;
 }
 
-.service-meta span {
-  display: flex;
-  align-items: center;
-  font-size: 0.8rem !important;
-  color: #4b5563;
-  font-weight: 500;
+/* Brighter Buttons with White Text */
+.service-card-1 .service-action-btn {
+  background: linear-gradient(135deg, var(--card-1-dark) 0%, var(--card-1-color) 100%) !important;
+  color: #ffffff !important;
 }
 
-.service-meta i {
-  margin-right: 0.4rem !important;
-  font-size: 0.9rem !important;
+.service-card-2 .service-action-btn {
+  background: linear-gradient(135deg, var(--card-2-dark) 0%, var(--card-2-color) 100%) !important;
+  color: #ffffff !important;
 }
 
-/* Unique icon colors for each card */
-.service-card-1 .service-meta i { color: var(--card-1-color) !important; }
-.service-card-2 .service-meta i { color: var(--card-2-color) !important; }
-.service-card-3 .service-meta i { color: var(--card-3-color) !important; }
-.service-card-4 .service-meta i { color: var(--card-4-color) !important; }
-.service-card-5 .service-meta i { color: var(--card-5-color) !important; }
-.service-card-6 .service-meta i { color: var(--card-6-color) !important; }
-.service-card-7 .service-meta i { color: var(--card-7-color) !important; }
-.service-card-8 .service-meta i { color: var(--card-8-color) !important; }
-.service-card-9 .service-meta i { color: var(--card-9-color) !important; }
-.service-card-10 .service-meta i { color: var(--card-10-color) !important; }
+.service-card-3 .service-action-btn {
+  background: linear-gradient(135deg, var(--card-3-dark) 0%, var(--card-3-color) 100%) !important;
+  color: #ffffff !important;
+}
 
-/* Enhanced Button Styling with Unique Colors - SMALLER */
-.service-actions .btn {
-  border-radius: 10px !important;
-  padding: 0.5rem 1.2rem !important;
+.service-card-4 .service-action-btn {
+  background: linear-gradient(135deg, var(--card-4-dark) 0%, var(--card-4-color) 100%) !important;
+  color: #ffffff !important;
+}
+
+.service-card-5 .service-action-btn {
+  background: linear-gradient(135deg, var(--card-5-dark) 0%, var(--card-5-color) 100%) !important;
+  color: #ffffff !important;
+}
+
+.service-card-6 .service-action-btn {
+  background: linear-gradient(135deg, var(--card-6-dark) 0%, var(--card-6-color) 100%) !important;
+  color: #ffffff !important;
+}
+
+.service-card-7 .service-action-btn {
+  background: linear-gradient(135deg, var(--card-7-dark) 0%, var(--card-7-color) 100%) !important;
+  color: #ffffff !important;
+}
+
+.service-card-8 .service-action-btn {
+  background: linear-gradient(135deg, var(--card-8-dark) 0%, var(--card-8-color) 100%) !important;
+  color: #ffffff !important;
+}
+
+.service-card-9 .service-action-btn {
+  background: linear-gradient(135deg, var(--card-9-dark) 0%, var(--card-9-color) 100%) !important;
+  color: #ffffff !important;
+}
+
+.service-card-10 .service-action-btn {
+  background: linear-gradient(135deg, var(--card-10-dark) 0%, var(--card-10-color) 100%) !important;
+  color: #ffffff !important;
+}
+/* Action Button */
+.service-action-btn {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 10px;
   font-weight: 600;
+  font-size: 1rem;
   transition: all 0.3s ease;
-  border: 2px solid transparent;
-  position: relative;
-  overflow: hidden;
-  font-size: 0.85rem !important;
-}
-
-/* Primary Button - Unique colors for each card */
-.service-card-1 .btn-primary {
-  background: linear-gradient(135deg, var(--card-1-color) 0%, #3b82f6 100%) !important;
-  border: none;
-  box-shadow: 0 3px 10px rgba(30, 64, 175, 0.3) !important;
-}
-
-.service-card-2 .btn-primary {
-  background: linear-gradient(135deg, var(--card-2-color) 0%, #10b981 100%) !important;
-  border: none;
-  box-shadow: 0 3px 10px rgba(5, 150, 105, 0.3) !important;
-}
-
-.service-card-3 .btn-primary {
-  background: linear-gradient(135deg, var(--card-3-color) 0%, #ef4444 100%) !important;
-  border: none;
-  box-shadow: 0 3px 10px rgba(220, 38, 38, 0.3) !important;
-}
-
-.service-card-4 .btn-primary {
-  background: linear-gradient(135deg, var(--card-4-color) 0%, #a855f7 100%) !important;
-  border: none;
-  box-shadow: 0 3px 10px rgba(124, 58, 237, 0.3) !important;
-}
-
-.service-card-5 .btn-primary {
-  background: linear-gradient(135deg, var(--card-5-color) 0%, #f97316 100%) !important;
-  border: none;
-  box-shadow: 0 3px 10px rgba(234, 88, 12, 0.3) !important;
-}
-
-.service-card-6 .btn-primary {
-  background: linear-gradient(135deg, var(--card-6-color) 0%, #06b6d4 100%) !important;
-  border: none;
-  box-shadow: 0 3px 10px rgba(8, 145, 178, 0.3) !important;
-}
-
-.service-card-7 .btn-primary {
-  background: linear-gradient(135deg, var(--card-7-color) 0%, #ec4899 100%) !important;
-  border: none;
-  box-shadow: 0 3px 10px rgba(190, 24, 93, 0.3) !important;
-}
-
-.service-card-8 .btn-primary {
-  background: linear-gradient(135deg, var(--card-8-color) 0%, #84cc16 100%) !important;
-  border: none;
-  box-shadow: 0 3px 10px rgba(101, 163, 13, 0.3) !important;
-}
-
-.service-card-9 .btn-primary {
-  background: linear-gradient(135deg, var(--card-9-color) 0%, #6366f1 100%) !important;
-  border: none;
-  box-shadow: 0 3px 10px rgba(67, 56, 202, 0.3) !important;
-}
-
-.service-card-10 .btn-primary {
-  background: linear-gradient(135deg, var(--card-10-color) 0%, #14b8a6 100%) !important;
-  border: none;
-  box-shadow: 0 3px 10px rgba(15, 118, 110, 0.3) !important;
-}
-
-/* Outline Button - Unique colors for each card */
-.service-card-1 .btn-outline-primary {
-  border-color: var(--card-1-color);
-  color: var(--card-1-color);
-  background: transparent;
-}
-
-.service-card-2 .btn-outline-primary {
-  border-color: var(--card-2-color);
-  color: var(--card-2-color);
-  background: transparent;
-}
-
-.service-card-3 .btn-outline-primary {
-  border-color: var(--card-3-color);
-  color: var(--card-3-color);
-  background: transparent;
-}
-
-.service-card-4 .btn-outline-primary {
-  border-color: var(--card-4-color);
-  color: var(--card-4-color);
-  background: transparent;
-}
-
-.service-card-5 .btn-outline-primary {
-  border-color: var(--card-5-color);
-  color: var(--card-5-color);
-  background: transparent;
-}
-
-.service-card-6 .btn-outline-primary {
-  border-color: var(--card-6-color);
-  color: var(--card-6-color);
-  background: transparent;
-}
-
-.service-card-7 .btn-outline-primary {
-  border-color: var(--card-7-color);
-  color: var(--card-7-color);
-  background: transparent;
-}
-
-.service-card-8 .btn-outline-primary {
-  border-color: var(--card-8-color);
-  color: var(--card-8-color);
-  background: transparent;
-}
-
-.service-card-9 .btn-outline-primary {
-  border-color: var(--card-9-color);
-  color: var(--card-9-color);
-  background: transparent;
-}
-
-.service-card-10 .btn-outline-primary {
-  border-color: var(--card-10-color);
-  color: var(--card-10-color);
-  background: transparent;
-}
-
-/* Hover effects for buttons */
-.service-actions .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3) !important;
-}
-
-/* Outline button hover effects with unique colors */
-.service-card-1 .btn-outline-primary:hover {
-  background: var(--card-1-color);
   color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(30, 64, 175, 0.3) !important;
+  background: linear-gradient(135deg, #4f46e5, #3b82f6);
 }
 
-.service-card-2 .btn-outline-primary:hover {
-  background: var(--card-2-color);
-  color: white;
+.service-action-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(5, 150, 105, 0.3) !important;
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
 }
 
-.service-card-3 .btn-outline-primary:hover {
-  background: var(--card-3-color);
-  color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(220, 38, 38, 0.3) !important;
+/* Service Sidebar Scroll - Fixed Text Visibility */
+.service-sidebar-scroll-container {
+  max-height: 70vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: #374151;
 }
 
-.service-card-4 .btn-outline-primary:hover {
-  background: var(--card-4-color);
-  color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(124, 58, 237, 0.3) !important;
+/* Custom scrollbar styling for balanced dark theme */
+.service-sidebar-scroll-container::-webkit-scrollbar {
+  width: 6px;
 }
 
-.service-card-5 .btn-outline-primary:hover {
-  background: var(--card-5-color);
-  color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(234, 88, 12, 0.3) !important;
+.service-sidebar-scroll-container::-webkit-scrollbar-track {
+  background: #4b5563;
+  border-radius: 3px;
 }
 
-.service-card-6 .btn-outline-primary:hover {
-  background: var(--card-6-color);
-  color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(8, 145, 178, 0.3) !important;
+.service-sidebar-scroll-container::-webkit-scrollbar-thumb {
+  background: #6b7280;
+  border-radius: 3px;
 }
 
-.service-card-7 .btn-outline-primary:hover {
-  background: var(--card-7-color);
-  color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(190, 24, 93, 0.3) !important;
+.service-sidebar-scroll-container::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
 }
 
-.service-card-8 .btn-outline-primary:hover {
-  background: var(--card-8-color);
-  color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(101, 163, 13, 0.3) !important;
+/* For Firefox */
+.service-sidebar-scroll-container {
+  scrollbar-width: thin;
+  scrollbar-color: #6b7280 #4b5563;
 }
 
-.service-card-9 .btn-outline-primary:hover {
-  background: var(--card-9-color);
-  color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(67, 56, 202, 0.3) !important;
+/* Ensure the sidebar has a fixed width if needed */
+.service-sidebar {
+  width: 100%;
 }
 
-.service-card-10 .btn-outline-primary:hover {
-  background: var(--card-10-color);
-  color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(15, 118, 110, 0.3) !important;
+.service-sidebar-card {
+  height: auto;
+  max-height: 80vh;
+  background: #374151 !important;
+  border: 1px solid #4b5563 !important;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2) !important;
 }
 
-/* Animation for card entrance */
-@keyframes cardSlideIn {
+.service-sidebar-header {
+  background: #4b5563 !important;
+  border-bottom: 1px solid #6b7280 !important;
+}
+
+.service-sidebar-header h6 {
+  color: #f9fafb !important;
+  font-weight: 700;
+}
+
+/* Fixed: Sidebar links text visibility */
+.service-sidebar-link {
+  background: #4b5563 !important;
+  border-bottom: 1px solid #6b7280 !important;
+  color: #ffffff !important;
+  transition: all 0.3s ease !important;
+  text-decoration: none !important;
+}
+
+.service-sidebar-link:hover {
+  background: #6b7280 !important;
+  color: #ffffff !important;
+  transform: translateX(5px);
+}
+
+.service-sidebar-link.active {
+  background: #6b7280 !important;
+  color: #ffffff !important;
+  border-left: 4px solid #ffffff;
+}
+
+.service-sidebar-icon {
+  color: #ffffff !important;
+  transition: all 0.3s ease !important;
+}
+
+.service-sidebar-link:hover .service-sidebar-icon {
+  color: #ffffff !important;
+  transform: scale(1.1);
+}
+
+.service-sidebar-link.active .service-sidebar-icon {
+  color: #ffffff !important;
+}
+
+/* Fixed: Sidebar text content visibility */
+.service-sidebar-link .fw-bold {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+}
+
+.service-sidebar-link .text-muted {
+  color: #d1d5db !important;
+  font-weight: 400 !important;
+}
+
+.service-sidebar-link:hover .fw-bold,
+.service-sidebar-link:hover .text-muted {
+  color: #ffffff !important;
+}
+
+.service-sidebar-link.active .fw-bold,
+.service-sidebar-link.active .text-muted {
+  color: #ffffff !important;
+}
+
+/* No Scroll - Remove any scroll-related styles */
+.service-navigation-container,
+.services-container {
+  overflow: visible !important;
+}
+
+.services-grid {
+  overflow: visible !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .services-page-title {
+    font-size: 2.2rem;
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .service-nav-buttons {
+    gap: 0.5rem;
+  }
+  
+  .service-nav-btn {
+    min-width: 100px;
+    padding: 0.7rem 1rem;
+    font-size: 0.8rem;
+  }
+  
+  .services-toggle-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .services-page-header {
+    padding: 3rem 1rem;
+  }
+  
+  .services-page-title {
+    font-size: 1.8rem;
+  }
+  
+  .services-page-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .service-detail-card:hover {
+    transform: translateY(-5px) !important;
+  }
+  
+  .service-features {
+    gap: 0.4rem;
+  }
+  
+  .service-features .badge {
+    padding: 0.4rem 0.8rem !important;
+    font-size: 0.75rem !important;
+  }
+}
+
+/* Loading State */
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #4b5563;
+  border-top: 4px solid #f8fafc;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Card Animations */
+@keyframes cardEntrance {
   from {
     opacity: 0;
-    transform: translateY(30px) scale(0.95);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
   }
 }
 
 .service-detail-card {
-  animation: cardSlideIn 0.6s ease-out forwards;
+  animation: cardEntrance 0.6s ease-out forwards;
+  opacity: 0;
 }
 
-/* Staggered animation for cards */
 .service-detail-card:nth-child(1) { animation-delay: 0.1s; }
 .service-detail-card:nth-child(2) { animation-delay: 0.2s; }
 .service-detail-card:nth-child(3) { animation-delay: 0.3s; }
@@ -539,496 +674,3 @@
 .service-detail-card:nth-child(8) { animation-delay: 0.8s; }
 .service-detail-card:nth-child(9) { animation-delay: 0.9s; }
 .service-detail-card:nth-child(10) { animation-delay: 1s; }
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .service-detail-card {
-    margin-bottom: 1.5rem;
-    min-height: 280px !important;
-  }
-  
-  .service-icon-large {
-    width: 50px !important;
-    height: 50px !important;
-    font-size: 1.3rem !important;
-  }
-  
-  .service-detail-card .card-title {
-    font-size: 1.1rem !important;
-  }
-  
-  .service-actions .btn {
-    padding: 0.4rem 1rem !important;
-    font-size: 0.8rem !important;
-  }
-  
-  .service-detail-card .card-text {
-    font-size: 0.85rem !important;
-  }
-}
-
-@media (max-width: 576px) {
-  .service-detail-card {
-    border-radius: 12px !important;
-    min-height: 260px !important;
-  }
-  
-  .service-detail-card:hover {
-    transform: translateY(-5px) !important;
-  }
-  
-  .service-actions {
-    text-align: center;
-  }
-  
-  .service-actions .btn {
-    width: 100%;
-    margin-bottom: 0.5rem;
-  }
-}
-
-/* Enhanced focus states for accessibility */
-.service-detail-card:focus-within {
-  outline: 2px solid #6366f1;
-  outline-offset: 2px;
-}
-
-.service-actions .btn:focus {
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);
-} 
-/* Service Navigation Styles */
-.service-navigation {
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-  border-bottom: 1px solid #e2e8f0;
-}
-
-/* Horizontal Navigation Pills */
-.service-nav-link {
-  border-radius: 12px !important;
-  padding: 12px 20px !important;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
-  border: 2px solid transparent !important;
-  background: white !important;
-  color: #374151 !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
-  margin: 0 4px !important;
-}
-
-.service-nav-link:hover {
-  transform: translateY(-3px) !important;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15) !important;
-}
-
-.service-nav-link.active {
-  color: white !important;
-  border-color: transparent !important;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
-}
-
-/* Unique colors for navigation pills */
-.service-card-1 .service-nav-link.active { background: linear-gradient(135deg, var(--card-1-color) 0%, #3b82f6 100%) !important; }
-.service-card-2 .service-nav-link.active { background: linear-gradient(135deg, var(--card-2-color) 0%, #10b981 100%) !important; }
-.service-card-3 .service-nav-link.active { background: linear-gradient(135deg, var(--card-3-color) 0%, #ef4444 100%) !important; }
-.service-card-4 .service-nav-link.active { background: linear-gradient(135deg, var(--card-4-color) 0%, #a855f7 100%) !important; }
-.service-card-5 .service-nav-link.active { background: linear-gradient(135deg, var(--card-5-color) 0%, #f97316 100%) !important; }
-.service-card-6 .service-nav-link.active { background: linear-gradient(135deg, var(--card-6-color) 0%, #06b6d4 100%) !important; }
-.service-card-7 .service-nav-link.active { background: linear-gradient(135deg, var(--card-7-color) 0%, #ec4899 100%) !important; }
-.service-card-8 .service-nav-link.active { background: linear-gradient(135deg, var(--card-8-color) 0%, #84cc16 100%) !important; }
-.service-card-9 .service-nav-link.active { background: linear-gradient(135deg, var(--card-9-color) 0%, #6366f1 100%) !important; }
-.service-card-10 .service-nav-link.active { background: linear-gradient(135deg, var(--card-10-color) 0%, #14b8a6 100%) !important; }
-
-.service-nav-icon {
-  font-size: 1.1rem;
-  transition: transform 0.3s ease;
-}
-
-.service-nav-link:hover .service-nav-icon {
-  transform: scale(1.2);
-}
-
-/* Grid Navigation Cards */
-.service-nav-card {
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
-  border: 2px solid transparent !important;
-  border-radius: 12px !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
-  background: white !important;
-  min-height: 120px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.service-nav-card:hover {
-  transform: translateY(-5px) !important;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
-}
-
-.service-nav-card.active {
-  border-color: transparent !important;
-  color: white !important;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2) !important;
-}
-
-/* Unique colors for grid cards */
-.service-card-1 .service-nav-card.active { background: linear-gradient(135deg, var(--card-1-color) 0%, #3b82f6 100%) !important; }
-.service-card-2 .service-nav-card.active { background: linear-gradient(135deg, var(--card-2-color) 0%, #10b981 100%) !important; }
-.service-card-3 .service-nav-card.active { background: linear-gradient(135deg, var(--card-3-color) 0%, #ef4444 100%) !important; }
-.service-card-4 .service-nav-card.active { background: linear-gradient(135deg, var(--card-4-color) 0%, #a855f7 100%) !important; }
-.service-card-5 .service-nav-card.active { background: linear-gradient(135deg, var(--card-5-color) 0%, #f97316 100%) !important; }
-.service-card-6 .service-nav-card.active { background: linear-gradient(135deg, var(--card-6-color) 0%, #06b6d4 100%) !important; }
-.service-card-7 .service-nav-card.active { background: linear-gradient(135deg, var(--card-7-color) 0%, #ec4899 100%) !important; }
-.service-card-8 .service-nav-card.active { background: linear-gradient(135deg, var(--card-8-color) 0%, #84cc16 100%) !important; }
-.service-card-9 .service-nav-card.active { background: linear-gradient(135deg, var(--card-9-color) 0%, #6366f1 100%) !important; }
-.service-card-10 .service-nav-card.active { background: linear-gradient(135deg, var(--card-10-color) 0%, #14b8a6 100%) !important; }
-
-.service-nav-grid-icon {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-  transition: transform 0.3s ease;
-}
-
-.service-nav-card:hover .service-nav-grid-icon {
-  transform: scale(1.1);
-}
-
-/* Service Sidebar Styles */
-.service-sidebar {
-  top: 100px;
-  padding-top: 20px;
-}
-
-.service-sidebar-card {
-  border-radius: 16px !important;
-  overflow: hidden;
-  background: white !important;
-}
-
-.service-sidebar-header {
-  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%) !important;
-  color: white !important;
-  border: none !important;
-  padding: 1.25rem !important;
-}
-
-.service-sidebar-item {
-  border-bottom: 1px solid #f1f5f9;
-}
-
-.service-sidebar-item:last-child {
-  border-bottom: none;
-}
-
-.service-sidebar-link {
-  border-radius: 0 !important;
-  transition: all 0.3s ease !important;
-  border: none !important;
-  background: transparent !important;
-  color: #374151 !important;
-  position: relative;
-  overflow: hidden;
-}
-
-.service-sidebar-link::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 0;
-  transition: width 0.3s ease;
-}
-
-.service-sidebar-link:hover {
-  background: #f8fafc !important;
-  padding-left: 25px !important;
-}
-
-.service-sidebar-link:hover::before {
-  width: 4px;
-}
-
-.service-sidebar-link.active {
-  color: white !important;
-  background: transparent !important;
-}
-
-/* Unique colors for sidebar active states */
-.service-card-1 .service-sidebar-link.active { background: linear-gradient(135deg, var(--card-1-color) 0%, #3b82f6 100%) !important; }
-.service-card-2 .service-sidebar-link.active { background: linear-gradient(135deg, var(--card-2-color) 0%, #10b981 100%) !important; }
-.service-card-3 .service-sidebar-link.active { background: linear-gradient(135deg, var(--card-3-color) 0%, #ef4444 100%) !important; }
-.service-card-4 .service-sidebar-link.active { background: linear-gradient(135deg, var(--card-4-color) 0%, #a855f7 100%) !important; }
-.service-card-5 .service-sidebar-link.active { background: linear-gradient(135deg, var(--card-5-color) 0%, #f97316 100%) !important; }
-.service-card-6 .service-sidebar-link.active { background: linear-gradient(135deg, var(--card-6-color) 0%, #06b6d4 100%) !important; }
-.service-card-7 .service-sidebar-link.active { background: linear-gradient(135deg, var(--card-7-color) 0%, #ec4899 100%) !important; }
-.service-card-8 .service-sidebar-link.active { background: linear-gradient(135deg, var(--card-8-color) 0%, #84cc16 100%) !important; }
-.service-card-9 .service-sidebar-link.active { background: linear-gradient(135deg, var(--card-9-color) 0%, #6366f1 100%) !important; }
-.service-card-10 .service-sidebar-link.active { background: linear-gradient(135deg, var(--card-10-color) 0%, #14b8a6 100%) !important; }
-
-.service-sidebar-link.active::before {
-  width: 4px;
-  background: rgba(255, 255, 255, 0.5) !important;
-}
-
-.service-sidebar-icon {
-  font-size: 1.3rem;
-  transition: transform 0.3s ease;
-}
-
-.service-sidebar-link:hover .service-sidebar-icon {
-  transform: scale(1.1);
-}
-
-/* Service Detail Page Styles */
-.service-detail-icon {
-  font-size: 4rem;
-  margin-bottom: 1rem;
-}
-
-.service-detail-header {
-  border-radius: 20px !important;
-  color: white;
-  position: relative;
-  overflow: hidden;
-}
-
-.service-detail-header::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-}
-
-.service-detail-header .card-body {
-  position: relative;
-  z-index: 2;
-}
-
-/* Unique gradients for detail headers */
-.service-card-1 .service-detail-header { background: linear-gradient(135deg, var(--card-1-color) 0%, #3b82f6 100%) !important; }
-.service-card-2 .service-detail-header { background: linear-gradient(135deg, var(--card-2-color) 0%, #10b981 100%) !important; }
-.service-card-3 .service-detail-header { background: linear-gradient(135deg, var(--card-3-color) 0%, #ef4444 100%) !important; }
-.service-card-4 .service-detail-header { background: linear-gradient(135deg, var(--card-4-color) 0%, #a855f7 100%) !important; }
-.service-card-5 .service-detail-header { background: linear-gradient(135deg, var(--card-5-color) 0%, #f97316 100%) !important; }
-.service-card-6 .service-detail-header { background: linear-gradient(135deg, var(--card-6-color) 0%, #06b6d4 100%) !important; }
-.service-card-7 .service-detail-header { background: linear-gradient(135deg, var(--card-7-color) 0%, #ec4899 100%) !important; }
-.service-card-8 .service-detail-header { background: linear-gradient(135deg, var(--card-8-color) 0%, #84cc16 100%) !important; }
-.service-card-9 .service-detail-header { background: linear-gradient(135deg, var(--card-9-color) 0%, #6366f1 100%) !important; }
-.service-card-10 .service-detail-header { background: linear-gradient(135deg, var(--card-10-color) 0%, #14b8a6 100%) !important; }
-
-.service-meta-badge {
-  border-radius: 20px !important;
-  backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.9) !important;
-  border: 1px solid rgba(255, 255, 255, 0.3) !important;
-}
-
-/* Feature Cards */
-.feature-card {
-  border-radius: 12px !important;
-  transition: all 0.3s ease;
-}
-
-.feature-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15) !important;
-}
-
-.feature-icon i {
-  transition: transform 0.3s ease;
-}
-
-.feature-card:hover .feature-icon i {
-  transform: scale(1.2);
-}
-
-/* Unique colors for feature icons */
-.service-card-1 .feature-icon i { color: var(--card-1-color) !important; }
-.service-card-2 .feature-icon i { color: var(--card-2-color) !important; }
-.service-card-3 .feature-icon i { color: var(--card-3-color) !important; }
-.service-card-4 .feature-icon i { color: var(--card-4-color) !important; }
-.service-card-5 .feature-icon i { color: var(--card-5-color) !important; }
-.service-card-6 .feature-icon i { color: var(--card-6-color) !important; }
-.service-card-7 .feature-icon i { color: var(--card-7-color) !important; }
-.service-card-8 .feature-icon i { color: var(--card-8-color) !important; }
-.service-card-9 .feature-icon i { color: var(--card-9-color) !important; }
-.service-card-10 .feature-icon i { color: var(--card-10-color) !important; }
-
-/* Info Headers */
-.service-info-header {
-  background: linear-gradient(135deg, var(--card-1-color) 0%, #3b82f6 100%) !important;
-  color: white !important;
-  border: none !important;
-}
-
-.service-apply-header {
-  background: linear-gradient(135deg, var(--card-2-color) 0%, #10b981 100%) !important;
-  color: white !important;
-  border: none !important;
-}
-
-/* Action Buttons */
-.service-action-btn {
-  border-radius: 12px !important;
-  padding: 12px 24px !important;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Service Pagination */
-.service-pagination-btn {
-  border-radius: 12px !important;
-  transition: all 0.3s ease;
-  border: 2px solid #e2e8f0 !important;
-  height: 100%;
-  background: white !important;
-  color: #374151 !important;
-}
-
-.service-pagination-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15) !important;
-  border-color: transparent !important;
-  color: white !important;
-}
-
-/* Unique colors for pagination buttons */
-.service-card-1 .service-pagination-btn:hover { background: linear-gradient(135deg, var(--card-1-color) 0%, #3b82f6 100%) !important; }
-.service-card-2 .service-pagination-btn:hover { background: linear-gradient(135deg, var(--card-2-color) 0%, #10b981 100%) !important; }
-.service-card-3 .service-pagination-btn:hover { background: linear-gradient(135deg, var(--card-3-color) 0%, #ef4444 100%) !important; }
-.service-card-4 .service-pagination-btn:hover { background: linear-gradient(135deg, var(--card-4-color) 0%, #a855f7 100%) !important; }
-.service-card-5 .service-pagination-btn:hover { background: linear-gradient(135deg, var(--card-5-color) 0%, #f97316 100%) !important; }
-.service-card-6 .service-pagination-btn:hover { background: linear-gradient(135deg, var(--card-6-color) 0%, #06b6d4 100%) !important; }
-.service-card-7 .service-pagination-btn:hover { background: linear-gradient(135deg, var(--card-7-color) 0%, #ec4899 100%) !important; }
-.service-card-8 .service-pagination-btn:hover { background: linear-gradient(135deg, var(--card-8-color) 0%, #84cc16 100%) !important; }
-.service-card-9 .service-pagination-btn:hover { background: linear-gradient(135deg, var(--card-9-color) 0%, #6366f1 100%) !important; }
-.service-card-10 .service-pagination-btn:hover { background: linear-gradient(135deg, var(--card-10-color) 0%, #14b8a6 100%) !important; }
-
-/* Mobile Responsive */
-@media (max-width: 768px) {
-  .service-nav-card {
-    min-height: 100px;
-  }
-  
-  .service-sidebar {
-    position: static;
-    margin-bottom: 30px;
-  }
-  
-  .service-detail-header .display-5 {
-    font-size: 2rem;
-  }
-  
-  .service-content {
-    padding: 1rem !important;
-  }
-  
-  .service-detail-icon {
-    font-size: 3rem;
-  }
-}
-
-/* Enhanced focus states */
-.service-nav-link:focus,
-.service-sidebar-link:focus,
-.service-pagination-btn:focus,
-.service-action-btn:focus {
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3) !important;
-  outline: none;
-}
-
-/* Service Navigation Styles */
-.service-navigation {
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-  border-bottom: 1px solid #e2e8f0;
-}
-
-.service-nav-link {
-  border-radius: 12px !important;
-  padding: 12px 20px !important;
-  transition: all 0.3s ease !important;
-  border: 2px solid transparent !important;
-  background: white !important;
-  color: #374151 !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
-  margin: 0 4px !important;
-}
-
-.service-nav-link:hover {
-  transform: translateY(-3px) !important;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15) !important;
-}
-
-.service-nav-link.active {
-  color: white !important;
-  border-color: transparent !important;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
-}
-
-.service-nav-card {
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  background: white;
-  min-height: 120px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.service-nav-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-}
-
-.service-nav-card.active {
-  border-color: #007bff;
-  background: #007bff;
-  color: white;
-}
-
-.service-nav-icon {
-  font-size: 1.1rem;
-}
-
-.service-nav-grid-icon {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
-
-/* Process Section */
-.process-card {
-  transition: all 0.3s ease;
-  border-radius: 12px;
-}
-
-.process-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
-}
-
-.process-icon {
-  transition: transform 0.3s ease;
-}
-
-.process-card:hover .process-icon {
-  transform: scale(1.1);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .service-nav-card {
-    min-height: 100px;
-  }
-}
-.features-scrollable {
-  background-color: #f8f9fa !important;
-}

@@ -2,6 +2,8 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { useLanguage } from '../context/LanguageContext';
 import { useNavigate } from 'react-router-dom';
+import { FaWpforms } from "react-icons/fa"; 
+
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -183,9 +185,9 @@ const Hero = () => {
                 <Button 
                   variant="outline-light" 
                   size="lg"
-                  className="secondary-button mb-2 mb-md-0"
+                  className="secondary-button mb-2 mb-md-0 d-flex align-items-center gap-2"
                   onClick={navigateToContact}
-                >
+                ><FaWpforms size={20} />
                   {t('getInvolved')}
                 </Button>
               </div>

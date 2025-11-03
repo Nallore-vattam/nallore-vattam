@@ -1,112 +1,77 @@
-import React from 'react';
-import { Container, Row, Col, Button } from 'react-bootstrap';
-import { useLanguage } from '../context/LanguageContext';
-import { useNavigate } from 'react-router-dom'; // ADD THIS IMPORT
-
-// Simplified Image component - remove BASE_URL since we're using absolute paths
-const ImageWithFallback = ({ src, alt, className, style, fallback }) => {
-  return (
-    <img
-      src={src}
-      alt={alt}
-      className={className}
-      style={style}
-      onError={(e) => {
-        e.target.onerror = null; // prevent infinite loop
-        e.target.src = fallback;
-      }}
-    />
-  );
-};
+import React from "react";
+import { Container, Button } from "react-bootstrap";
+import { useLanguage } from "../context/LanguageContext";
+import { useNavigate } from "react-router-dom";
+import "./GalleryPreview.css";
 
 const GalleryPreview = () => {
   const { currentLanguage, t, setCurrentPage } = useLanguage();
-  const navigate = useNavigate(); // ADD THIS HOOK
+  const navigate = useNavigate();
 
   const getFontClass = () => {
-    switch(currentLanguage) {
-      case 'ta': return 'tamil-font';
-      case 'hi': return 'hindi-font';
-      default: return 'english-font';
+    switch (currentLanguage) {
+      case "ta":
+        return "tamil-font";
+      case "hi":
+        return "hindi-font";
+      default:
+        return "english-font";
     }
   };
 
-  // Image paths as stored in public/images/... (spaces are fine)
   const previewImages = [
-    {
-      src: "/images/FieldofAwareness/awareness01.jpg",
-      category: "Cultural Events",
-      count: "25 Photos"
-    },
-    {
-      src: "/images/EnviromentalField/enviromental02.jpg",
-      category: "Community Programs",
-      count: "18 Photos"
-    },
-    {
-      src: "/images/FieldofBiology/biology01.jpg",
-      category: "Educational Activities",
-      count: "32 Photos"
-    },
-    {
-      src: "/images/GovtDomain/govt01.jpg",
-      category: "Health Camps",
-      count: "15 Photos"
-    }
+    { src: "/images/FieldofAwareness/awareness01.jpg", category: "Cultural Events", count: "25 Photos", height: 300 },
+    { src: "/images/EnviromentalField/enviromental02.jpg", category: "Community Programs", count: "18 Photos", height: 420 },
+    { src: "/images/FieldofBiology/biology01.jpg", category: "Educational Activities", count: "32 Photos", height: 340 },
+    { src: "/images/GovtDomain/govt01.jpg", category: "Health Camps", count: "15 Photos", height: 250 },
+    { src: "/images/FieldofAwareness/awareness01.jpg", category: "Art & Exhibitions", count: "22 Photos", height: 380 },
+    { src: "/images/EnviromentalField/enviromental02.jpg", category: "Youth Activities", count: "28 Photos", height: 300 },
   ];
 
   const handleViewGallery = () => {
-    setCurrentPage('gallery');
-    navigate('/gallery'); // ADD THIS LINE - navigates to Gallery page
+    setCurrentPage("gallery");
+    navigate("/gallery");
   };
 
   return (
-    <section id="gallery-preview" className="section gallery-preview-section">
+    <section id="gallery-preview" className="gallery-preview-section">
       <Container>
-        <Row className="text-center mb-5">
-          <Col lg={8} className="mx-auto">
-            <h2 className={`section-title ${getFontClass()}`}>
-              {t('galleryTitle')}
-            </h2>
-            <p className={`lead ${getFontClass()}`}>
-              {t('galleryDescription', 'Capturing moments of community growth, cultural celebrations, and meaningful interactions')}
-            </p>
-          </Col>
-        </Row>
+        <div className="text-center mb-5 heading-container">
+          <h2 className={`gallery-heading ${getFontClass()}`}>
+            {t("galleryTitle", "Our Gallery")}
+          </h2>
+          <div className="underline"></div>
+          <p className={`gallery-subtext ${getFontClass()}`}>
+            {t(
+              "galleryDescription",
+              "Capturing the beauty of our community through moments that inspire and connect."
+            )}
+          </p>
+        </div>
 
-        <Row>
+        <div className="gallery-masonry">
           {previewImages.map((image, index) => (
-            <Col lg={3} md={6} className="mb-4" key={index}>
-              <div className="gallery-preview-item position-relative">
-                <ImageWithFallback
-                  src={image.src}
-                  alt={image.category}
-                  className="img-fluid w-100 rounded-3"
-                  style={{ height: '250px', objectFit: 'cover' }}
-                  fallback="/images/FieldofAwareness/awareness_01.jpg"
-                />
-                <div className="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-end p-3 rounded-3">
-                  <div className="overlay-content text-white">
-                    <h6 className="mb-1">{image.category}</h6>
-                    <small>{image.count}</small>
-                  </div>
+            <div
+              className="gallery-item"
+              key={index}
+              style={{ height: `${image.height}px` }}
+            >
+              <img src={image.src} alt={image.category} className="gallery-img" />
+              <div className="overlay">
+                <div className="overlay-content">
+                  <h6>{image.category}</h6>
+                  <small>{image.count}</small>
                 </div>
               </div>
-            </Col>
+            </div>
           ))}
-        </Row>
+        </div>
 
-        <Row className="mt-4">
-          <Col className="text-center">
-            <Button 
-              className="btn-gallery"
-              size="lg"
-              onClick={handleViewGallery}
-            >
-              {t('viewFullGallery', 'View Full Gallery')}
-            </Button>
-          </Col>
-        </Row>
+        <div className="text-center mt-5">
+          <Button className="btn-gallery" size="lg" onClick={handleViewGallery}>
+            {t("viewFullGallery", "View Full Gallery")}
+          </Button>
+        </div>
       </Container>
     </section>
   );

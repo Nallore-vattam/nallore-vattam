@@ -41,30 +41,32 @@ const ServiceSidebar = ({ currentServiceKey }) => {
           </h6>
         </Card.Header>
         <Card.Body className="p-0">
-          <Nav variant="pills" className="flex-column">
-            {services.map((service, index) => (
-              <Nav.Item key={service.key} className="service-sidebar-item">
-                <LinkContainer to={`/services/${service.key}`}>
-                  <Nav.Link 
-                    active={currentServiceKey === service.key}
-                    className={`d-flex align-items-center py-3 px-3 service-sidebar-link ${getColorClass(index)}`}
-                  >
-                    <span className="service-sidebar-icon me-3">
-                      {service.icon}
-                    </span>
-                    <div className="flex-grow-1">
-                      <div className={`fw-bold ${getFontClass()}`}>
-                        {safeTranslate(service.key, service.title)}
+          <div className="service-sidebar-scroll-container">
+            <Nav variant="pills" className="flex-column">
+              {services.map((service, index) => (
+                <Nav.Item key={service.key} className="service-sidebar-item">
+                  <LinkContainer to={`/services/${service.key}`}>
+                    <Nav.Link 
+                      active={currentServiceKey === service.key}
+                      className={`d-flex align-items-center py-3 px-3 service-sidebar-link ${getColorClass(index)}`}
+                    >
+                      <span className="service-sidebar-icon me-3">
+                        {service.icon}
+                      </span>
+                      <div className="flex-grow-1">
+                        <div className={`fw-bold ${getFontClass()}`}>
+                          {safeTranslate(service.key, service.title)}
+                        </div>
+                        <small className="text-muted d-block mt-1">
+                          {safeTranslate(service.description, service.description).substring(0, 50)}...
+                        </small>
                       </div>
-                      <small className="text-muted d-block mt-1">
-                        {safeTranslate(service.description, service.description).substring(0, 50)}...
-                      </small>
-                    </div>
-                  </Nav.Link>
-                </LinkContainer>
-              </Nav.Item>
-            ))}
-          </Nav>
+                    </Nav.Link>
+                  </LinkContainer>
+                </Nav.Item>
+              ))}
+            </Nav>
+          </div>
         </Card.Body>
       </Card>
     </div>
