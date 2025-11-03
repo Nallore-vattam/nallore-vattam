@@ -8,6 +8,16 @@ const Events = () => {
   const [showNotificationModal, setShowNotificationModal] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState(null);
 
+  // ADD THIS safeTranslate FUNCTION
+  const safeTranslate = (key, fallback = '') => {
+    try {
+      const translated = t(key);
+      return translated && translated !== key ? translated : fallback;
+    } catch (error) {
+      return fallback;
+    }
+  };
+
   const getFontClass = () => {
     switch(currentLanguage) {
       case 'ta': return 'tamil-font';
@@ -66,7 +76,6 @@ const Events = () => {
     window.open(googleCalendarUrl, '_blank');
   };
 
-
   const getCategoryColor = (category) => {
     switch(category) {
       case 'Cultural': return '#e74c3c';
@@ -93,7 +102,7 @@ const Events = () => {
                 <Card.Body className="p-4">
                   <h4 className={`${getFontClass()} fw-bold mb-4`}>
                     <i className="bi bi-calendar-week me-2 text-primary"></i>
-                    Upcoming Events Overview
+                    {safeTranslate("upcomingEventsOverview", "Upcoming Events Overview")}
                   </h4>
                   <Row className="g-3">
                     {events.map((event) => (

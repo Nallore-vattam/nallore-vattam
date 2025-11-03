@@ -83,10 +83,12 @@ const YouTubeCards = () => {
                   </Card.Text>
                   <div className="d-flex justify-content-between align-items-center">
                     <span className="text-muted small">{video.views}</span>
-                    <button className="action-btn-diamond">
+                  <button className="action-btn-diamond">
   <i className="bi bi-play-btn me-1"></i>
-                      Watch
-                    </button>
+  {t('watch', 'Watch')}
+</button>
+
+
                   </div>
                 </Card.Body>
               </Card>

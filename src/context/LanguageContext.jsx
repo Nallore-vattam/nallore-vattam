@@ -348,7 +348,17 @@ const translations = {
     goodGovernanceAwareness: "Good governance awareness",
     promotingTamilCultureGlobally: "Promoting Tamil culture globally",
     exchangeProgramsWithOtherNations: "Exchange programs with other nations",
-    worldUnityAndHarmony: "World unity and harmony"
+    worldUnityAndHarmony: "World unity and harmony",
+    backToServices: "Back to Services",
+    nextService: "Next Service",
+    previousService: "Previous Service",
+  upcomingEventsOverview: "Upcoming Events Overview",
+  duration: "Duration",
+  eligibility: "Eligibility",
+  features: "features",
+   watch: "Watch",
+
+
 
 
   },
@@ -701,7 +711,15 @@ const translations = {
     goodGovernanceAwareness: "நல்லாட்சி விழிப்புணர்வு",
     promotingTamilCultureGlobally: "தமிழ் கலாச்சாரத்தை உலகளவில் ஊக்குவித்தல்",
     exchangeProgramsWithOtherNations: "பிற நாடுகளுடன் பரிமாற்றத் திட்டங்கள்",
-    worldUnityAndHarmony: "உலக ஒற்றுமை மற்றும் நல்லிணக்கம்"
+    worldUnityAndHarmony: "உலக ஒற்றுமை மற்றும் நல்லிணக்கம்",
+    backToServices: "சேவைகளுக்குத் திரும்பு",
+    nextService: "அடுத்த சேவை",
+    previousService: "முந்தைய சேவை",
+    upcomingEventsOverview: "வரவிருக்கும் நிகழ்வுகள் கண்ணோட்டம்",
+      duration: "கால அளவு",
+  eligibility: "தகுதி",
+  features: "அம்சங்கள்",
+  watch: "பார்க்க",
 
     
   },
@@ -1031,7 +1049,18 @@ youtubeTitle: "हमारा YouTube चैनल",
     goodGovernanceAwareness: "सुशासन जागरूकता",
     promotingTamilCultureGlobally: "तमिल संस्कृति का वैश्विक प्रचार",
     exchangeProgramsWithOtherNations: "अन्य राष्ट्रों के साथ विनिमय कार्यक्रम",
-    worldUnityAndHarmony: "विश्व एकता और सद्भाव"
+    worldUnityAndHarmony: "विश्व एकता और सद्भाव",
+    backToServices: "सेवाओं पर वापस जाएं",
+    nextService: "अगली सेवा",
+    previousService: "पिछली सेवा",
+  upcomingEventsOverview: "आगामी कार्यक्रम अवलोकन",
+  duration: "अवधि",
+  eligibility: "पात्रता",
+   features: "विशेषताएँ",
+     watch: "देखें",
+
+
+
 
     
   }

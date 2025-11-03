@@ -222,7 +222,7 @@
 }
 
 .action-btn-diamond {
-  flex: 1;
+ flex: 1;
   background: linear-gradient(135deg, #3b82f6, #1d4ed8);
   border: none;
   color: white;
@@ -236,7 +236,7 @@
   gap: 0.6rem;
   position: relative;
   overflow: hidden;
-  clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
+  border-radius: 25px; /* Changed to pill shape */
   box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3);
 }
 
@@ -252,7 +252,7 @@
 }
 
 .action-btn-diamond:hover {
-  background: linear-gradient(135deg, #ec4899, #db2777);
+  background: linear-gradient(135deg, #fb0202, #ff0101);
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 12px 30px rgba(236, 72, 153, 0.5);
   clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);

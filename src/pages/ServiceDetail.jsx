@@ -140,7 +140,7 @@ const ServiceDetail = () => {
                     <i className="bi bi-pencil me-2"></i>
                     {safeTranslate('applyNow', 'Apply Now')}
                   </Button>
-                  <Button variant="outline-secondary" size="lg" className="px-4 py-2" onClick={() => navigate('/services')}>
+                  <Button variant="outline-secondary" size="lg" className="px-4 py-2" onClick={() => navigate('/services')} style={{marginTop:'10px'}}>
                     <i className="bi bi-arrow-left me-2"></i>
                     {safeTranslate('backToServices', 'Back to Services')}
                   </Button>
