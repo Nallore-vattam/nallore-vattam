@@ -7,7 +7,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: radial-gradient(circle at 50% 40%, #e3b4c8 0%, #92b5d8 45%, #2b2a85 100%);
+  background: radial-gradient(circle at 50% 40%, #e3b4c8 0%, #92b5d8 25%, #2b2a85 70%);
   background-size: 200% 200%;
   animation: auroraMove 18s ease-in-out infinite alternate;
   margin: 0;
@@ -123,16 +123,16 @@
 }
 
 /* === Color accents === */
-.domain-0 .domain-pill { color: #b64269; }
-.domain-1 .domain-pill { color: #5084b9; }
-.domain-2 .domain-pill { color: #f6ce7d; }
-.domain-3 .domain-pill { color: #fd88ce; }
-.domain-4 .domain-pill { color: #6fa4c9; }
-.domain-5 .domain-pill { color: #ffd38e; }
-.domain-6 .domain-pill { color: #cd78f7; }
-.domain-7 .domain-pill { color: #5d96e5; }
-.domain-8 .domain-pill { color: #fc948a; }
-.domain-9 .domain-pill { color: #73a9ff; }
+.domain-0 .domain-pill { color: #ae355d; }
+.domain-1 .domain-pill { color: #376a9d; }
+.domain-2 .domain-pill { color: #b99347; }
+.domain-3 .domain-pill { color: #b8508e; }
+.domain-4 .domain-pill { color: #4f86ae; }
+.domain-5 .domain-pill { color: #8b6a34; }
+.domain-6 .domain-pill { color: #833aa8; }
+.domain-7 .domain-pill { color: #2e66b4; }
+.domain-8 .domain-pill { color: #7a423d; }
+.domain-9 .domain-pill { color: #3c6bb6; }
 
 .services-preview-section,
 .orbit-system {

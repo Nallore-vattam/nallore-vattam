@@ -98,8 +98,7 @@
   background-position: center;
   z-index: 1;
   position: relative;
-  transition: all 0.8s ease-in-out;
-}
+ transition: all 3s ease-in-out;}
 
 /* Overlay text - shows on hover only */
 .caption-overlay {
