@@ -357,6 +357,7 @@ const translations = {
   eligibility: "Eligibility",
   features: "features",
    watch: "Watch",
+    viewMore: 'View More in About Page',
 
 
 
@@ -720,8 +721,8 @@ const translations = {
   eligibility: "தகுதி",
   features: "அம்சங்கள்",
   watch: "பார்க்க",
+    viewMore: 'மேலும் பார்க்க ',
 
-    
   },
   hi: {
     home: 'होम',
@@ -1058,6 +1059,7 @@ youtubeTitle: "हमारा YouTube चैनल",
   eligibility: "पात्रता",
    features: "विशेषताएँ",
      watch: "देखें",
+  viewMore: 'अबाउट पेज में और देखें',
 
 
 

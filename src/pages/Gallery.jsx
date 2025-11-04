@@ -38,9 +38,9 @@ const Gallery = () => {
 
   // Updated image paths mapped to domain categories using exact keys from Services.json
   const images = [
-    { id: 1, src: "/images/WomensField/womesn01.jpg", category: 'womensDomain', title: safeTranslate('womensEmpowerment', 'Women Empowerment Program') },
+    { id: 1, src: "/images/WomensField/women01.png", category: 'womensDomain', title: safeTranslate('womensEmpowerment', 'Women Empowerment Program') },
     { id: 2, src: "/images/EnviromentalField/enviromental01.jpg", category: 'environmentalDomain', title: safeTranslate('environmentalProtection', 'Environmental Protection Initiative') },
-    { id: 3, src: "/images/FieldofAwareness/awareness01.jpg", category: 'awarenessDomain', title: safeTranslate('publicAwareness', 'Public Awareness Campaign') },
+    { id: 3, src: "/images/FieldofAwareness/awareness03.png", category: 'awarenessDomain', title: safeTranslate('publicAwareness', 'Public Awareness Campaign') },
     { id: 4, src: "/images/FieldofBiology/biology01.jpg", category: 'domainOfBiology', title: safeTranslate('agriculturalResearch', 'Agricultural Research Program') },
     { id: 5, src: "/images/GovtDomain/govt01.jpg", category: 'governmentDomain', title: safeTranslate('publicServices', 'Public Services Outreach') },
     { id: 6, src: "/images/SettingsDomain/settings01.jpg", category: 'settingsDomain', title: safeTranslate('technicalSupport', 'Technical Support Session') },
@@ -50,7 +50,7 @@ const Gallery = () => {
     { id: 10, src: "/images/YouthField/youth01.jpg", category: 'youthDomain', title: safeTranslate('youthLeadership', 'Youth Leadership Program') },
     { id: 11, src: "/images/EnviromentalField/enviromental02.jpg", category: 'environmentalDomain', title: safeTranslate('cleanEnergy', 'Clean Energy Initiative') },
     { id: 12, src: "/images/FieldofAwareness/awareness02.jpg", category: 'awarenessDomain', title: safeTranslate('educationalCampaigns', 'Educational Campaign Workshop') },
-    { id: 13, src: "/images/FieldofAwareness/awareness03.jpg", category: 'awarenessDomain', title: safeTranslate('communityWorkshops', 'Community Workshop Session') },
+    { id: 13, src: "/images/EnviromentalField/enviromental03.png", category: 'awarenessDomain', title: safeTranslate('communityWorkshops', 'Community Workshop Session') },
     { id: 14, src: "/images/StudentField/students02.jpg", category: 'studentDomain', title: safeTranslate('careerCounseling', 'Career Counseling Session') },
     { id: 15, src: "/images/VillageField/village02.jpg", category: 'villageDomain', title: safeTranslate('ruralWelfare', 'Rural Welfare Program') }
   ];
