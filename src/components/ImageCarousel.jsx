@@ -5,10 +5,13 @@ const VerticalCarousel = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const carouselItems = [
+    { image: "/images/content03.png", caption: "The Ton of Responsibilities" },
     { image: "/images/contentsofweb/kalaamquotemain.jpg", caption: "Vision of Kalaam" },
-    { image: "/images/contentsofweb/domain10.jpg", caption: "Base of NV" },
     { image: "/images/content01.png", caption: "Our Responsibilities" },
+    { image: "/images/contentsofweb/domain10.jpg", caption: "Base of NV" },
     { image: "/images/content02.png", caption: "Nallore Vattam" },
+    
+
   ];
 
   // Auto change every 4 seconds
