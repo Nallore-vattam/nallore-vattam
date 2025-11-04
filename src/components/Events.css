@@ -105,3 +105,29 @@
     font-size: 0.9rem;
   }
 }
+
+.full-events-section {
+  background: radial-gradient(circle at center, #eef2ff, #c7d2fe);
+}
+
+.event-card {
+  border-radius: 16px;
+  transition: transform 0.3s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-4px);
+}
+
+.reviews-section textarea {
+  resize: none;
+}
+
+.reviews-section button {
+  background: #6366f1;
+  border: none;
+}
+
+.reviews-section button:hover {
+  background: #4f46e5;
+}

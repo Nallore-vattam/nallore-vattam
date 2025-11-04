@@ -1,4 +1,5 @@
 import React from 'react';
+import FullEvents from '../components/FullEvents';
 import { Container, Row, Col, Card, ProgressBar } from 'react-bootstrap';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -189,6 +190,7 @@ const About = () => {
           </Row>
         </Container>
       </section>
+      <FullEvents />
 
       {/* Team Section */}
       <section className="section team-section bg-light">
