@@ -58,33 +58,31 @@
   padding: 0;
 }
 
-.project-title {
-  font-size: clamp(2.6rem, 4vw, 3.5rem);
-  font-weight: 800;
-  color: #a48e42;
-  text-shadow: 
-    0 0 30px rgba(255, 210, 120, 0.9),
-    0 0 60px rgba(255, 210, 120, 0.6);
-  animation: softGlow 3s ease-in-out infinite alternate;
-  margin: 0;
-  padding: 0;
-  line-height: 1.1;
-  position: relative;
-  z-index: 101;
+.servicepre-logo {
+  width: 160px;
+  height: auto;
+  max-width: 100%;
+  display: block;
+  
 }
 
-@keyframes softGlow {
-  from { 
-    text-shadow: 
-      0 0 20px rgba(255, 190, 90, 0.7),
-      0 0 40px rgba(255, 190, 90, 0.4);
-  }
-  to   { 
-    text-shadow: 
-      0 0 40px rgba(255, 255, 200, 1),
-      0 0 80px rgba(255, 255, 200, 0.8);
-  }
+/* Hover effect 2: Scale and shadow */
+.servicepre-logo.scale-hover:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.2));
 }
+
+/* Hover effect 3: Glow effect */
+.servicepre-logo.glow-hover:hover {
+  filter: drop-shadow(0 0 12px rgba(74, 144, 226, 0.4));
+  transform: scale(1.03);
+}
+
+/* Hover effect 4: Bounce */
+.servicepre-logo.bounce-hover:hover {
+  animation: bounce 0.5s ease-in-out;
+}
+
 
 /* === Orbiting Domains (Planets) === */
 .orbit-domain {

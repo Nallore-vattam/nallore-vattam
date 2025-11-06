@@ -54,10 +54,10 @@ const Footer = () => {
               <li><span className={getFontClass()}>| {t('service2')} | {t('service7')} |</span></li>
               <li><span className={getFontClass()}>| {t('service3')} | {t('service8')} |</span></li>
               <li><span className={getFontClass()}>| {t('service4')} | {t('service9')} |</span></li>
-              <li><span className={getFontClass()}>| {t('service5')} | {t('service10')} |</span></li>
+              <li><span className={getFontClass()}>| {t('service5')} | {t('service10')}|</span></li>
             </ul>
           </Col>
-
+              
           <Col lg={3} md={6} className="mb-4">
             <h5 className={getFontClass()}>{t('contactInfo')}</h5>
             <ul className="list-unstyled">

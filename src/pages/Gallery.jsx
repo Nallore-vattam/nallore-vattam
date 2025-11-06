@@ -126,29 +126,22 @@ const Gallery = () => {
         </Container>
       </section>
 
-      {/* Category Filters */}
-      <section className="section gallery-filters-section bg-light" style={{ marginTop: "20px" }}>
-        <Container>
-          <Row className="justify-content-center">
-            <Col lg={10} className="text-center">
-              <div className="filter-buttons">
-                {categories.map(category => (
-                 <Button
-                  key={category.id}
-                 className={`gallery-filter-btn me-2 mb-2 ${filter === category.id ? 'active' : 'btn-outline-primary-custom'}`}
-                 onClick={() => setFilter(category.id)}
-                 >
-                 {category.icon && <span className="me-1">{category.icon}</span>}
-                 {category.name}
-                </Button>
-                ))}
-              </div>
-            </Col>
-          </Row>
-        </Container>
+      {/* Enhanced Category Filters - Fixed z-index and removed scrollbar */}
+      <section className="gallery-filters-section">
+        <div className="gallery-filter-container">
+          {categories.map(category => (
+            <button
+              key={category.id}
+              className={`gallery-filter-btn ${filter === category.id ? 'active' : ''}`}
+              onClick={() => setFilter(category.id)}
+            >
+              {category.name}
+            </button>
+          ))}
+        </div>
       </section>
 
-      {/* Gallery Grid - 4 images per row on large devices */}
+      {/* Gallery Grid */}
       <section className="section gallery-grid-section">
         <Container>
           <Row className="g-4">
@@ -182,80 +175,63 @@ const Gallery = () => {
         </Container>
       </section>
 
-      {/* Enhanced Image Modal with Navigation Arrows */}
-      {/* Enhanced Image Modal with Navigation Arrows */}
-<Modal 
-  show={!!selectedImage} 
-  onHide={() => setSelectedImage(null)} 
-  size="lg" 
-  centered
-  className="gallery-modal"
->
-  <Modal.Header closeButton className="border-0 pb-0">
-    <Modal.Title className={`${getFontClass()} fs-6`}>
-      {selectedImage?.title}
-    </Modal.Title>
-  </Modal.Header>
-  <Modal.Body className="text-center position-relative p-0">
-    {/* Previous Button */}
-    {filteredImages.length > 1 && (
-      <button 
-        className="btn btn-primary position-absolute start-0 top-50 translate-middle-y rounded-circle d-flex align-items-center justify-content-center"
-        style={{ 
-          left: '5px', 
-          zIndex: 10,
-          width: '40px',
-          height: '40px',
-          fontSize: '16px',
-          fontWeight: 'bold'
-        }}
-        onClick={handlePrevImage}
+      {/* Enhanced Image Modal */}
+      <Modal 
+        show={!!selectedImage} 
+        onHide={() => setSelectedImage(null)} 
+        size="lg" 
+        centered
+        className="gallery-modal"
       >
-        ‹
-      </button>
-    )}
-    
-    {/* Main Image */}
-    <div className="modal-image-container p-3">
-      <img 
-        src={selectedImage?.src} 
-        alt={selectedImage?.title}
-        className="img-fluid rounded-3"
-        style={{ 
-          maxHeight: '60vh', 
-          width: '100%',
-          objectFit: 'contain' 
-        }}
-        onError={(e) => {
-          e.target.src = '/images/FieldofAwareness/awareness01.jpg';
-        }}
-      />
-    </div>
+        <Modal.Header closeButton className="border-0 pb-0">
+          <Modal.Title className={`${getFontClass()} fs-6`}>
+            {selectedImage?.title}
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="text-center position-relative p-0">
+          {/* Previous Button */}
+          {filteredImages.length > 1 && (
+            <button 
+              className="modal-nav-btn modal-prev-btn"
+              onClick={handlePrevImage}
+            >
+              ‹
+            </button>
+          )}
+          
+          {/* Main Image */}
+          <div className="modal-image-container p-3">
+            <img 
+              src={selectedImage?.src} 
+              alt={selectedImage?.title}
+              className="img-fluid rounded-3"
+              style={{ 
+                maxHeight: '60vh', 
+                width: '100%',
+                objectFit: 'contain' 
+              }}
+              onError={(e) => {
+                e.target.src = '/images/FieldofAwareness/awareness01.jpg';
+              }}
+            />
+          </div>
 
-    {/* Next Button */}
-    {filteredImages.length > 1 && (
-      <button 
-        className="btn btn-primary position-absolute end-0 top-50 translate-middle-y rounded-circle d-flex align-items-center justify-content-center"
-        style={{ 
-          right: '5px', 
-          zIndex: 10,
-          width: '40px',
-          height: '40px',
-          fontSize: '16px',
-          fontWeight: 'bold'
-        }}
-        onClick={handleNextImage}
-      >
-        ›
-      </button>
-    )}
-  </Modal.Body>
-  <Modal.Footer className="border-0 pt-0">
-    <small className={`text-muted ${getFontClass()}`}>
-      {currentImageIndex + 1} of {filteredImages.length} - Domain: {categories.find(cat => cat.id === selectedImage?.category)?.name}
-    </small>
-  </Modal.Footer>
-</Modal>
+          {/* Next Button */}
+          {filteredImages.length > 1 && (
+            <button 
+              className="modal-nav-btn modal-next-btn"
+              onClick={handleNextImage}
+            >
+              ›
+            </button>
+          )}
+        </Modal.Body>
+        <Modal.Footer className="border-0 pt-0">
+          <small className={`text-muted ${getFontClass()}`}>
+            {currentImageIndex + 1} of {filteredImages.length} - Domain: {categories.find(cat => cat.id === selectedImage?.category)?.name}
+          </small>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };

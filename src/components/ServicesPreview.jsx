@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { useLanguage } from "../context/LanguageContext";
 import domainsData from "../components/mainjsons/Services.json";
 import { useNavigate } from "react-router-dom";
-import "./SolarSystemServices.css";
+import "./PreviewServices.css";
 
 const ServicesPreview = () => {
   const { currentLanguage, t } = useLanguage();
@@ -148,9 +148,11 @@ const ServicesPreview = () => {
       <div className="orbit-system" ref={containerRef}>
         <div className="center-project-name">
           <div className="glow-backdrop"></div>
-          <h2 className={`project-title ${getFontClass()}`}>
-            {safeTranslate("projectName", "Nallore Vattam")}
-          </h2>
+         <img 
+  src="/images/contentsofweb/logo-5q8siOY4.jpeg" 
+  alt={safeTranslate("projectName", "Nallore Vattam")} 
+  className="servicepre-logo"
+/>
         </div>
 
         {domainsData.domains.map((domain, i) => (

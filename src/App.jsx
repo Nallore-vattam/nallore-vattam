@@ -17,10 +17,10 @@ function App() {
     <LanguageProvider>
       <Router>
         <div className="App">
-          <Header /> 
+          <Header />
           <NavbarAutoClose />
           <main style={{ minHeight: '100vh' }}>
-            <Routes>
+            <Routes>                                                
               <Route path="/" element={<HomePage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/services" element={<ServicesPage />} />
