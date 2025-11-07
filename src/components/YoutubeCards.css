@@ -128,7 +128,7 @@
 .play-btn-pro:hover {
   transform: scale(1.2) rotate(5deg) !important;
   box-shadow: 0 20px 40px rgba(99, 102, 241, 0.7);
-  background: linear-gradient(135deg, #ec4899, #db2777);
+  background: linear-gradient(135deg, #f70b0b,  #f70b0b);
 }
 
 /* Video Info Section */
@@ -393,7 +393,7 @@
   left: -2px;
   right: -2px;
   bottom: -2px;
-  background: linear-gradient(135deg, #ec4899, #8b5cf6, #3b82f6);
+  background: linear-gradient(135deg, #ec4848, #ec4848, #ec4848);
   border-radius: 22px;
   z-index: -1;
   opacity: 0;
@@ -413,7 +413,7 @@
   font-size: 2.5rem;
   font-weight: 800;
   margin-bottom: 1rem;
-  background: linear-gradient(135deg, #ec4899, #8b5cf6);
+  background: linear-gradient(135deg, #f90c0c, #f90c0c);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
