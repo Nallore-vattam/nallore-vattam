@@ -41,7 +41,7 @@ const ServicePagination = ({ currentServiceKey }) => {
       <Col md={6}>
         {prevService && (
           <LinkContainer to={`/services/${prevService.key}`}>
-            <Button variant="outline-primary" className={`w-100 text-start p-3 service-pagination-btn ${getColorClass(currentIndex - 1)}`}>
+            <Button variant="outline-light" className={`w-100 text-start p-3 service-pagination-btn ${getColorClass(currentIndex - 1)}`}>
               <div className="d-flex align-items-center">
                 <i className="bi bi-chevron-left me-3 fs-4"></i>
                 <div>

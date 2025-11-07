@@ -1,7 +1,8 @@
 import React from 'react';
 import FullEvents from '../components/FullEvents';
-import { Container, Row, Col, Card, ProgressBar } from 'react-bootstrap';
+import { Container, Row, Col, Card } from 'react-bootstrap';
 import { useLanguage } from '../context/LanguageContext';
+import './About.css';
 
 const About = () => {
   const { currentLanguage, t } = useLanguage();
@@ -14,26 +15,62 @@ const About = () => {
     }
   };
 
-  const teamMembers = [
-    {
-      name: 'Yathin',
-      role: t('president'),
-      image: '/images/Enviromental Field/enviromental01.jpg',
-      description: t('presidentDesc')
-    },
-    {
-      name: 'Aditya',
-      role: t('secretary'),
-      image: '/images/FieldofBiology/biology01.jpg',
-      description: t('secretaryDesc')
-    },
-    {
-      name: 'Madhav',
-      role: t('treasurer'),
-      image: '/images/VillageField/village01.jpg',
-      description: t('treasurerDesc')
-    }
-  ];
+  // Hierarchical Team Structure
+  const teamStructure = {
+    stateCoordinator: [
+      {
+        name: 'Yathin',
+        role: t('stateCoordinator') || 'State Coordinator',
+        image: '/images/Leadership/state-coordinator.jpg',
+        description: t('stateCoordinatorDesc') || 'Overall in-charge of Nallore Vattam operations across the state',
+        level: 'state'
+      }
+    ],
+    advisors: [
+      {
+        name: 'Senior Advisor 1',
+        role: t('seniorAdvisor') || 'Senior Advisor',
+        image: '/images/Leadership/advisor1.jpg',
+        description: t('advisorDesc') || 'Strategic guidance and community development',
+        level: 'advisor'
+      },
+      {
+        name: 'Senior Advisor 2',
+        role: t('seniorAdvisor') || 'Senior Advisor',
+        image: '/images/Leadership/advisor2.jpg',
+        description: t('advisorDesc') || 'Strategic guidance and community development',
+        level: 'advisor'
+      },
+      {
+        name: 'Senior Advisor 3',
+        role: t('seniorAdvisor') || 'Senior Advisor',
+        image: '/images/Leadership/advisor3.jpg',
+        description: t('advisorDesc') || 'Strategic guidance and community development',
+        level: 'advisor'
+      }
+    ],
+    zonalCoordinators: Array.from({ length: 12 }, (_, i) => ({
+      name: `Zonal Coordinator ${i + 1}`,
+      role: t('zonalCoordinator') || 'Zonal Coordinator',
+      image: `/images/Leadership/zonal${(i % 5) + 1}.jpg`,
+      description: t('zonalCoordinatorDesc') || 'Managing regional operations and coordination',
+      level: 'zonal'
+    })),
+    domainAdmins: Array.from({ length: 10 }, (_, i) => ({
+      name: `Domain Admin ${i + 1}`,
+      role: t('domainAdmin') || 'Domain Administrator',
+      image: `/images/Leadership/domain${(i % 5) + 1}.jpg`,
+      description: t('domainAdminDesc') || 'Specialized domain management and oversight',
+      level: 'domain'
+    })),
+    districtCoordinators: Array.from({ length: 39 }, (_, i) => ({
+      name: `District Coordinator ${i + 1}`,
+      role: t('districtCoordinator') || 'District Coordinator',
+      image: `/images/Leadership/district${(i % 5) + 1}.jpg`,
+      description: t('districtCoordinatorDesc') || 'District-level implementation and monitoring',
+      level: 'district'
+    }))
+  };
 
   const milestones = [
     { 
@@ -77,7 +114,6 @@ const About = () => {
     <div className="about-page">
       {/* Modern Hero Section */}
       <section className="page-hero about-hero">
-        {/* Animated Background Elements */}
         <div className="floating-elements">
           <div className="floating-element"></div>
           <div className="floating-element"></div>
@@ -138,7 +174,7 @@ const About = () => {
         </Container>
       </section>
 
-      {/* History Timeline - Updated to Card Style */}
+      {/* History Timeline */}
       <section className="section milestones-section" style={{ padding: '60px 0' }}>
         <Container>
           <h2 className={`section-title text-center mb-5 ${getFontClass()}`}>
@@ -155,7 +191,6 @@ const About = () => {
                   }}
                 >
                   <Card.Body className="text-center p-4">
-                    {/* Year Badge */}
                     <div 
                       className={`milestone-year-badge bg-${milestone.color} text-white rounded-pill mb-3 mx-auto`}
                       style={{ 
@@ -171,12 +206,10 @@ const About = () => {
                       {milestone.year}
                     </div>
 
-                    {/* Icon */}
                     <div className="milestone-icon mb-3" style={{ fontSize: '3rem' }}>
                       {milestone.icon}
                     </div>
 
-                    {/* Content */}
                     <Card.Title className={`${getFontClass()} h5 mb-3`}>
                       {milestone.event}
                     </Card.Title>
@@ -190,32 +223,154 @@ const About = () => {
           </Row>
         </Container>
       </section>
+
       <FullEvents />
 
-      {/* Team Section */}
-      <section className="section team-section bg-light">
+      {/* Hierarchical Team Structure */}
+      {/* State Coordinator - Single Large Card */}
+      <section className="section team-section state-coordinator-section">
         <Container>
-          <h2 className={`section-title text-center ${getFontClass()}`}>
-            {t('ourLeadershipTeam')}
+          <h2 className={`section-title text-center mb-5 ${getFontClass()}`}>
+            {t('stateLeadership') || 'State Leadership'}
           </h2>
-          <Row className="g-4">
-            {teamMembers.map((member, index) => (
-              <Col lg={4} md={6} key={index}>
-                <Card className="team-card text-center h-100">
+          <Row className="justify-content-center">
+            <Col lg={6} md={8}>
+              {teamStructure.stateCoordinator.map((member, index) => (
+                <Card key={index} className="state-coordinator-card text-center">
+                  <div className="state-badge">State Coordinator</div>
                   <Card.Img 
                     variant="top" 
                     src={member.image}
-                    style={{ height: '250px', objectFit: 'cover' }}
+                    className="state-coordinator-img"
                     onError={(e) => {
                       e.target.src = '/images/FieldofAwareness/awareness01.jpg';
                     }}
                   />
-                  <Card.Body className="d-flex flex-column">
-                    <Card.Title className={getFontClass()}>{member.name}</Card.Title>
-                    <Card.Subtitle className="mb-2 text-primary">{member.role}</Card.Subtitle>
-                    <Card.Text className={`${getFontClass()} flex-grow-1`}>
+                  <Card.Body>
+                    <Card.Title className={`${getFontClass()} h4 mb-2`}>{member.name}</Card.Title>
+                    <Card.Subtitle className="mb-3 text-primary fs-5">{member.role}</Card.Subtitle>
+                    <Card.Text className={getFontClass()}>
                       {member.description}
                     </Card.Text>
+                  </Card.Body>
+                </Card>
+              ))}
+            </Col>
+          </Row>
+        </Container>
+      </section>
+
+      {/* Advisors - 3 Medium Cards */}
+      <section className="section team-section advisors-section bg-light">
+        <Container>
+          <h2 className={`section-title text-center mb-5 ${getFontClass()}`}>
+            {t('seniorAdvisors') || 'Senior Advisors'}
+          </h2>
+          <Row className="g-4">
+            {teamStructure.advisors.map((member, index) => (
+              <Col lg={4} md={6} key={index}>
+                <Card className="advisor-card text-center h-100">
+                  <Card.Img 
+                    variant="top" 
+                    src={member.image}
+                    className="advisor-img"
+                    onError={(e) => {
+                      e.target.src = '/images/FieldofAwareness/awareness01.jpg';
+                    }}
+                  />
+                  <Card.Body>
+                    <Card.Title className={getFontClass()}>{member.name}</Card.Title>
+                    <Card.Subtitle className="mb-2 text-primary">{member.role}</Card.Subtitle>
+                    <Card.Text className={getFontClass()}>
+                      {member.description}
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))}
+          </Row>
+        </Container>
+      </section>
+
+      {/* Zonal Coordinators - 12 Small Cards */}
+      <section className="section team-section zonal-coordinators-section">
+        <Container>
+          <h2 className={`section-title text-center mb-5 ${getFontClass()}`}>
+            {t('zonalCoordinators') || 'Zonal Coordinators'}
+          </h2>
+          <Row className="g-3">
+            {teamStructure.zonalCoordinators.map((member, index) => (
+              <Col xl={3} lg={4} md={6} key={index}>
+                <Card className="zonal-coordinator-card text-center h-100">
+                  <Card.Img 
+                    variant="top" 
+                    src={member.image}
+                    className="zonal-coordinator-img"
+                    onError={(e) => {
+                      e.target.src = '/images/FieldofAwareness/awareness01.jpg';
+                    }}
+                  />
+                  <Card.Body>
+                    <Card.Title className={`${getFontClass()} h6`}>{member.name}</Card.Title>
+                    <Card.Subtitle className="mb-1 text-muted small">{member.role}</Card.Subtitle>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))}
+          </Row>
+        </Container>
+      </section>
+
+      {/* Domain Admins - 10 Compact Cards */}
+      <section className="section team-section domain-admins-section bg-light">
+        <Container>
+          <h2 className={`section-title text-center mb-5 ${getFontClass()}`}>
+            {t('domainAdministrators') || 'Domain Administrators'}
+          </h2>
+          <Row className="g-2">
+            {teamStructure.domainAdmins.map((member, index) => (
+              <Col xl={2} lg={3} md={4} sm={6} key={index}>
+                <Card className="domain-admin-card text-center h-100">
+                  <Card.Img 
+                    variant="top" 
+                    src={member.image}
+                    className="domain-admin-img"
+                    onError={(e) => {
+                      e.target.src = '/images/FieldofAwareness/awareness01.jpg';
+                    }}
+                  />
+                  <Card.Body className="p-2">
+                    <Card.Title className={`${getFontClass()} small mb-1`}>{member.name}</Card.Title>
+                    <Card.Subtitle className="text-muted x-small">{member.role}</Card.Subtitle>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))}
+          </Row>
+        </Container>
+      </section>
+
+      {/* District Coordinators - 39 Compact Cards */}
+      <section className="section team-section district-coordinators-section">
+        <Container>
+          <h2 className={`section-title text-center mb-5 ${getFontClass()}`}>
+            {t('districtCoordinators') || 'District Coordinators'}
+          </h2>
+          <Row className="g-2">
+            {teamStructure.districtCoordinators.map((member, index) => (
+              <Col xl={2} lg={3} md={4} sm={6} key={index}>
+                <Card className="district-coordinator-card text-center h-100">
+                  <Card.Img 
+                    variant="top" 
+                    src={member.image}
+                    className="district-coordinator-img"
+                    onError={(e) => {
+                      e.target.src = '/images/FieldofAwareness/awareness01.jpg';
+                    }}
+                  />
+                  <Card.Body className="p-2">
+                    <Card.Title className={`${getFontClass()} small mb-1`}>{member.name}</Card.Title>
+                    <Card.Subtitle className="text-muted x-small">{member.role}</Card.Subtitle>
                   </Card.Body>
                 </Card>
               </Col>

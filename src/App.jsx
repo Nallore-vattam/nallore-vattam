@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { LanguageProvider } from './context/LanguageContext';
+//import { LanguageProvider1 } from './context/LanguageContext1';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './pages/Home';
@@ -15,6 +16,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 function App() {
   return (
     <LanguageProvider>
+    {/*<LanguageProvider1>*/ } 
       <Router>
         <div className="App">
           <Header />
@@ -32,6 +34,7 @@ function App() {
           <Footer />
         </div>
       </Router>
+    {/*</LanguageProvider1>*/}
     </LanguageProvider>
   );
 }

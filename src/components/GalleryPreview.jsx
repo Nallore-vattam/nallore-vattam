@@ -11,11 +11,11 @@ const GalleryPreview = () => {
   const getFontClass = () => {
     switch (currentLanguage) {
       case "ta":
-        return "tamil-font";
+        return "gp-tamil-font";
       case "hi":
-        return "hindi-font";
+        return "gp-hindi-font";
       default:
-        return "english-font";
+        return "gp-english-font";
     }
   };
 
@@ -34,14 +34,14 @@ const GalleryPreview = () => {
   };
 
   return (
-    <section id="gallery-preview" className="gallery-preview-section">
+    <section id="gallery-preview" className="gp-section">
       <Container>
-        <div className="text-center mb-5 heading-container">
-          <h2 className={`gallery-heading ${getFontClass()}`}>
+        <div className="text-center mb-5 gp-heading-container">
+          <h2 className={`gp-heading ${getFontClass()}`}>
             {t("galleryTitle", "Our Gallery")}
           </h2>
-          <div className="underline"></div>
-          <p className={`gallery-subtext ${getFontClass()}`}>
+          <div className="gp-underline"></div>
+          <p className={`gp-subtext ${getFontClass()}`}>
             {t(
               "galleryDescription",
               "Capturing the beauty of our community through moments that inspire and connect."
@@ -49,16 +49,16 @@ const GalleryPreview = () => {
           </p>
         </div>
 
-        <div className="gallery-masonry">
+        <div className="gp-masonry">
           {previewImages.map((image, index) => (
             <div
-              className="gallery-item"
+              className="gp-item"
               key={index}
               style={{ height: `${image.height}px` }}
             >
-              <img src={image.src} alt={image.category} className="gallery-img" />
-              <div className="overlay">
-                <div className="overlay-content">
+              <img src={image.src} alt={image.category} className="gp-img" />
+              <div className="gp-overlay">
+                <div className="gp-overlay-content">
                   <h6>{image.category}</h6>
                   <small>{image.count}</small>
                 </div>
@@ -68,7 +68,7 @@ const GalleryPreview = () => {
         </div>
 
         <div className="text-center mt-5">
-          <Button className="btn-gallery" size="lg" onClick={handleViewGallery}>
+          <Button className="gp-btn" size="lg" onClick={handleViewGallery}>
             {t("viewFullGallery", "View Full Gallery")}
           </Button>
         </div>

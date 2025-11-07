@@ -423,17 +423,19 @@ html {
     transform: scale(0.8);
   }
 }
-
 /* Small devices (phones, less than 768px) */
 @media (max-width: 767px) {
   .home-hero-section {
     margin-top: -15px !important;
-    min-height: 60vh;
+    min-height: 50vh;  /* ← REDUCED from 60vh to 50vh */
     text-align: center;
+     background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
   }
   
   .hero-row {
-    min-height: 50vh;
+    min-height: 45vh;  /* ← REDUCED from 50vh to 45vh */
   }
   
   .hero-content {
@@ -485,8 +487,10 @@ html {
 /* Extra small devices */
 @media (max-width: 575px) {
   .home-hero-section {
-        margin-top: -20px !important;
-    min-height: 70vh;
+    margin-top: -20px !important;
+    min-height: 55vh;  /* ← REDUCED from 70vh to 55vh */
+     background-size: cover !important;
+    background-position: center 30% !important; 
   }
   
   .hero-title {
@@ -697,218 +701,6 @@ html {
   border-color: #3b82f6;
   animation: buttonGlow 2s infinite;
 }
-
-/* 🌿 GALLERY FILTER BUTTONS - REDUCED SIZE */
-.gallery-filter-btn {
-  background-color: #ffffff !important;
-  color: #3a8a4e !important;
-  border: 3px solid #b6e1c6 !important;
-  border-radius: 30px;
-  padding: 10px 20px !important;
-  font-weight: 600;
-  font-size: 0.9rem !important;
-  transition: all 0.28s ease;
-  margin: 3px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  white-space: nowrap;
-  min-width: max-content;
-  height: 38px;
-  cursor: pointer;
-  box-shadow: 0 2px 6px rgba(47, 107, 62, 0.1);
-  flex-shrink: 0;
-  position: relative;
-  z-index: 1000; /* ✅ High z-index to ensure buttons are on top */
-}
-
-/* Hover effects */
-.gallery-filter-btn:hover {
-  background-color: #e9f8ef !important;
-  color: #215330 !important;
-  border-color: #7fcca0 !important;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(47, 107, 62, 0.18);
-}
-
-/* Active state */
-.gallery-filter-btn.active {
-  background-color: #3e8b51 !important;
-  color: #ffffff !important;
-  border-color: #225931 !important;
-  transform: scale(1.05);
-  box-shadow: 0 0 10px rgba(47, 107, 62, 0.35);
-  font-weight: 700 !important;
-}
-
-/* 🌿 FILTER CONTAINER - FULL WIDTH WITHOUT SCROLLBAR */
-.gallery-filter-container {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  overflow-y: hidden;
-  white-space: nowrap;
-  gap: 8px;
-  padding: 10px 20px;
-  scroll-behavior: smooth;
-  align-items: center;
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
-  position: relative;
-  z-index: 1000; /* ✅ High z-index */
-  
-  /* ✅ COMPLETELY HIDE SCROLLBAR */
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
-}
-
-/* ✅ Hide scrollbar for Chrome, Safari and Opera */
-.gallery-filter-container::-webkit-scrollbar {
-  display: none;
-}
-
-/* ✅ COMPLETELY REMOVE SEPARATOR BAR & BORDERS */
-.gallery-filters-section {
-  width: 100% !important;
-  max-width: 100% !important;
-  padding: 0 !important;
-  margin: 15px 0 !important;
-  border: none !important;
-  background: transparent !important;
-  position: relative;
-  z-index: 1000; /* ✅ High z-index for entire section */
-}
-
-.gallery-filter-container,
-.gallery-filter-btn,
-.gallery-filters-section::after,
-.gallery-filter-container::after,
-.gallery-filter-container::before {
-  border-bottom: none !important;
-  border-top: none !important;
-  border-left: none !important;
-  border-right: none !important;
-  outline: none !important;
-  box-shadow: none !important;
-  text-decoration: none !important;
-}
-
-/* Enhanced Modal Navigation Buttons */
-.modal-nav-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: #2f6b3e !important;
-  color: white !important;
-  border: none;
-  border-radius: 50%;
-  width: 45px;
-  height: 45px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  font-weight: bold;
-  z-index: 1000;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.modal-nav-btn:hover {
-  background: #215330 !important;
-  transform: translateY(-50%) scale(1.1);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-}
-
-.modal-prev-btn {
-  left: 15px;
-}
-
-.modal-next-btn {
-  right: 15px;
-}
-
-/* Gallery Item Styles */
-.gallery-item {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.gallery-item:hover {
-  transform: translateY(-5px);
-}
-
-.gallery-item-overlay {
-  background: linear-gradient(transparent 40%, rgba(0, 0, 0, 0.7) 100%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.gallery-item:hover .gallery-item-overlay {
-  opacity: 1;
-}
-
-.category-badge {
-  background: rgba(47, 107, 62, 0.9);
-  padding: 2px 8px;
-  border-radius: 12px;
-  font-size: 0.75rem;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-  .gallery-filter-container {
-    padding: 8px 15px;
-  }
-  
-  .gallery-filter-btn {
-    padding: 5px 12px !important;
-    font-size: 0.75rem !important;
-    height: 28px;
-  }
-  
-  .modal-nav-btn {
-    width: 40px;
-    height: 40px;
-    font-size: 18px;
-  }
-  
-  .modal-prev-btn {
-    left: 10px;
-  }
-  
-  .modal-next-btn {
-    right: 10px;
-  }
-}
-
-@media (max-width: 480px) {
-  .gallery-filter-btn {
-    padding: 4px 10px !important;
-    font-size: 0.7rem !important;
-    height: 26px;
-    border-radius: 20px;
-  }
-  
-  .gallery-filter-container {
-    padding: 6px 12px;
-    gap: 6px;
-  }
-  
-  .modal-nav-btn {
-    width: 35px;
-    height: 35px;
-    font-size: 16px;
-  }
-}
-
-/* ✅ Ensure gallery page has proper stacking context */
-.gallery-page {
-  position: relative;
-  z-index: 1;
-}
-
 
 /* Secondary Button Style - MEDIUM SIZE */
 /* Outline Button Variants */

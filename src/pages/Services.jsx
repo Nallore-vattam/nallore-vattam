@@ -268,7 +268,7 @@ const Services = () => {
                           {safeTranslate('learnMoreBtn', 'Learn More')}
                         </Button>
                       </LinkContainer>
-                      <Button variant="outline-primary">
+                      <Button variant="outline-light">
                         <i className="bi bi-send me-2"></i>
                         {safeTranslate('applyNow', 'Apply Now')}
                       </Button>

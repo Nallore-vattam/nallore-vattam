@@ -7,7 +7,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: radial-gradient(circle at 50% 40%, #e3b4c8 0%, #92b5d8 25%, #2b2a85 70%);
+  background: radial-gradient(circle at 50% 40%, #2b2a85 0%, #2b2a85 25%, #2b2a85 70%);
   background-size: 200% 200%;
   animation: auroraMove 18s ease-in-out infinite alternate;
   margin: 0;
@@ -26,7 +26,7 @@
   height: 80vmin;
   margin: 0;
   padding: 0;
-  border: 1px solid transparent; /* Visual boundary for debugging */
+  border: 1px solid transparent;
 }
 
 /* === Center Project Name === */
@@ -63,26 +63,27 @@
   height: auto;
   max-width: 100%;
   display: block;
-  
 }
 
-/* Hover effect 2: Scale and shadow */
+/* Hover effects */
 .servicepre-logo.scale-hover:hover {
   transform: scale(1.05);
   filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.2));
 }
 
-/* Hover effect 3: Glow effect */
 .servicepre-logo.glow-hover:hover {
   filter: drop-shadow(0 0 12px rgba(74, 144, 226, 0.4));
   transform: scale(1.03);
 }
 
-/* Hover effect 4: Bounce */
 .servicepre-logo.bounce-hover:hover {
   animation: bounce 0.5s ease-in-out;
 }
 
+@keyframes bounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
 
 /* === Orbiting Domains (Planets) === */
 .orbit-domain {
@@ -113,6 +114,7 @@
   line-height: 1.2;
   min-width: 100px;
   text-align: center;
+  cursor: pointer;
 }
 
 .domain-pill:hover {
@@ -147,4 +149,234 @@ body, html {
 /* Ensure no gaps in the layout */
 * {
   box-sizing: border-box;
+}
+
+/* ===== MOBILE RESPONSIVE STYLES ===== */
+
+/* Tablets and small desktops */
+@media (max-width: 1024px) {
+  .orbit-system {
+    width: 90vmin;
+    height: 90vmin;
+  }
+  
+  .glow-backdrop {
+    width: 240px;
+    height: 110px;
+    filter: blur(35px);
+  }
+  
+  .servicepre-logo {
+    width: 140px;
+  }
+  
+  .domain-pill {
+    padding: 10px 16px;
+    font-size: 0.95rem;
+    min-width: 90px;
+  }
+}
+
+/* Large mobile devices */
+@media (max-width: 768px) {
+  .services-preview-section {
+    height: 100vh;
+    min-height: 667px; /* Minimum height for mobile */
+  }
+  
+  .orbit-system {
+    width: 95vmin;
+    height: 95vmin;
+  }
+  
+  .glow-backdrop {
+    width: 200px;
+    height: 90px;
+    filter: blur(30px);
+    border-radius: 50px;
+  }
+  
+  .servicepre-logo {
+    width: 120px;
+  }
+  
+  .domain-pill {
+    padding: 8px 14px;
+    font-size: 0.9rem;
+    min-width: 80px;
+    border-radius: 20px;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .services-preview-section {
+    height: 100vh;
+    min-height: 568px;
+    padding: 20px 0;
+  }
+  
+  .orbit-system {
+    width: 100vmin;
+    height: 100vmin;
+    max-width: 320px;
+    max-height: 320px;
+  }
+  
+  .glow-backdrop {
+    width: 160px;
+    height: 70px;
+    filter: blur(25px);
+    border-radius: 40px;
+    box-shadow: 0 0 80px rgba(255, 215, 150, 0.8);
+  }
+  
+  .servicepre-logo {
+    width: 100px;
+  }
+  
+  .domain-pill {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    min-width: 70px;
+    border-radius: 18px;
+    backdrop-filter: blur(6px);
+  }
+  
+  /* Reduce animation intensity on mobile */
+  @keyframes auroraMove {
+    0% { background-position: 0% 40%; }
+    100% { background-position: 100% 60%; }
+  }
+}
+
+/* Very small mobile devices (Galaxy Fold, etc) */
+@media (max-width: 360px) {
+  .services-preview-section {
+    min-height: 640px;
+  }
+  
+  .orbit-system {
+    max-width: 280px;
+    max-height: 280px;
+  }
+  
+  .glow-backdrop {
+    width: 140px;
+    height: 60px;
+  }
+  
+  .servicepre-logo {
+    width: 90px;
+  }
+  
+  .domain-pill {
+    padding: 5px 10px;
+    font-size: 0.75rem;
+    min-width: 65px;
+  }
+}
+
+/* Landscape mode for mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .services-preview-section {
+    height: 100vh;
+    min-height: 100vh;
+  }
+  
+  .orbit-system {
+    width: 80vmin;
+    height: 80vmin;
+    max-width: 300px;
+    max-height: 300px;
+  }
+  
+  .glow-backdrop {
+    width: 140px;
+    height: 60px;
+  }
+  
+  .servicepre-logo {
+    width: 90px;
+  }
+  
+  .domain-pill {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+}
+
+/* High-resolution displays */
+@media (min-width: 1440px) {
+  .servicepre-logo {
+    width: 180px;
+  }
+  
+  .glow-backdrop {
+    width: 320px;
+    height: 140px;
+  }
+  
+  .domain-pill {
+    padding: 14px 24px;
+    font-size: 1.1rem;
+    min-width: 110px;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .domain-pill:hover {
+    transform: none;
+    background: rgba(239, 233, 233, 0.85);
+  }
+  
+  .servicepre-logo.scale-hover:hover,
+  .servicepre-logo.glow-hover:hover,
+  .servicepre-logo.bounce-hover:hover {
+    transform: none;
+    filter: none;
+    animation: none;
+  }
+  
+  /* Add active state for touch devices */
+  .domain-pill:active {
+    transform: scale(0.95);
+    background: rgba(255, 240, 210, 0.9);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .services-preview-section {
+    animation: none;
+  }
+  
+  .domain-pill {
+    transition: none;
+  }
+  
+  .servicepre-logo.scale-hover:hover,
+  .servicepre-logo.glow-hover:hover {
+    transform: none;
+    filter: none;
+  }
+  
+  .servicepre-logo.bounce-hover:hover {
+    animation: none;
+  }
+}
+
+/* Ensure content is always visible */
+@media (max-width: 320px) {
+  .orbit-system {
+    transform: scale(0.9);
+  }
+}
+
+/* Fix for iOS Safari viewport height */
+@supports (-webkit-touch-callout: none) {
+  .services-preview-section {
+    height: -webkit-fill-available;
+  }
 }
