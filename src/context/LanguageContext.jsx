@@ -358,8 +358,10 @@ const translations = {
   features: "features",
    watch: "Watch",
     viewMore: 'View More in About Page',
-
-
+     membersactivecommunity:'Active Community Members',
+    eventsannualprograms:'Annual Events & Programs',
+    yearsofservice:'Years of Service',
+    livesimpacted:'Lives Impacted',
 
 
   },
@@ -722,7 +724,10 @@ const translations = {
   features: "அம்சங்கள்",
   watch: "பார்க்க",
     viewMore: 'மேலும் பார்க்க ',
-
+    membersactivecommunity:'செயலில் உள்ள சமூக உறுப்பினர்கள்',
+    eventsannualprograms:'ஆண்டு நிகழ்வுகள் மற்றும் திட்டங்கள்',
+    yearsofservice:'சேவை வழங்கிய ஆண்டுகள்',
+    livesimpacted:'மாற்றத்தை ஏற்படுத்திய வாழ்க்கைகள்',
   },
   hi: {
     home: 'होम',
@@ -1060,6 +1065,10 @@ youtubeTitle: "हमारा YouTube चैनल",
    features: "विशेषताएँ",
      watch: "देखें",
   viewMore: 'अबाउट पेज में और देखें',
+   membersactivecommunity:'सक्रिय समुदाय सदस्य',
+    eventsannualprograms:'वार्षिक कार्यक्रम और आयोजन',
+    yearsofservice:'सेवा के वर्ष',
+    livesimpacted:'प्रभावित जीवन',
 
 
 

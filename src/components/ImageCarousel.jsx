@@ -11,7 +11,6 @@ const VerticalCarousel = () => {
     { image: "/images/contentsofweb/domain10.jpg", caption: "Base of NV" },
     { image: "/images/content02.png", caption: "Nallore Vattam" },
     
-
   ];
 
   // Auto change every 4 seconds

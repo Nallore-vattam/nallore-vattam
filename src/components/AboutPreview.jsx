@@ -24,10 +24,10 @@ const AboutPreview = () => {
     <section id="about-preview" className="section about-preview-section">
       <Container>
         <Row className="align-items-center">
-          <Col lg={6} className="mb-4 mb-lg-0">
+          <Col lg={6} className="mb-4 mb-lg-0" >
             <img
               src="/images/Enviromental Field/enviromental01.jpg"
-              alt="About Nallor Vattam"
+              alt="About Nallore Vattam"
               className="about-image img-fluid w-100 rounded-3"
               style={{ height: '400px', objectFit: 'cover' }}
               onError={(e) => {
@@ -59,8 +59,8 @@ const AboutPreview = () => {
                         <i className="bi bi-people-fill text-primary fs-3"></i>
                       </div>
                       <div>
-                        <h5 className="mb-1">500+ Members</h5>
-                        <p className="text-muted mb-0">Active Community</p>
+                        <h5 className="mb-1">500+</h5>
+                        <p className="text-muted mb-0">{t('membersactivecommunity','Members Active Community')} </p>
                       </div>
                     </div>
                   </Col>
@@ -70,8 +70,8 @@ const AboutPreview = () => {
                         <i className="bi bi-calendar-event-fill text-primary fs-3"></i>
                       </div>
                       <div>
-                        <h5 className="mb-1">50+ Events</h5>
-                        <p className="text-muted mb-0">Annual Programs</p>
+                        <h5 className="mb-1">50+ </h5>
+                        <p className="text-muted mb-0">{t('eventsannualprograms','Events Annual Programs')}</p>
                       </div>
                     </div>
                   </Col>
@@ -81,8 +81,8 @@ const AboutPreview = () => {
                         <i className="bi bi-award-fill text-primary fs-3"></i>
                       </div>
                       <div>
-                        <h5 className="mb-1">10+ Years</h5>
-                        <p className="text-muted mb-0">Of Service</p>
+                        <h5 className="mb-1">10+ </h5>
+                        <p className="text-muted mb-0">{t('yearsofservice','Years Of Service')}</p>
                       </div>
                     </div>
                   </Col>
@@ -92,8 +92,8 @@ const AboutPreview = () => {
                         <i className="bi bi-heart-fill text-primary fs-3"></i>
                       </div>
                       <div>
-                        <h5 className="mb-1">1000+ Lives</h5>
-                        <p className="text-muted mb-0">Impacted</p>
+                        <h5 className="mb-1">1000+ </h5>
+                        <p className="text-muted mb-0">{t('livesimpacted','Lives Impacted')}</p>
                       </div>
                     </div>
                   </Col>
