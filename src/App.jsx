@@ -6,6 +6,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './pages/Home';
 import AboutPage from './pages/About';
+import ScrollToTop from './components/ScrollToTop';
 import NavbarAutoClose from './components/NavbarAutoClose'; 
 import ServicesPage from './pages/Services';
 import ServiceDetail from './pages/ServiceDetail';
@@ -20,6 +21,7 @@ function App() {
       <Router>
         <div className="App">
           <Header />
+           <ScrollToTop />
           <NavbarAutoClose />
           <main style={{ minHeight: '100vh' }}>
             <Routes>                                                

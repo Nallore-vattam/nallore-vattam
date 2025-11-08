@@ -207,7 +207,7 @@ const Hero = () => {
         </div>
       </Container>
 
-      <style jsx>{`
+      <style>{`
         .home-hero-section {
           position: relative;
           width: 100%;
